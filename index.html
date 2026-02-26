@@ -1,130 +1,122 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Rios</title>
-
-<style>
-
-body{
-margin:0;
-font-family:Georgia, serif;
-text-align:center;
-color:#1e2d35;
-}
-
-.hero{
-background:url("images/hero.jpg") center/cover no-repeat;
-padding:160px 20px 120px;
-color:#1e2d35;
-}
-
-.hero h1{
-font-size:70px;
-margin-bottom:10px;
-}
-
-.search{
-margin-top:30px;
-}
-
-.search input{
-padding:18px;
-font-size:20px;
-width:280px;
-border:none;
-}
-
-.search button{
-padding:18px 30px;
-font-size:20px;
-background:#1e2d35;
-color:white;
-border:none;
-cursor:pointer;
-}
-
-.section{
-padding:70px 20px;
-background:#f4f0e6;
-}
-
-.icons{
-display:flex;
-justify-content:center;
-gap:60px;
-margin-top:40px;
-}
-
-.icon{
-width:200px;
-}
-
-.cans img{
-width:80%;
-max-width:800px;
-margin-top:40px;
-}
-
-.btn{
-background:#1e2d35;
-color:white;
-padding:18px 35px;
-display:inline-block;
-margin-top:30px;
-text-decoration:none;
-font-size:20px;
-}
-
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rios — Real Rum. Real Escape.</title>
+  <meta name="description" content="Rios: refreshing, premium rum cocktails made with real rum and natural ingredients." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- HERO -->
+  <header class="hero" id="top" style="background-image:url('images/hero.jpg');">
+    <div class="hero__overlay"></div>
 
-<div class="hero">
-<h1>Find Your Rios</h1>
-<p>Explore better beaches. Find Rios stocked near you.</p>
+    <div class="hero__content">
+      <div class="logo">Rios</div>
+      <div class="tagline">Real Rum. Real Escape.</div>
 
-<div class="search">
-<input placeholder="Enter city or zip">
-<button onclick="document.getElementById('selection').scrollIntoView()">Search</button>
-</div>
-</div>
+      <a class="btn btn--primary" href="#locator">Find an Escape Near You <span class="arrow">›</span></a>
+    </div>
+  </header>
 
-<div class="section" id="selection">
+  <!-- MAIN -->
+  <main class="panel">
+    <section class="section">
+      <h2 class="h2">Taste the Tropics</h2>
+      <p class="sub">
+        Refreshing, premium rum cocktails made with<br />
+        real rum and natural ingredients.
+      </p>
 
-<div class="icons">
+      <div class="features">
+        <div class="feature">
+          <div class="feature__icon">🪵</div>
+          <div class="feature__text">Crafted with Premium Rum</div>
+        </div>
 
-<div class="icon">
-<h3>Get Started</h3>
-<p>Find a store near you carrying Rios.</p>
-</div>
+        <div class="divider" aria-hidden="true"></div>
 
-<div class="icon">
-<h3>Pick Up</h3>
-<p>Shop for your favorite Rios flavors.</p>
-</div>
+        <div class="feature">
+          <div class="feature__icon">🌿</div>
+          <div class="feature__text">Natural Ingredients</div>
+        </div>
 
-<div class="icon">
-<h3>Escape</h3>
-<p>Enjoy premium rum cocktails made with real rum.</p>
-</div>
+        <div class="divider" aria-hidden="true"></div>
 
-</div>
+        <div class="feature">
+          <div class="feature__icon">🍊</div>
+          <div class="feature__text">Ready to Enjoy</div>
+        </div>
+      </div>
 
-<div class="cans">
-<img src="images/cans.png">
-</div>
+      <!-- PRODUCT GRID -->
+      <section class="grid" aria-label="Rios flavors">
+        <!-- Card 1 -->
+        <article class="card">
+          <div class="card__can">
+            <img class="canCrop canCrop--1" src="images/cans.png" alt="Strawberry Banana Daiquiri can" />
+          </div>
+          <h3 class="card__title">Strawberry Banana<br />Daiquiri</h3>
+          <div class="card__meta">6% ALC/VOL • LOW SUGAR</div>
+          <div class="card__bullet">• Real Rum. Deliciously Exotic.</div>
+          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+        </article>
 
-<a class="btn" href="#waitlist">Find Rios Near You</a>
+        <!-- Card 2 -->
+        <article class="card">
+          <div class="card__can">
+            <img class="canCrop canCrop--2" src="images/cans.png" alt="Passionfruit Mai Tai can" />
+          </div>
+          <h3 class="card__title">Passionfruit<br />Mai Tai</h3>
+          <div class="card__meta">8% ALC/VOL • GLUTEN FREE</div>
+          <div class="card__bullet">• Real Rum. Tropical Passion.</div>
+          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+        </article>
 
-</div>
+        <!-- Card 3 -->
+        <article class="card">
+          <div class="card__can">
+            <img class="canCrop canCrop--3" src="images/cans.png" alt="Hibiscus Mint Mojito can" />
+          </div>
+          <h3 class="card__title">Hibiscus<br />Mint Mojito</h3>
+          <div class="card__meta">7% ALC/VOL • NATURAL FLAVORS</div>
+          <div class="card__bullet">• Real Rum. Freshly Minted.</div>
+          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+        </article>
 
-<div class="section" id="waitlist">
-<h2>Join the Waitlist</h2>
-<input placeholder="Email"><br><br>
-<button>Submit</button>
-</div>
+        <!-- Card 4 -->
+        <article class="card">
+          <div class="card__can">
+            <img class="canCrop canCrop--4" src="images/cans.png" alt="Mango Ginger Rum Punch can" />
+          </div>
+          <h3 class="card__title">Mango Ginger<br />Rum Punch</h3>
+          <div class="card__meta">9% ALC/VOL • REAL RUM</div>
+          <div class="card__bullet">• Real Rum. Bold and Spiced.</div>
+          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+        </article>
+      </section>
+    </section>
 
+    <!-- LOCATOR (mock, clickable, doesn't break) -->
+    <section class="locator" id="locator">
+      <h2 class="h2 h2--dark">Find Your Rios</h2>
+      <p class="sub sub--dark">Mock locator for your class site. Buttons scroll here.</p>
+
+      <div class="search">
+        <input type="text" placeholder="Enter your city or zip code" />
+        <button type="button">Search <span class="arrow">›</span></button>
+      </div>
+
+      <p class="fineprint">Mock only • No real store lookup • Built for presentation</p>
+
+      <a class="btn btn--primary" href="#top">Back to Top <span class="arrow">›</span></a>
+    </section>
+  </main>
+
+  <footer class="footer">
+    Mock website for class/project use • © 2026 Rios (concept)
+  </footer>
 </body>
 </html>
