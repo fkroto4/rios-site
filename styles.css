@@ -1,14 +1,13 @@
+/* styles.css (REPLACE YOUR ENTIRE FILE WITH THIS) */
 :root{
   --ink:#122029;
   --muted:rgba(18,32,41,.75);
   --card:rgba(248,241,227,.92);
-  --stroke:rgba(18,32,41,.14);
   --shadow:0 24px 70px rgba(0,0,0,.14);
   --deepA:#2d4856;
   --deepB:#16262f;
 }
 
-/* Reset */
 *{ box-sizing:border-box; }
 html{ scroll-behavior:smooth; }
 body{
@@ -84,11 +83,7 @@ body{
     linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.12)),
     radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.28), rgba(255,255,255,0) 60%);
 }
-.hero__content{
-  position:relative;
-  z-index:2;
-  padding: 0 18px;
-}
+.hero__content{ position:relative; z-index:2; padding: 0 18px; }
 .hero__logo{
   width: min(520px, 86vw);
   height:auto;
@@ -148,13 +143,13 @@ body{
 }
 .arrow{ font-size: 18px; line-height:1; opacity:.95; }
 
-/* Page (tile background starts after hero) */
+/* Page */
 .page{
   background-image:url("images/tile.png");
   background-repeat: repeat-y;
   background-size: 100% auto;
   background-position: top center;
-  padding: 26px 16px 120px; /* extra space so editor dock never covers footer */
+  padding: 26px 16px 120px;
 }
 
 /* Sections / Cards */
@@ -410,16 +405,14 @@ body{
   text-align:center;
 }
 
-/* ------------------------------
-   Hidden Editor Dock
--------------------------------- */
+/* Editor Dock */
 .editorDock{
   position: fixed;
   left: 14px;
   right: 14px;
   bottom: 14px;
   z-index: 9999;
-  pointer-events: none; /* allow page interactions when closed */
+  pointer-events: none;
 }
 .editorDock__toggle{
   pointer-events: auto;
@@ -436,7 +429,6 @@ body{
   text-transform: uppercase;
   box-shadow: 0 18px 60px rgba(0,0,0,.22);
 }
-
 .editorDock__panel{
   pointer-events: auto;
   margin-top: 10px;
@@ -447,7 +439,6 @@ body{
   overflow:hidden;
   display:none;
 }
-
 .editorDock--open .editorDock__panel{ display:block; }
 
 .editorDock__head{
@@ -464,12 +455,18 @@ body{
   font-weight: 700;
   font-size: 12px;
 }
+.editorDock code{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-size: 11px;
+}
 
 .editorGrid{
   padding: 12px 14px;
   display:grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr;
   gap: 10px;
+  max-height: 50vh;
+  overflow:auto;
 }
 .editorField{
   display:flex;
@@ -491,8 +488,6 @@ body{
   color: rgba(18,32,41,.92);
   outline:none;
 }
-.editorField--wide{ grid-column: span 3; }
-
 .editorActions{
   padding: 12px 14px 14px;
   border-top: 1px solid rgba(18,32,41,.10);
@@ -501,7 +496,6 @@ body{
   flex-wrap:wrap;
   justify-content:flex-end;
 }
-
 .eBtn{
   border: 1px solid rgba(18,32,41,.18);
   background: rgba(255,255,255,.92);
@@ -513,18 +507,13 @@ body{
   text-transform: uppercase;
   cursor:pointer;
 }
-.eBtn--ghost{
-  background: rgba(255,255,255,.70);
-}
+.eBtn--ghost{ background: rgba(255,255,255,.70); }
 .eBtn--dark{
   background: rgba(22,38,47,.92);
   color: rgba(255,255,255,.92);
   border-color: rgba(255,255,255,.14);
 }
-.eBtn--file{
-  position: relative;
-  overflow:hidden;
-}
+.eBtn--file{ position: relative; overflow:hidden; }
 .eBtn--file input{
   position:absolute;
   inset:0;
@@ -538,8 +527,6 @@ body{
   .split{ grid-template-columns: 1fr; }
   .stats{ grid-template-columns: 1fr; }
   .triples{ grid-template-columns: 1fr; }
-  .editorGrid{ grid-template-columns: 1fr; }
-  .editorField--wide{ grid-column: auto; }
 }
 @media (max-width: 560px){
   .grid{ grid-template-columns: 1fr; }
