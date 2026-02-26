@@ -1,491 +1,235 @@
-:root{
-  --ink:#14222a;
-  --ink2:#0f1c23;
-  --card:rgba(244, 236, 220, .88);
-  --card2:rgba(255,255,255,.70);
-  --stroke:rgba(20,34,42,.16);
-  --shadow:0 18px 50px rgba(0,0,0,.18);
-  --deepA:#2d4856;
-  --deepB:#16262f;
+/* =====================================================
+   RESET + FONT SMOOTHING
+===================================================== */
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
 }
 
-/* Smooth + bold */
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
+html{scroll-behavior:smooth;}
+
 body{
-  margin:0;
-  color:var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: geometricPrecision;
+font-family: Georgia, serif;
+color:#14222a;
 
-  /* Repeating tropical backdrop AFTER hero (hero has its own bg) */
-  background-image: url("images/tile.png");
-  background-repeat: repeat-y;
-  background-size: 100% auto;
-  background-position: top center;
+/* ✅ REPEATING BEACH BACKGROUND */
+background:url("images/tile.png") top center repeat-y;
+background-size:100% auto;
+
+-webkit-font-smoothing:antialiased;
+-moz-osx-font-smoothing:grayscale;
+text-rendering:geometricPrecision;
 }
 
-/* ===== Sticky Nav ===== */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  backdrop-filter: blur(10px);
-  background: rgba(255,255,255,.55);
-  border-bottom: 1px solid rgba(255,255,255,.55);
-}
-.topbar__inner{
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 12px 16px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap: 14px;
-}
-.brand{
-  text-decoration:none;
-  color: rgba(20,34,42,.92);
-  font-weight: 900;
-  letter-spacing: .12em;
-  font-size: 13px;
-}
-.navlinks{
-  display:flex;
-  gap: 14px;
-  flex-wrap: wrap;
-  justify-content:flex-end;
-}
-.navlinks a{
-  text-decoration:none;
-  color: rgba(20,34,42,.86);
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: .04em;
-  padding: 8px 10px;
-  border-radius: 10px;
-}
-.navlinks a:hover{
-  background: rgba(255,255,255,.65);
-}
-.navCta{
-  background: rgba(22,38,47,.92);
-  color: rgba(255,255,255,.92) !important;
-}
 
-/* ===== Hero ===== */
+/* =====================================================
+   HERO (does NOT repeat background here)
+===================================================== */
+
 .hero{
-  position:relative;
-  height: clamp(560px, 88vh, 980px);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+position:relative;
+height:clamp(620px,90vh,1000px);
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+overflow:hidden;
 
-  background-image:url("images/hero.jpg");
-  background-size:cover;
-  background-position:center;
-  background-repeat:no-repeat;
-  overflow:hidden;
+/* hero image stays full screen */
+background:url("images/hero.jpg") center/cover no-repeat;
 }
-.hero__overlay{
-  position:absolute; inset:0;
-  background:
-    linear-gradient(rgba(0,0,0,.42), rgba(0,0,0,.12)),
-    radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.35), rgba(255,255,255,0) 60%);
+
+/* overlay for readability */
+.hero::after{
+content:"";
+position:absolute;
+inset:0;
+background:
+linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.12)),
+radial-gradient(900px 520px at 50% 35%,rgba(255,255,255,.35),rgba(255,255,255,0));
 }
+
 .hero__content{
-  position:relative;
-  z-index:2;
-  text-align:center;
-  padding: 0 18px;
+position:relative;
+z-index:2;
+color:white;
+padding:0 20px;
 }
+
+/* BIGGER + smoother logo */
 .hero__logo{
-  font-size: clamp(82px, 10vw, 140px);   /* BIGGER logo */
-  font-weight: 900;
-  color: rgba(255,255,255,.94);
-  letter-spacing: .01em;
-  text-shadow: 0 20px 70px rgba(0,0,0,.45);
+font-size:clamp(95px,11vw,160px);
+font-weight:900;
+letter-spacing:.02em;
+text-shadow:0 20px 70px rgba(0,0,0,.55);
 }
+
 .hero__tagline{
-  margin-top: 10px;
-  font-size: clamp(22px, 3.2vw, 44px);
-  font-weight: 800;
-  color: rgba(255,255,255,.86);
-  text-shadow: 0 20px 70px rgba(0,0,0,.45);
-}
-.hero__actions{
-  margin-top: 28px;
-  display:flex;
-  gap: 12px;
-  justify-content:center;
-  flex-wrap: wrap;
-}
-.hero__fade{
-  position:absolute;
-  left:0; right:0; bottom:0;
-  height: 120px;
-  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.14));
-  pointer-events:none;
+margin-top:10px;
+font-size:clamp(24px,3vw,46px);
+font-weight:800;
+text-shadow:0 20px 60px rgba(0,0,0,.5);
 }
 
-/* ===== Layout wrapper (cards sit on repeating beach tile) ===== */
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn{
+display:inline-block;
+padding:15px 28px;
+margin-top:22px;
+background:linear-gradient(#2d4856,#16262f);
+color:white;
+text-decoration:none;
+font-weight:900;
+border-radius:12px;
+box-shadow:0 14px 36px rgba(0,0,0,.25);
+transition:.18s;
+}
+
+.btn:hover{
+transform:translateY(-2px);
+background:linear-gradient(#3a5c6e,#1a303a);
+}
+
+
+/* =====================================================
+   SECTION CARDS
+===================================================== */
+
 .wrap{
-  max-width: 1180px;
-  margin: 0 auto;
-  padding: 26px 16px 60px;
+max-width:1200px;
+margin:auto;
+padding:40px 18px 80px;
 }
 
-/* ===== Section cards ===== */
-.cardSection{
-  margin: 22px 0;
-}
+.cardSection{margin:30px 0;}
+
 .cardSection__inner{
-  background: var(--card);
-  border: 1px solid rgba(255,255,255,.55);
-  border-radius: 22px;
-  box-shadow: var(--shadow);
-  padding: 28px 22px;
+background:rgba(244,236,220,.92);
+border-radius:24px;
+padding:32px 24px;
+box-shadow:0 18px 50px rgba(0,0,0,.2);
+border:1px solid rgba(255,255,255,.7);
+text-align:center;
 }
 
 .h2{
-  margin: 0 0 10px;
-  font-size: clamp(28px, 3.8vw, 52px);
-  font-weight: 900;
-  color: rgba(20,34,42,.92);
+font-size:clamp(32px,4vw,54px);
+font-weight:900;
+margin-bottom:10px;
 }
+
 .lead{
-  margin: 0 0 18px;
-  font-size: 17px;
-  line-height: 1.5;
-  color: rgba(20,34,42,.82);
+font-size:18px;
+margin-bottom:22px;
 }
 
-/* ===== Pills ===== */
-.pillGrid{
-  display:grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
-  margin-top: 16px;
-}
-.pill{
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(20,34,42,.10);
-  border-radius: 18px;
-  padding: 14px 14px;
-  text-align:left;
-}
-.pill__kicker{
-  font-weight: 900;
-  letter-spacing: .12em;
-  font-size: 12px;
-  text-transform: uppercase;
-  color: rgba(20,34,42,.72);
-}
-.pill__text{
-  margin-top: 6px;
-  font-weight: 800;
-  color: rgba(20,34,42,.90);
-}
 
-/* ===== Split blocks ===== */
-.split{
-  display:grid;
-  grid-template-columns: 1.2fr .8fr;
-  gap: 18px;
-  align-items: stretch;
-}
-.mediaCard{
-  background: rgba(22,38,47,.92);
-  color: rgba(255,255,255,.90);
-  border-radius: 18px;
-  padding: 18px;
-  text-align:left;
-  box-shadow: 0 14px 40px rgba(0,0,0,.18);
-}
-.mediaCard__title{
-  font-weight: 900;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  font-size: 12px;
-  opacity:.9;
-}
-.mediaCard__text{
-  margin-top: 10px;
-  line-height: 1.45;
-  font-weight: 700;
-  opacity:.95;
-}
+/* =====================================================
+   FLAVOR GRID
+===================================================== */
 
-/* ===== Bullets ===== */
-.bullets{
-  margin: 10px 0 0;
-  padding-left: 18px;
-  text-align:left;
-  color: rgba(20,34,42,.82);
-  font-weight: 700;
-}
-.bullets li{ margin: 8px 0; }
-
-/* ===== Quote ===== */
-.quoteCard .quote{
-  margin: 8px auto 14px;
-  max-width: 860px;
-  font-size: 18px;
-  line-height: 1.6;
-  font-weight: 800;
-  color: rgba(20,34,42,.90);
-}
-
-/* ===== Mini Chart ===== */
-.miniChart{
-  margin-top: 14px;
-  display:grid;
-  gap: 12px;
-}
-.miniChart__row{
-  display:grid;
-  grid-template-columns: 1.4fr 1fr .3fr;
-  gap: 12px;
-  align-items:center;
-  text-align:left;
-}
-.miniChart__label{
-  font-weight: 800;
-  color: rgba(20,34,42,.86);
-}
-.miniChart__bar{
-  height: 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,.60);
-  border: 1px solid rgba(20,34,42,.10);
-  overflow:hidden;
-}
-.miniChart__bar span{
-  display:block;
-  height:100%;
-  background: linear-gradient(90deg, rgba(45,72,86,.95), rgba(22,38,47,.95));
-  border-radius: 999px;
-}
-.miniChart__val{
-  font-weight: 900;
-  color: rgba(20,34,42,.70);
-}
-
-.note{
-  margin-top: 12px;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing:.04em;
-  color: rgba(20,34,42,.60);
-}
-
-/* ===== Feature row ===== */
-.featureRow{
-  margin: 18px auto 20px;
-  display:flex;
-  gap: 18px;
-  justify-content:center;
-  flex-wrap: wrap;
-}
-.featureItem{
-  display:flex;
-  align-items:center;
-  gap: 10px;
-  background: rgba(255,255,255,.55);
-  border: 1px solid rgba(20,34,42,.10);
-  border-radius: 999px;
-  padding: 10px 14px;
-}
-.featureIcon{
-  width: 34px; height:34px;
-  border-radius: 999px;
-  display:flex; align-items:center; justify-content:center;
-  background: rgba(255,255,255,.75);
-  border: 1px solid rgba(20,34,42,.10);
-}
-.featureText{
-  font-weight: 900;
-  color: rgba(20,34,42,.86);
-}
-
-/* ===== Flavor grid ===== */
 .flavorGrid{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 14px;
-}
-.flavorCard{
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(20,34,42,.12);
-  border-radius: 18px;
-  padding: 14px;
-  box-shadow: 0 14px 36px rgba(0,0,0,.12);
-}
-.flavorCan{
-  height: 260px;
-  border-radius: 14px;
-  overflow:hidden;
-  background: rgba(255,255,255,.45);
-  border: 1px solid rgba(20,34,42,.10);
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:22px;
+margin-top:20px;
 }
 
-/* Crop each can out of ONE cans.png */
-.canCrop{
-  width: 220%;
-  max-width: none;
-  height: 300px;
-  object-fit: cover;
-  transform: translateY(10px);
+.flavorCard{
+background:white;
+padding:16px;
+border-radius:18px;
+box-shadow:0 12px 30px rgba(0,0,0,.15);
 }
-.canCrop--1{ object-position: 6% 50%; }
-.canCrop--2{ object-position: 36% 50%; }
-.canCrop--3{ object-position: 66% 50%; }
-.canCrop--4{ object-position: 94% 50%; }
+
+.flavorCan{
+height:260px;
+overflow:hidden;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* prevent stretch */
+.flavorCan img{
+max-width:none;
+height:300px;
+width:220%;
+object-fit:cover;
+}
+
+.canCrop--1{object-position:6% 50%;}
+.canCrop--2{object-position:36% 50%;}
+.canCrop--3{object-position:66% 50%;}
+.canCrop--4{object-position:94% 50%;}
 
 .flavorName{
-  margin-top: 12px;
-  font-size: 20px;
-  font-weight: 900;
-  color: rgba(20,34,42,.92);
-  line-height: 1.05;
+font-size:20px;
+font-weight:900;
+margin-top:10px;
 }
+
 .flavorMeta{
-  margin-top: 6px;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-  color: rgba(20,34,42,.70);
+font-size:12px;
+margin-top:6px;
+font-weight:700;
+letter-spacing:.05em;
 }
 
-/* ===== Campaign mini cards ===== */
-.cardGrid3{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 14px;
-  margin-top: 14px;
-}
-.miniCard{
-  background: rgba(255,255,255,.65);
-  border: 1px solid rgba(20,34,42,.12);
-  border-radius: 18px;
-  padding: 16px;
-  text-align:left;
-}
-.miniCard__title{
-  font-weight: 900;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: rgba(20,34,42,.78);
-}
-.miniCard__text{
-  margin-top: 10px;
-  font-weight: 800;
-  line-height: 1.45;
-  color: rgba(20,34,42,.88);
-}
 
-/* ===== Find / search ===== */
-.findCard{
-  text-align:center;
-}
-.searchRow{
-  display:flex;
-  justify-content:center;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
+/* =====================================================
+   FIND SECTION
+===================================================== */
+
 .searchInput{
-  width: min(520px, 92vw);
-  padding: 16px 14px;
-  border-radius: 14px;
-  border: 1px solid rgba(20,34,42,.18);
-  background: rgba(255,255,255,.80);
-  font-size: 16px;
-  font-weight: 800;
-  outline:none;
+padding:14px;
+border-radius:10px;
+border:1px solid #aaa;
+font-size:16px;
+width:260px;
+margin-right:10px;
 }
+
 .searchBtn{
-  padding: 16px 18px;
-  border-radius: 14px;
-  border: 1px solid rgba(255,255,255,.14);
-  background: linear-gradient(180deg, var(--deepA), var(--deepB));
-  color: rgba(255,255,255,.92);
-  font-weight: 950;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  cursor:pointer;
-  box-shadow: 0 14px 36px rgba(0,0,0,.14);
-}
-.fineprint{
-  margin-top: 10px;
-  font-size: 12px;
-  font-weight: 900;
-  letter-spacing:.04em;
-  color: rgba(20,34,42,.62);
+padding:14px 20px;
+border:none;
+background:#16262f;
+color:white;
+border-radius:10px;
+font-weight:900;
 }
 
-/* ===== Buttons ===== */
-.btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap: 10px;
-  padding: 14px 20px;
-  border-radius: 14px;
-  text-decoration:none;
-  font-weight: 950;
-  letter-spacing: .05em;
-  border: 1px solid rgba(0,0,0,.18);
-  box-shadow: 0 14px 36px rgba(0,0,0,.12);
-}
-.btn--primary{
-  background: linear-gradient(180deg, var(--deepA), var(--deepB));
-  color: rgba(255,255,255,.92);
-  border-color: rgba(255,255,255,.10);
-}
-.btn--ghost{
-  background: rgba(22,38,47,.92);
-  color: rgba(255,255,255,.92);
-  border-color: rgba(255,255,255,.12);
-  padding: 12px 16px;
-  font-size: 12px;
-  letter-spacing: .10em;
-  text-transform: uppercase;
-}
-.arrow{ font-size: 18px; line-height: 1; opacity: .95; }
 
-/* ===== Footer ===== */
+/* =====================================================
+   FOOTER
+===================================================== */
+
 .footer{
-  margin-top: 22px;
-  padding: 18px 12px;
-  background: rgba(22,38,47,.88);
-  color: rgba(255,255,255,.80);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .04em;
-  border-radius: 18px;
-  border: 1px solid rgba(255,255,255,.10);
+text-align:center;
+padding:22px;
+background:#16262f;
+color:white;
+margin-top:40px;
 }
 
-/* ===== Responsive ===== */
-@media (max-width: 980px){
-  .split{ grid-template-columns: 1fr; }
-  .pillGrid{ grid-template-columns: 1fr; }
-  .flavorGrid{ grid-template-columns: repeat(2, 1fr); }
-  .cardGrid3{ grid-template-columns: 1fr; }
-  .miniChart__row{ grid-template-columns: 1fr; gap: 8px; }
+
+/* =====================================================
+   MOBILE FIXES
+===================================================== */
+
+@media(max-width:1000px){
+.flavorGrid{grid-template-columns:repeat(2,1fr);}
 }
-@media (max-width: 560px){
-  .flavorGrid{ grid-template-columns: 1fr; }
-  .topbar__inner{ gap: 10px; }
-  .navlinks{ gap: 8px; }
+
+@media(max-width:520px){
+.flavorGrid{grid-template-columns:1fr;}
+
+.hero__logo{font-size:70px;}
+.hero__tagline{font-size:22px;}
 }
