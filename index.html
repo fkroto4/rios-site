@@ -1,3 +1,4 @@
+<!-- index.html (REPLACE YOUR ENTIRE FILE WITH THIS) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -21,11 +22,11 @@
       </a>
 
       <nav class="topbar__nav" aria-label="Primary">
-        <a href="#flavors">Flavors</a>
-        <a href="#why">Why</a>
-        <a href="#data">Data</a>
-        <a href="#campaign">Campaign</a>
-        <a class="navCta" href="#find">Find</a>
+        <a href="#flavors" data-edit="nav.flavors">Flavors</a>
+        <a href="#why" data-edit="nav.why">Why</a>
+        <a href="#data" data-edit="nav.data">Data</a>
+        <a href="#campaign" data-edit="nav.campaign">Campaign</a>
+        <a class="navCta" href="#find" data-edit="nav.find">Find</a>
       </nav>
     </div>
   </header>
@@ -202,47 +203,17 @@
 
   <!-- Hidden Editor Dock (bottom) -->
   <div class="editorDock" id="editorDock" aria-hidden="true">
-    <button class="editorDock__toggle" id="editorToggle" type="button">
-      Edit Site
-    </button>
+    <button class="editorDock__toggle" id="editorToggle" type="button">Edit Site</button>
 
     <div class="editorDock__panel" id="editorPanel">
       <div class="editorDock__head">
-        <div class="editorDock__title">Rios Editor (local + JSON)</div>
-        <div class="editorDock__sub">Edits save to this browser. Export/import JSON to move edits.</div>
+        <div class="editorDock__title">Rios Editor (Everything w/ data-edit)</div>
+        <div class="editorDock__sub">
+          Edit any text tagged with <code>data-edit</code>. Saves locally. Export/Import JSON to move edits.
+        </div>
       </div>
 
-      <div class="editorGrid">
-        <label class="editorField">
-          <span>Hero headline</span>
-          <input id="f_hero_headline" type="text" />
-        </label>
-
-        <label class="editorField">
-          <span>Primary button</span>
-          <input id="f_hero_cta1" type="text" />
-        </label>
-
-        <label class="editorField">
-          <span>Secondary button</span>
-          <input id="f_hero_cta2" type="text" />
-        </label>
-
-        <label class="editorField editorField--wide">
-          <span>Flavors section subhead</span>
-          <input id="f_flavors_sub" type="text" />
-        </label>
-
-        <label class="editorField editorField--wide">
-          <span>Why Rum paragraph</span>
-          <textarea id="f_why_body" rows="3"></textarea>
-        </label>
-
-        <label class="editorField editorField--wide">
-          <span>Footer</span>
-          <input id="f_footer" type="text" />
-        </label>
-      </div>
+      <div class="editorGrid" id="editorGrid"></div>
 
       <div class="editorActions">
         <button class="eBtn" id="btnApply" type="button">Apply</button>
@@ -258,179 +229,178 @@
   </div>
 
   <script>
-    (function(){
-      const STORAGE_KEY = "rios_site_content_v1";
+  (function(){
+    const STORAGE_KEY = "rios_site_content_v2";
+    const editableNodes = Array.from(document.querySelectorAll("[data-edit]"));
 
-      // Elements that can be edited
-      const editableNodes = Array.from(document.querySelectorAll("[data-edit]"));
+    const dock = document.getElementById("editorDock");
+    const toggle = document.getElementById("editorToggle");
+    const grid = document.getElementById("editorGrid");
+    const btnApply = document.getElementById("btnApply");
+    const btnReset = document.getElementById("btnReset");
+    const btnExport = document.getElementById("btnExport");
+    const fileImport = document.getElementById("fileImport");
 
-      function getNodeValue(node){
-        // For buttons/links with nested <span>, preserve innerHTML so arrows stay
-        // But we want to edit only text portion for those fields in the dock.
-        return node.innerHTML;
-      }
+    const nodeByKey = (key) => document.querySelector(`[data-edit="${CSS.escape(key)}"]`);
 
-      function setNodeValue(node, html){
-        node.innerHTML = html;
-      }
+    function loadState(){
+      try{
+        const raw = localStorage.getItem(STORAGE_KEY);
+        return raw ? JSON.parse(raw) : null;
+      }catch(e){ return null; }
+    }
+    function saveState(state){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    }
 
-      function loadState(){
-        try{
-          const raw = localStorage.getItem(STORAGE_KEY);
-          if(!raw) return null;
-          return JSON.parse(raw);
-        }catch(e){
-          return null;
+    function captureStateFromDOM(){
+      const state = {};
+      editableNodes.forEach(n=>{
+        const key = n.getAttribute("data-edit");
+        state[key] = n.innerHTML;
+      });
+      return state;
+    }
+    function applyStateToDOM(state){
+      if(!state) return;
+      editableNodes.forEach(n=>{
+        const key = n.getAttribute("data-edit");
+        if(state[key] != null) n.innerHTML = state[key];
+      });
+    }
+
+    function stripArrow(html){
+      return html.replace(/<span class="arrow">.*?<\/span>/g, "").trim();
+    }
+    function addArrow(text){
+      return `${text} <span class="arrow">›</span>`;
+    }
+    function looksLikeButtonOrLink(el){
+      return el.tagName.toLowerCase() === "a" || el.tagName.toLowerCase() === "button";
+    }
+
+    function buildEditorUI(){
+      grid.innerHTML = "";
+
+      const keys = editableNodes
+        .map(n => n.getAttribute("data-edit"))
+        .filter(Boolean);
+
+      keys.sort((a,b)=>a.localeCompare(b));
+
+      keys.forEach(key=>{
+        const el = nodeByKey(key);
+        if(!el) return;
+
+        const wrapper = document.createElement("label");
+        wrapper.className = "editorField editorField--wide";
+
+        const label = document.createElement("span");
+        label.textContent = key;
+
+        let input;
+        const tag = el.tagName.toLowerCase();
+        const useTextarea = (tag === "p" || tag === "li" || tag === "div") && (el.textContent.length > 80);
+
+        if(useTextarea){
+          input = document.createElement("textarea");
+          input.rows = 3;
+        }else{
+          input = document.createElement("input");
+          input.type = "text";
         }
-      }
 
-      function saveState(state){
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-      }
+        if(looksLikeButtonOrLink(el) && el.innerHTML.includes('class="arrow"')){
+          input.value = stripArrow(el.innerHTML);
+          input.dataset.arrow = "1";
+        }else{
+          input.value = el.innerHTML.replace(/<br\s*\/?>/gi, "\n").trim();
+        }
 
-      function captureStateFromDOM(){
-        const state = {};
-        editableNodes.forEach(n => {
-          const key = n.getAttribute("data-edit");
-          state[key] = getNodeValue(n);
-        });
-        return state;
-      }
+        input.dataset.key = key;
 
-      function applyStateToDOM(state){
-        if(!state) return;
-        editableNodes.forEach(n => {
-          const key = n.getAttribute("data-edit");
-          if(state[key] != null){
-            setNodeValue(n, state[key]);
-          }
-        });
-      }
+        wrapper.appendChild(label);
+        wrapper.appendChild(input);
+        grid.appendChild(wrapper);
+      });
+    }
 
-      // --- Editor dock controls ---
-      const dock = document.getElementById("editorDock");
-      const toggle = document.getElementById("editorToggle");
-      const panel = document.getElementById("editorPanel");
+    function applyFromEditor(){
+      const inputs = Array.from(grid.querySelectorAll("input, textarea"));
+      inputs.forEach(inp=>{
+        const key = inp.dataset.key;
+        const el = nodeByKey(key);
+        if(!el) return;
 
-      const fHeroHeadline = document.getElementById("f_hero_headline");
-      const fCta1 = document.getElementById("f_hero_cta1");
-      const fCta2 = document.getElementById("f_hero_cta2");
-      const fFlavorsSub = document.getElementById("f_flavors_sub");
-      const fWhyBody = document.getElementById("f_why_body");
-      const fFooter = document.getElementById("f_footer");
+        const raw = inp.value;
 
-      const btnApply = document.getElementById("btnApply");
-      const btnReset = document.getElementById("btnReset");
-      const btnExport = document.getElementById("btnExport");
-      const fileImport = document.getElementById("fileImport");
-
-      // helpers: find node by key
-      const nodeByKey = (key) => document.querySelector(`[data-edit="${key}"]`);
-
-      function stripArrow(html){
-        // remove trailing arrow span, keep text
-        return html.replace(/<span class="arrow">.*?<\/span>/g, "").trim();
-      }
-      function addArrow(text){
-        return `${text} <span class="arrow">›</span>`;
-      }
-
-      function syncFieldsFromDOM(){
-        const heroH = nodeByKey("hero.headline");
-        const cta1 = nodeByKey("hero.ctaPrimary");
-        const cta2 = nodeByKey("hero.ctaSecondary");
-        const flavorsSub = nodeByKey("flavors.subhead");
-        const whyBody = nodeByKey("why.body");
-        const footer = nodeByKey("footer");
-
-        if(heroH) fHeroHeadline.value = heroH.textContent.trim();
-        if(cta1) fCta1.value = stripArrow(cta1.innerHTML);
-        if(cta2) fCta2.value = stripArrow(cta2.innerHTML);
-        if(flavorsSub) fFlavorsSub.value = flavorsSub.textContent.trim();
-        if(whyBody) fWhyBody.value = whyBody.textContent.trim();
-        if(footer) fFooter.value = footer.textContent.trim();
-      }
-
-      function applyFieldsToDOM(){
-        const heroH = nodeByKey("hero.headline");
-        const cta1 = nodeByKey("hero.ctaPrimary");
-        const cta2 = nodeByKey("hero.ctaSecondary");
-        const flavorsSub = nodeByKey("flavors.subhead");
-        const whyBody = nodeByKey("why.body");
-        const footer = nodeByKey("footer");
-
-        if(heroH) heroH.textContent = fHeroHeadline.value.trim();
-        if(cta1) cta1.innerHTML = addArrow(fCta1.value.trim());
-        if(cta2) cta2.innerHTML = addArrow(fCta2.value.trim());
-        if(flavorsSub) flavorsSub.textContent = fFlavorsSub.value.trim();
-        if(whyBody) whyBody.textContent = fWhyBody.value.trim();
-        if(footer) footer.textContent = fFooter.value.trim();
-
-        // Save everything (not just these fields) so imports/exports stay consistent
-        saveState(captureStateFromDOM());
-      }
-
-      function resetAll(){
-        localStorage.removeItem(STORAGE_KEY);
-        // Full reload restores original HTML
-        location.reload();
-      }
-
-      function exportJSON(){
-        const state = captureStateFromDOM();
-        const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "rios-edits.json";
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-        URL.revokeObjectURL(url);
-      }
-
-      function importJSON(file){
-        const reader = new FileReader();
-        reader.onload = () => {
-          try{
-            const parsed = JSON.parse(reader.result);
-            applyStateToDOM(parsed);
-            saveState(parsed);
-            syncFieldsFromDOM();
-          }catch(e){
-            alert("That file does not look like valid Rios JSON.");
-          }
-        };
-        reader.readAsText(file);
-      }
-
-      // Toggle dock (always present but collapsed)
-      let open = false;
-      function setOpen(v){
-        open = v;
-        dock.setAttribute("aria-hidden", open ? "false" : "true");
-        dock.classList.toggle("editorDock--open", open);
-        toggle.textContent = open ? "Close Editor" : "Edit Site";
-        if(open) syncFieldsFromDOM();
-      }
-
-      toggle.addEventListener("click", () => setOpen(!open));
-      btnApply.addEventListener("click", applyFieldsToDOM);
-      btnReset.addEventListener("click", resetAll);
-      btnExport.addEventListener("click", exportJSON);
-      fileImport.addEventListener("change", (e) => {
-        const file = e.target.files && e.target.files[0];
-        if(file) importJSON(file);
-        e.target.value = "";
+        if(inp.dataset.arrow === "1"){
+          el.innerHTML = addArrow(raw.trim());
+        }else{
+          el.innerHTML = raw.trim().replace(/\n/g, "<br>");
+        }
       });
 
-      // Load saved state on page load
-      const state = loadState();
-      if(state) applyStateToDOM(state);
+      saveState(captureStateFromDOM());
+    }
 
-      // Start closed
-      setOpen(false);
-    })();
+    function resetAll(){
+      localStorage.removeItem(STORAGE_KEY);
+      location.reload();
+    }
+
+    function exportJSON(){
+      const state = captureStateFromDOM();
+      const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "rios-edits.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    }
+
+    function importJSON(file){
+      const reader = new FileReader();
+      reader.onload = () => {
+        try{
+          const parsed = JSON.parse(reader.result);
+          applyStateToDOM(parsed);
+          saveState(parsed);
+          buildEditorUI();
+        }catch(e){
+          alert("That file does not look like valid Rios JSON.");
+        }
+      };
+      reader.readAsText(file);
+    }
+
+    let open = false;
+    function setOpen(v){
+      open = v;
+      dock.setAttribute("aria-hidden", open ? "false" : "true");
+      dock.classList.toggle("editorDock--open", open);
+      toggle.textContent = open ? "Close Editor" : "Edit Site";
+      if(open) buildEditorUI();
+    }
+
+    toggle.addEventListener("click", () => setOpen(!open));
+    btnApply.addEventListener("click", applyFromEditor);
+    btnReset.addEventListener("click", resetAll);
+    btnExport.addEventListener("click", exportJSON);
+    fileImport.addEventListener("change", (e) => {
+      const file = e.target.files && e.target.files[0];
+      if(file) importJSON(file);
+      e.target.value = "";
+    });
+
+    const state = loadState();
+    if(state) applyStateToDOM(state);
+
+    setOpen(false);
+  })();
   </script>
 </body>
 </html>
