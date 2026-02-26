@@ -4,212 +4,208 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rios — Real Rum. Real Escape.</title>
-  <meta name="description" content="Rios: premium Jamaican rum cocktails made for vacation mode." />
+  <meta name="description" content="Rios: premium rum cocktails made for vacation mode." />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Canva-clean typography -->
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- Sticky Nav -->
-  <nav class="topbar">
+  <!-- Sticky top nav -->
+  <header class="topbar">
     <div class="topbar__inner">
-      <a class="brand" href="#top" aria-label="Rios Home">
-        <img class="brand__logo" src="images/logo.png" alt="Rios" />
+      <a class="topbar__brand" href="#top" aria-label="Rios Home">
+        <img src="images/logo.png" alt="Rios" class="topbar__logo">
       </a>
 
-      <div class="navlinks">
+      <nav class="topbar__nav" aria-label="Primary">
         <a href="#flavors">Flavors</a>
-        <a href="#why">Why Rum</a>
+        <a href="#why">Why</a>
         <a href="#data">Data</a>
         <a href="#campaign">Campaign</a>
         <a class="navCta" href="#find">Find</a>
-      </div>
+      </nav>
     </div>
-  </nav>
+  </header>
 
-  <!-- Hero -->
-  <header class="hero" id="top">
+  <!-- HERO (full-bleed, no tile behind it) -->
+  <section class="hero" id="top" role="banner" aria-label="Hero">
+    <div class="hero__bg"></div>
     <div class="hero__overlay"></div>
 
     <div class="hero__content">
-      <img class="hero__logo" src="images/logo.png" alt="Rios" />
-      <div class="hero__tagline">Real Rum. Real Escape.</div>
+      <img src="images/logo.png" class="hero__logo" alt="Rios">
+      <h1 class="hero__headline">Real Rum. Real Escape.</h1>
 
       <div class="hero__actions">
         <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
         <a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
       </div>
     </div>
+  </section>
 
-    <div class="hero__fade"></div>
-  </header>
-
-  <!-- Everything below uses repeating tile background -->
-  <main class="wrap">
-
-    <!-- Taste / Flavors -->
-    <section class="cardSection" id="flavors">
-      <div class="cardSection__inner">
+  <!-- MAIN (tile background starts here only) -->
+  <main class="page">
+    <!-- Flavors -->
+    <section class="section" id="flavors">
+      <div class="card">
         <div class="sectionHead">
-          <h2 class="h2">Taste the Tropics</h2>
-          <p class="lead">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
+          <h2>Taste the Tropics</h2>
+          <p>Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
         </div>
 
-        <div class="featureRow">
-          <div class="featureItem"><span class="featureDot">🪵</span> Crafted with Premium Rum</div>
-          <div class="featureItem"><span class="featureDot">🌿</span> Natural Ingredients</div>
-          <div class="featureItem"><span class="featureDot">🍊</span> Ready to Enjoy</div>
+        <div class="pillRow">
+          <div class="pill"><span class="dot">🪵</span> Crafted with Premium Rum</div>
+          <div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
+          <div class="pill"><span class="dot">🍊</span> Ready to Enjoy</div>
         </div>
 
-        <div class="flavorGrid">
-          <article class="flavorCard">
-            <div class="flavorCan">
-              <img class="canImg" src="images/can1.png" alt="Strawberry Banana Daiquiri can">
+        <div class="grid">
+          <article class="flavor">
+            <div class="flavor__img">
+              <img src="images/can1.png" alt="Strawberry Banana Daiquiri can">
             </div>
-            <div class="flavorName">Strawberry Banana<br>Daiquiri</div>
-            <div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
+            <h3>Strawberry Banana<br>Daiquiri</h3>
+            <div class="meta">6% ALC/VOL • LOW SUGAR</div>
             <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
           </article>
 
-          <article class="flavorCard">
-            <div class="flavorCan">
-              <img class="canImg" src="images/can2.png" alt="Passionfruit Mai Tai can">
+          <article class="flavor">
+            <div class="flavor__img">
+              <img src="images/can2.png" alt="Passionfruit Mai Tai can">
             </div>
-            <div class="flavorName">Passionfruit<br>Mai Tai</div>
-            <div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
+            <h3>Passionfruit<br>Mai Tai</h3>
+            <div class="meta">8% ALC/VOL • GLUTEN FREE</div>
             <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
           </article>
 
-          <article class="flavorCard">
-            <div class="flavorCan">
-              <img class="canImg" src="images/can3.png" alt="Hibiscus Mint Mojito can">
+          <article class="flavor">
+            <div class="flavor__img">
+              <img src="images/can3.png" alt="Hibiscus Mint Mojito can">
             </div>
-            <div class="flavorName">Hibiscus<br>Mint Mojito</div>
-            <div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
+            <h3>Hibiscus<br>Mint Mojito</h3>
+            <div class="meta">7% ALC/VOL • NATURAL FLAVORS</div>
             <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
           </article>
 
-          <article class="flavorCard">
-            <div class="flavorCan">
-              <img class="canImg" src="images/can4.png" alt="Mango Ginger Rum Punch can">
+          <article class="flavor">
+            <div class="flavor__img">
+              <img src="images/can4.png" alt="Mango Ginger Rum Punch can">
             </div>
-            <div class="flavorName">Mango Ginger<br>Rum Punch</div>
-            <div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
+            <h3>Mango Ginger<br>Rum Punch</h3>
+            <div class="meta">9% ALC/VOL • REAL RUM</div>
             <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Why Rum -->
-    <section class="cardSection" id="why">
-      <div class="cardSection__inner split">
+    <!-- Why -->
+    <section class="section" id="why">
+      <div class="card split">
         <div>
-          <h2 class="h2">Why Rum?</h2>
-          <p class="lead">
-            Rum fits the beach lifestyle naturally—tropical, social, and built for “vacation mode.”
-            Rios anchors that feeling with an Ocho Rios-inspired world that stays premium, not gimmicky.
+          <h2>Why Rum?</h2>
+          <p>
+            Rum fits beach culture naturally—tropical, social, and built for “vacation mode.”
+            Rios keeps it premium: real rum, clean design, and a destination-led story.
           </p>
-          <ul class="bullets">
-            <li>Real rum credibility (premium positioning)</li>
-            <li>Destination-first brand world (escape mindset)</li>
-            <li>Flavor-led variety that drives trial</li>
+          <ul>
+            <li>Authentic premium signal: real rum positioning</li>
+            <li>“Escape” mindset that matches Gen Z lifestyle pressure</li>
+            <li>Flavor variety that drives trial and repeat</li>
           </ul>
         </div>
 
-        <aside class="sideCard">
-          <div class="sideCard__kicker">Origin</div>
-          <div class="sideCard__title">Ocho Rios, Jamaica</div>
-          <div class="sideCard__text">
-            A clean, authentic beach identity—no neon, no loud clichés.
-          </div>
+        <aside class="side">
+          <div class="kicker">Origin</div>
+          <div class="title">Ocho Rios, Jamaica</div>
+          <div class="text">A beach-first identity without neon or cliché “tropical noise.”</div>
         </aside>
       </div>
     </section>
 
     <!-- Data -->
-    <section class="cardSection" id="data">
-      <div class="cardSection__inner">
-        <h2 class="h2">The Data</h2>
-        <p class="lead">A quick, deck-style visual readout for the mock website.</p>
+    <section class="section" id="data">
+      <div class="card">
+        <h2>The Data</h2>
+        <p>A deck-style snapshot for the mock website.</p>
 
-        <div class="statGrid">
+        <div class="stats">
           <div class="stat">
-            <div class="stat__num">50%</div>
-            <div class="stat__label">“Enthusiast” rating (Gen Z interest)</div>
+            <div class="num">50%</div>
+            <div class="label">“Enthusiast” rating (Gen Z interest)</div>
           </div>
           <div class="stat">
-            <div class="stat__num">4</div>
-            <div class="stat__label">Flavor lineup built for variety + trial</div>
+            <div class="num">4</div>
+            <div class="label">Flavors designed for variety + trial</div>
           </div>
           <div class="stat">
-            <div class="stat__num">6–9%</div>
-            <div class="stat__label">ABV range (clear strength cues)</div>
+            <div class="num">6–9%</div>
+            <div class="label">ABV range with clear strength cues</div>
           </div>
         </div>
 
-        <div class="miniBars">
-          <div class="barRow">
-            <div class="barLabel">Rum interest</div>
-            <div class="barTrack"><span style="width:76%"></span></div>
+        <div class="bars">
+          <div class="bar">
+            <div class="bar__label">Rum interest</div>
+            <div class="track"><span style="width:76%"></span></div>
           </div>
-          <div class="barRow">
-            <div class="barLabel">Premium RTD momentum</div>
-            <div class="barTrack"><span style="width:64%"></span></div>
+          <div class="bar">
+            <div class="bar__label">Premium RTD momentum</div>
+            <div class="track"><span style="width:64%"></span></div>
           </div>
-          <div class="barRow">
-            <div class="barLabel">Flavor variety drives purchase</div>
-            <div class="barTrack"><span style="width:82%"></span></div>
+          <div class="bar">
+            <div class="bar__label">Flavor variety drives purchase</div>
+            <div class="track"><span style="width:82%"></span></div>
           </div>
         </div>
       </div>
     </section>
 
     <!-- Campaign -->
-    <section class="cardSection" id="campaign">
-      <div class="cardSection__inner">
-        <h2 class="h2">Launch Campaign</h2>
-        <p class="lead">Find an Escape Near You — pre-launch discovery + trial.</p>
+    <section class="section" id="campaign">
+      <div class="card">
+        <h2>Launch Campaign</h2>
+        <p><strong>Find an Escape Near You</strong> — pre-launch discovery + trial.</p>
 
-        <div class="cardGrid3">
-          <div class="miniCard">
-            <div class="miniCard__title">Escape Drops</div>
-            <div class="miniCard__text">Pop-up tastings + beach-world setups in city hotspots.</div>
+        <div class="triples">
+          <div class="mini">
+            <div class="mini__title">Escape Drops</div>
+            <div class="mini__text">Pop-up tastings + beach-world setups in city hotspots.</div>
           </div>
-          <div class="miniCard">
-            <div class="miniCard__title">Social Discovery</div>
-            <div class="miniCard__text">Short-form “vacation mode” content + UGC flavor reactions.</div>
+          <div class="mini">
+            <div class="mini__title">Social Discovery</div>
+            <div class="mini__text">Short-form “vacation mode” content + UGC flavor reactions.</div>
           </div>
-          <div class="miniCard">
-            <div class="miniCard__title">Retail Tease</div>
-            <div class="miniCard__text">Shelf talkers + locator CTA to drive “where do I buy?” intent.</div>
+          <div class="mini">
+            <div class="mini__title">Retail Tease</div>
+            <div class="mini__text">Shelf talkers + locator CTA to capture purchase intent.</div>
           </div>
         </div>
 
-        <div class="centerCta">
+        <div class="center">
           <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
         </div>
       </div>
     </section>
 
     <!-- Find -->
-    <section class="cardSection" id="find">
-      <div class="cardSection__inner findCard">
-        <h2 class="h2">Find Your Rios</h2>
-        <p class="lead">Mock locator for class/presentation use (no real lookup).</p>
+    <section class="section" id="find">
+      <div class="card centerCard">
+        <h2>Find Your Rios</h2>
+        <p>Mock locator for class/presentation use (no real lookup).</p>
 
-        <div class="searchRow">
-          <input class="searchInput" type="text" placeholder="Enter your city or zip code" />
-          <button class="searchBtn" type="button">Search <span class="arrow">›</span></button>
+        <div class="search">
+          <input type="text" placeholder="Enter your city or zip code" aria-label="City or zip code">
+          <button type="button">Search <span class="arrow">›</span></button>
         </div>
 
-        <div class="fineprint">Mock only • No real store lookup • Built for presentation</div>
+        <div class="fine">Mock only • No real store lookup • Built for presentation</div>
 
-        <div class="centerCta">
+        <div class="center">
           <a class="btn btn--ghost" href="#top">Back to Top <span class="arrow">›</span></a>
         </div>
       </div>
@@ -218,7 +214,6 @@
     <footer class="footer">
       Mock website for class/project use • © 2026 Rios (concept)
     </footer>
-
   </main>
 </body>
 </html>
