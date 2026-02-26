@@ -7,7 +7,6 @@
   <meta name="description" content="Rios: premium rum cocktails made for vacation mode." />
   <link rel="stylesheet" href="styles.css" />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
@@ -31,18 +30,18 @@
     </div>
   </header>
 
-  <!-- HERO (full-bleed, no tile behind it) -->
+  <!-- HERO -->
   <section class="hero" id="top" role="banner" aria-label="Hero">
     <div class="hero__bg"></div>
     <div class="hero__overlay"></div>
 
     <div class="hero__content">
       <img src="images/logo.png" class="hero__logo" alt="Rios">
-      <h1 class="hero__headline">Real Rum. Real Escape.</h1>
+      <h1 class="hero__headline" data-edit="hero.headline">Real Rum. Real Escape.</h1>
 
       <div class="hero__actions">
-        <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
-        <a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
+        <a class="btn btn--primary" href="#find" data-edit="hero.ctaPrimary">Find an Escape Near You <span class="arrow">›</span></a>
+        <a class="btn btn--ghost" href="#flavors" data-edit="hero.ctaSecondary">Explore Flavors <span class="arrow">›</span></a>
       </div>
     </div>
   </section>
@@ -53,14 +52,14 @@
     <section class="section" id="flavors">
       <div class="card">
         <div class="sectionHead">
-          <h2>Taste the Tropics</h2>
-          <p>Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
+          <h2 data-edit="flavors.title">Taste the Tropics</h2>
+          <p data-edit="flavors.subhead">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
         </div>
 
         <div class="pillRow">
-          <div class="pill"><span class="dot">🪵</span> Crafted with Premium Rum</div>
-          <div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
-          <div class="pill"><span class="dot">🍊</span> Ready to Enjoy</div>
+          <div class="pill"><span class="dot">🪵</span> <span data-edit="flavors.pill1">Crafted with Premium Rum</span></div>
+          <div class="pill"><span class="dot">🌿</span> <span data-edit="flavors.pill2">Natural Ingredients</span></div>
+          <div class="pill"><span class="dot">🍊</span> <span data-edit="flavors.pill3">Ready to Enjoy</span></div>
         </div>
 
         <div class="grid">
@@ -68,36 +67,36 @@
             <div class="flavor__img">
               <img src="images/can1.png" alt="Strawberry Banana Daiquiri can">
             </div>
-            <h3>Strawberry Banana<br>Daiquiri</h3>
-            <div class="meta">6% ALC/VOL • LOW SUGAR</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+            <h3 data-edit="can1.name">Strawberry Banana<br>Daiquiri</h3>
+            <div class="meta" data-edit="can1.meta">6% ALC/VOL • LOW SUGAR</div>
+            <a class="btn btn--mini" href="#find" data-edit="can.cta">Find an Escape Near You</a>
           </article>
 
           <article class="flavor">
             <div class="flavor__img">
               <img src="images/can2.png" alt="Passionfruit Mai Tai can">
             </div>
-            <h3>Passionfruit<br>Mai Tai</h3>
-            <div class="meta">8% ALC/VOL • GLUTEN FREE</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+            <h3 data-edit="can2.name">Passionfruit<br>Mai Tai</h3>
+            <div class="meta" data-edit="can2.meta">8% ALC/VOL • GLUTEN FREE</div>
+            <a class="btn btn--mini" href="#find" data-edit="can.cta">Find an Escape Near You</a>
           </article>
 
           <article class="flavor">
             <div class="flavor__img">
               <img src="images/can3.png" alt="Hibiscus Mint Mojito can">
             </div>
-            <h3>Hibiscus<br>Mint Mojito</h3>
-            <div class="meta">7% ALC/VOL • NATURAL FLAVORS</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+            <h3 data-edit="can3.name">Hibiscus<br>Mint Mojito</h3>
+            <div class="meta" data-edit="can3.meta">7% ALC/VOL • NATURAL FLAVORS</div>
+            <a class="btn btn--mini" href="#find" data-edit="can.cta">Find an Escape Near You</a>
           </article>
 
           <article class="flavor">
             <div class="flavor__img">
               <img src="images/can4.png" alt="Mango Ginger Rum Punch can">
             </div>
-            <h3>Mango Ginger<br>Rum Punch</h3>
-            <div class="meta">9% ALC/VOL • REAL RUM</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+            <h3 data-edit="can4.name">Mango Ginger<br>Rum Punch</h3>
+            <div class="meta" data-edit="can4.meta">9% ALC/VOL • REAL RUM</div>
+            <a class="btn btn--mini" href="#find" data-edit="can.cta">Find an Escape Near You</a>
           </article>
         </div>
       </div>
@@ -107,22 +106,22 @@
     <section class="section" id="why">
       <div class="card split">
         <div>
-          <h2>Why Rum?</h2>
-          <p>
+          <h2 data-edit="why.title">Why Rum?</h2>
+          <p data-edit="why.body">
             Rum fits beach culture naturally—tropical, social, and built for “vacation mode.”
             Rios keeps it premium: real rum, clean design, and a destination-led story.
           </p>
           <ul>
-            <li>Authentic premium signal: real rum positioning</li>
-            <li>“Escape” mindset that matches Gen Z lifestyle pressure</li>
-            <li>Flavor variety that drives trial and repeat</li>
+            <li data-edit="why.b1">Authentic premium signal: real rum positioning</li>
+            <li data-edit="why.b2">“Escape” mindset that matches Gen Z lifestyle pressure</li>
+            <li data-edit="why.b3">Flavor variety that drives trial and repeat</li>
           </ul>
         </div>
 
         <aside class="side">
-          <div class="kicker">Origin</div>
-          <div class="title">Ocho Rios, Jamaica</div>
-          <div class="text">A beach-first identity without neon or cliché “tropical noise.”</div>
+          <div class="kicker" data-edit="why.kicker">Origin</div>
+          <div class="title" data-edit="why.originTitle">Ocho Rios, Jamaica</div>
+          <div class="text" data-edit="why.originText">A beach-first identity without neon or cliché “tropical noise.”</div>
         </aside>
       </div>
     </section>
@@ -130,36 +129,21 @@
     <!-- Data -->
     <section class="section" id="data">
       <div class="card">
-        <h2>The Data</h2>
-        <p>A deck-style snapshot for the mock website.</p>
+        <h2 data-edit="data.title">The Data</h2>
+        <p data-edit="data.subhead">A deck-style snapshot for the mock website.</p>
 
         <div class="stats">
           <div class="stat">
-            <div class="num">50%</div>
-            <div class="label">“Enthusiast” rating (Gen Z interest)</div>
+            <div class="num" data-edit="data.s1n">50%</div>
+            <div class="label" data-edit="data.s1l">“Enthusiast” rating (Gen Z interest)</div>
           </div>
           <div class="stat">
-            <div class="num">4</div>
-            <div class="label">Flavors designed for variety + trial</div>
+            <div class="num" data-edit="data.s2n">4</div>
+            <div class="label" data-edit="data.s2l">Flavors designed for variety + trial</div>
           </div>
           <div class="stat">
-            <div class="num">6–9%</div>
-            <div class="label">ABV range with clear strength cues</div>
-          </div>
-        </div>
-
-        <div class="bars">
-          <div class="bar">
-            <div class="bar__label">Rum interest</div>
-            <div class="track"><span style="width:76%"></span></div>
-          </div>
-          <div class="bar">
-            <div class="bar__label">Premium RTD momentum</div>
-            <div class="track"><span style="width:64%"></span></div>
-          </div>
-          <div class="bar">
-            <div class="bar__label">Flavor variety drives purchase</div>
-            <div class="track"><span style="width:82%"></span></div>
+            <div class="num" data-edit="data.s3n">6–9%</div>
+            <div class="label" data-edit="data.s3l">ABV range with clear strength cues</div>
           </div>
         </div>
       </div>
@@ -168,26 +152,26 @@
     <!-- Campaign -->
     <section class="section" id="campaign">
       <div class="card">
-        <h2>Launch Campaign</h2>
-        <p><strong>Find an Escape Near You</strong> — pre-launch discovery + trial.</p>
+        <h2 data-edit="campaign.title">Launch Campaign</h2>
+        <p><strong data-edit="campaign.kicker">Find an Escape Near You</strong> — <span data-edit="campaign.sub">pre-launch discovery + trial.</span></p>
 
         <div class="triples">
           <div class="mini">
-            <div class="mini__title">Escape Drops</div>
-            <div class="mini__text">Pop-up tastings + beach-world setups in city hotspots.</div>
+            <div class="mini__title" data-edit="campaign.c1t">Escape Drops</div>
+            <div class="mini__text" data-edit="campaign.c1b">Pop-up tastings + beach-world setups in city hotspots.</div>
           </div>
           <div class="mini">
-            <div class="mini__title">Social Discovery</div>
-            <div class="mini__text">Short-form “vacation mode” content + UGC flavor reactions.</div>
+            <div class="mini__title" data-edit="campaign.c2t">Social Discovery</div>
+            <div class="mini__text" data-edit="campaign.c2b">Short-form “vacation mode” content + UGC flavor reactions.</div>
           </div>
           <div class="mini">
-            <div class="mini__title">Retail Tease</div>
-            <div class="mini__text">Shelf talkers + locator CTA to capture purchase intent.</div>
+            <div class="mini__title" data-edit="campaign.c3t">Retail Tease</div>
+            <div class="mini__text" data-edit="campaign.c3b">Shelf talkers + locator CTA to capture purchase intent.</div>
           </div>
         </div>
 
         <div class="center">
-          <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+          <a class="btn btn--primary" href="#find" data-edit="campaign.cta">Find an Escape Near You <span class="arrow">›</span></a>
         </div>
       </div>
     </section>
@@ -195,25 +179,258 @@
     <!-- Find -->
     <section class="section" id="find">
       <div class="card centerCard">
-        <h2>Find Your Rios</h2>
-        <p>Mock locator for class/presentation use (no real lookup).</p>
+        <h2 data-edit="find.title">Find Your Rios</h2>
+        <p data-edit="find.sub">Mock locator for class/presentation use (no real lookup).</p>
 
         <div class="search">
           <input type="text" placeholder="Enter your city or zip code" aria-label="City or zip code">
-          <button type="button">Search <span class="arrow">›</span></button>
+          <button type="button" data-edit="find.searchBtn">Search <span class="arrow">›</span></button>
         </div>
 
-        <div class="fine">Mock only • No real store lookup • Built for presentation</div>
+        <div class="fine" data-edit="find.fine">Mock only • No real store lookup • Built for presentation</div>
 
         <div class="center">
-          <a class="btn btn--ghost" href="#top">Back to Top <span class="arrow">›</span></a>
+          <a class="btn btn--ghost" href="#top" data-edit="find.backTop">Back to Top <span class="arrow">›</span></a>
         </div>
       </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" data-edit="footer">
       Mock website for class/project use • © 2026 Rios (concept)
     </footer>
   </main>
+
+  <!-- Hidden Editor Dock (bottom) -->
+  <div class="editorDock" id="editorDock" aria-hidden="true">
+    <button class="editorDock__toggle" id="editorToggle" type="button">
+      Edit Site
+    </button>
+
+    <div class="editorDock__panel" id="editorPanel">
+      <div class="editorDock__head">
+        <div class="editorDock__title">Rios Editor (local + JSON)</div>
+        <div class="editorDock__sub">Edits save to this browser. Export/import JSON to move edits.</div>
+      </div>
+
+      <div class="editorGrid">
+        <label class="editorField">
+          <span>Hero headline</span>
+          <input id="f_hero_headline" type="text" />
+        </label>
+
+        <label class="editorField">
+          <span>Primary button</span>
+          <input id="f_hero_cta1" type="text" />
+        </label>
+
+        <label class="editorField">
+          <span>Secondary button</span>
+          <input id="f_hero_cta2" type="text" />
+        </label>
+
+        <label class="editorField editorField--wide">
+          <span>Flavors section subhead</span>
+          <input id="f_flavors_sub" type="text" />
+        </label>
+
+        <label class="editorField editorField--wide">
+          <span>Why Rum paragraph</span>
+          <textarea id="f_why_body" rows="3"></textarea>
+        </label>
+
+        <label class="editorField editorField--wide">
+          <span>Footer</span>
+          <input id="f_footer" type="text" />
+        </label>
+      </div>
+
+      <div class="editorActions">
+        <button class="eBtn" id="btnApply" type="button">Apply</button>
+        <button class="eBtn eBtn--ghost" id="btnReset" type="button">Reset</button>
+        <button class="eBtn eBtn--dark" id="btnExport" type="button">Export JSON</button>
+
+        <label class="eBtn eBtn--dark eBtn--file">
+          Import JSON
+          <input id="fileImport" type="file" accept="application/json" />
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function(){
+      const STORAGE_KEY = "rios_site_content_v1";
+
+      // Elements that can be edited
+      const editableNodes = Array.from(document.querySelectorAll("[data-edit]"));
+
+      function getNodeValue(node){
+        // For buttons/links with nested <span>, preserve innerHTML so arrows stay
+        // But we want to edit only text portion for those fields in the dock.
+        return node.innerHTML;
+      }
+
+      function setNodeValue(node, html){
+        node.innerHTML = html;
+      }
+
+      function loadState(){
+        try{
+          const raw = localStorage.getItem(STORAGE_KEY);
+          if(!raw) return null;
+          return JSON.parse(raw);
+        }catch(e){
+          return null;
+        }
+      }
+
+      function saveState(state){
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+      }
+
+      function captureStateFromDOM(){
+        const state = {};
+        editableNodes.forEach(n => {
+          const key = n.getAttribute("data-edit");
+          state[key] = getNodeValue(n);
+        });
+        return state;
+      }
+
+      function applyStateToDOM(state){
+        if(!state) return;
+        editableNodes.forEach(n => {
+          const key = n.getAttribute("data-edit");
+          if(state[key] != null){
+            setNodeValue(n, state[key]);
+          }
+        });
+      }
+
+      // --- Editor dock controls ---
+      const dock = document.getElementById("editorDock");
+      const toggle = document.getElementById("editorToggle");
+      const panel = document.getElementById("editorPanel");
+
+      const fHeroHeadline = document.getElementById("f_hero_headline");
+      const fCta1 = document.getElementById("f_hero_cta1");
+      const fCta2 = document.getElementById("f_hero_cta2");
+      const fFlavorsSub = document.getElementById("f_flavors_sub");
+      const fWhyBody = document.getElementById("f_why_body");
+      const fFooter = document.getElementById("f_footer");
+
+      const btnApply = document.getElementById("btnApply");
+      const btnReset = document.getElementById("btnReset");
+      const btnExport = document.getElementById("btnExport");
+      const fileImport = document.getElementById("fileImport");
+
+      // helpers: find node by key
+      const nodeByKey = (key) => document.querySelector(`[data-edit="${key}"]`);
+
+      function stripArrow(html){
+        // remove trailing arrow span, keep text
+        return html.replace(/<span class="arrow">.*?<\/span>/g, "").trim();
+      }
+      function addArrow(text){
+        return `${text} <span class="arrow">›</span>`;
+      }
+
+      function syncFieldsFromDOM(){
+        const heroH = nodeByKey("hero.headline");
+        const cta1 = nodeByKey("hero.ctaPrimary");
+        const cta2 = nodeByKey("hero.ctaSecondary");
+        const flavorsSub = nodeByKey("flavors.subhead");
+        const whyBody = nodeByKey("why.body");
+        const footer = nodeByKey("footer");
+
+        if(heroH) fHeroHeadline.value = heroH.textContent.trim();
+        if(cta1) fCta1.value = stripArrow(cta1.innerHTML);
+        if(cta2) fCta2.value = stripArrow(cta2.innerHTML);
+        if(flavorsSub) fFlavorsSub.value = flavorsSub.textContent.trim();
+        if(whyBody) fWhyBody.value = whyBody.textContent.trim();
+        if(footer) fFooter.value = footer.textContent.trim();
+      }
+
+      function applyFieldsToDOM(){
+        const heroH = nodeByKey("hero.headline");
+        const cta1 = nodeByKey("hero.ctaPrimary");
+        const cta2 = nodeByKey("hero.ctaSecondary");
+        const flavorsSub = nodeByKey("flavors.subhead");
+        const whyBody = nodeByKey("why.body");
+        const footer = nodeByKey("footer");
+
+        if(heroH) heroH.textContent = fHeroHeadline.value.trim();
+        if(cta1) cta1.innerHTML = addArrow(fCta1.value.trim());
+        if(cta2) cta2.innerHTML = addArrow(fCta2.value.trim());
+        if(flavorsSub) flavorsSub.textContent = fFlavorsSub.value.trim();
+        if(whyBody) whyBody.textContent = fWhyBody.value.trim();
+        if(footer) footer.textContent = fFooter.value.trim();
+
+        // Save everything (not just these fields) so imports/exports stay consistent
+        saveState(captureStateFromDOM());
+      }
+
+      function resetAll(){
+        localStorage.removeItem(STORAGE_KEY);
+        // Full reload restores original HTML
+        location.reload();
+      }
+
+      function exportJSON(){
+        const state = captureStateFromDOM();
+        const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "rios-edits.json";
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+        URL.revokeObjectURL(url);
+      }
+
+      function importJSON(file){
+        const reader = new FileReader();
+        reader.onload = () => {
+          try{
+            const parsed = JSON.parse(reader.result);
+            applyStateToDOM(parsed);
+            saveState(parsed);
+            syncFieldsFromDOM();
+          }catch(e){
+            alert("That file does not look like valid Rios JSON.");
+          }
+        };
+        reader.readAsText(file);
+      }
+
+      // Toggle dock (always present but collapsed)
+      let open = false;
+      function setOpen(v){
+        open = v;
+        dock.setAttribute("aria-hidden", open ? "false" : "true");
+        dock.classList.toggle("editorDock--open", open);
+        toggle.textContent = open ? "Close Editor" : "Edit Site";
+        if(open) syncFieldsFromDOM();
+      }
+
+      toggle.addEventListener("click", () => setOpen(!open));
+      btnApply.addEventListener("click", applyFieldsToDOM);
+      btnReset.addEventListener("click", resetAll);
+      btnExport.addEventListener("click", exportJSON);
+      fileImport.addEventListener("change", (e) => {
+        const file = e.target.files && e.target.files[0];
+        if(file) importJSON(file);
+        e.target.value = "";
+      });
+
+      // Load saved state on page load
+      const state = loadState();
+      if(state) applyStateToDOM(state);
+
+      // Start closed
+      setOpen(false);
+    })();
+  </script>
 </body>
 </html>
