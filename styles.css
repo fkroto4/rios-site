@@ -21,14 +21,16 @@ body{
 /* HERO */
 .hero{
   position:relative;
-  min-height: 62vh;
+  min-height:65vh;
+  height:clamp(500px,70vh,900px);
+
   display:flex;
   align-items:center;
   justify-content:center;
+
   background-position:center;
   background-size:cover;
   background-repeat:no-repeat;
-  padding: 120px 18px 90px;
 }
 .hero__overlay{
   position:absolute; inset:0;
