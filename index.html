@@ -1,249 +1,344 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rios — Real Jamaican Rum Cocktails</title>
-  <meta name="description" content="Rios: Real Jamaican rum cocktails built for vacation mode—any night of the week." />
-  <link rel="stylesheet" href="styles.css" />
-</head>
+:root{
+  --sky:#70b4cb;
+  --deep:#0c2635;
+  --ink:#0b1f2a;
+  --card:rgba(255,255,255,.84);
+  --card2:rgba(255,255,255,.92);
+  --stroke:rgba(12,38,53,.12);
+  --shadow: 0 18px 50px rgba(0,0,0,.14);
+}
 
-<body>
-  <header class="topbar">
-    <div class="wrap topbar__inner">
-      <a class="brand" href="#top" aria-label="Rios home">
-        <div class="brand__mark">Rios</div>
-      </a>
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+  color:var(--ink);
+  background:
+    radial-gradient(1000px 650px at 25% 5%, rgba(255,255,255,.55), rgba(255,255,255,0) 60%),
+    linear-gradient(180deg, #8bc6d8, var(--sky) 55%, #63a8bf);
+}
 
-      <nav class="nav">
-        <a href="#why">Why Rum</a>
-        <a href="#selection">Selection</a>
-        <a href="#profiles">Profiles</a>
-        <a href="#faq">FAQ</a>
-      </nav>
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
 
-      <a class="btn btn--small" href="#waitlist">Find an Escape Near You</a>
-    </div>
-  </header>
+.topbar{
+  position:sticky;top:0;z-index:60;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.70);
+  border-bottom:1px solid rgba(255,255,255,.35);
+}
+.topbar__inner{
+  height:74px;display:flex;align-items:center;gap:18px;
+}
 
-  <main id="top">
-    <!-- HERO -->
-    <section class="hero">
-      <div class="wrap hero__grid">
-        <div class="hero__copy">
-          <p class="pill">Real Jamaican Rum Cocktails</p>
-          <h1>Escape to Rios Time.</h1>
-          <p class="lede">
-            A premium rum escape for busy 25–35s who want vacation mode—without leaving home.
-          </p>
+.brand{text-decoration:none;color:inherit}
+.brand__mark{
+  font-weight:900;
+  font-size:22px;
+  letter-spacing:.02em;
+  color: rgba(12,38,53,.95);
+}
 
-          <div class="hero__cta">
-            <a class="btn" href="#waitlist">Find an Escape Near You</a>
-            <div class="micro">Pre-launch mock for class/project use. No real submissions.</div>
-          </div>
+.nav{margin-left:auto;display:flex;gap:18px;align-items:center}
+.nav a{
+  text-decoration:none;
+  color: rgba(12,38,53,.86);
+  font-weight:700;
+  font-size:14px;
+  letter-spacing:.02em;
+}
+.nav a:hover{opacity:.75}
 
-          <div class="trust">
-            <div class="trust__item">
-              <div class="trust__kicker">Low Sugar</div>
-              <div class="trust__desc">Clean, modern drinkability</div>
-            </div>
-            <div class="trust__item">
-              <div class="trust__kicker">Natural Flavors</div>
-              <div class="trust__desc">Elevated, not neon</div>
-            </div>
-            <div class="trust__item">
-              <div class="trust__kicker">Real Rum</div>
-              <div class="trust__desc">Jamaican rum base</div>
-            </div>
-          </div>
-        </div>
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:14px 18px;border-radius:14px;
+  background: rgba(12,38,53,.92);
+  color:#fff;text-decoration:none;font-weight:800;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 10px 30px rgba(0,0,0,.16);
+  transition: transform .12s ease, opacity .12s ease;
+}
+.btn:hover{transform: translateY(-1px);opacity:.96}
+.btn--small{padding:10px 14px;border-radius:12px;font-size:14px}
 
-        <div class="hero__media" aria-label="Rios can lineup">
-          <div class="mediaCard">
-            <div class="mediaCard__top">
-              <div class="mediaCard__title">The Selection</div>
-              <div class="mediaCard__sub">4 flavors • 8-pack ready</div>
-            </div>
-            <div class="mediaCard__imgWrap">
-              <img src="images/cans.png" alt="Rios can lineup" />
-            </div>
-          </div>
-        </div>
-      </div>
+.section{padding:66px 0}
+.section--alt{
+  background: rgba(255,255,255,.16);
+  border-top:1px solid rgba(255,255,255,.20);
+  border-bottom:1px solid rgba(255,255,255,.20);
+}
 
-      <div class="heroGlow" aria-hidden="true"></div>
-      <div class="heroWave" aria-hidden="true"></div>
-    </section>
+.sectionHead{margin-bottom:22px}
+h2{
+  margin:0 0 10px;
+  font-size:34px;
+  color: rgba(255,255,255,.98);
+  text-shadow: 0 10px 26px rgba(0,0,0,.12);
+}
+.subhead{
+  margin:0;
+  color: rgba(255,255,255,.88);
+  font-weight:700;
+}
 
-    <!-- WHY RUM -->
-    <section id="why" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Why Rum?</h2>
-          <p class="subhead">Real origin. Real trend. Real escape.</p>
-        </div>
+.hero{
+  position:relative;
+  padding:78px 0 56px;
+  overflow:hidden;
+}
+.hero__grid{
+  display:grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap:34px;
+  align-items:center;
+  position:relative;
+  z-index:2;
+}
 
-        <div class="cards">
-          <article class="card">
-            <div class="card__eyebrow">The Origin</div>
-            <h3>Ocho Rios, Jamaica</h3>
-            <p>
-              Real Jamaican rum is the soul of our cocktail line—naturally tied to beach culture and effortless “vacation mode.”
-            </p>
-          </article>
+.pill{
+  display:inline-block;
+  padding:8px 12px;
+  border-radius:999px;
+  background: rgba(255,255,255,.22);
+  border:1px solid rgba(255,255,255,.22);
+  color: rgba(255,255,255,.92);
+  font-weight:800;
+  letter-spacing:.02em;
+  margin:0 0 14px;
+}
 
-          <article class="card">
-            <div class="card__eyebrow">The Data</div>
-            <h3>50% Enthusiast Rating</h3>
-            <p>
-              Rum has the highest “enthusiast” interest among Gen Z, creating white space for a premium rum cocktail brand.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
+.hero h1{
+  margin:0 0 14px;
+  font-size: clamp(42px, 4.8vw, 66px);
+  line-height:1.05;
+  color:#fff;
+  text-shadow: 0 14px 36px rgba(0,0,0,.18);
+}
 
-    <!-- SELECTION -->
-    <section id="selection" class="section section--alt">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>The Selection</h2>
-          <p class="subhead">Four escapes. One clean lineup.</p>
-        </div>
+.lede{
+  margin:0 0 22px;
+  font-size:18px;
+  line-height:1.55;
+  color: rgba(255,255,255,.92);
+  max-width: 50ch;
+}
 
-        <div class="flavorGrid">
-          <div class="flavor">
-            <div class="flavor__name">Strawberry Banana Daiquiri</div>
-            <div class="flavor__meta">6% ABV • Low Sugar</div>
-          </div>
-          <div class="flavor">
-            <div class="flavor__name">Passionfruit Mai Tai</div>
-            <div class="flavor__meta">8% ABV • Gluten Free</div>
-          </div>
-          <div class="flavor">
-            <div class="flavor__name">Hibiscus Mint Mojito</div>
-            <div class="flavor__meta">7% ABV • Natural Flavors</div>
-          </div>
-          <div class="flavor">
-            <div class="flavor__name">Mango Ginger Rum Punch</div>
-            <div class="flavor__meta">9% ABV • Real Rum</div>
-          </div>
-        </div>
-      </div>
-    </section>
+.hero__cta{display:flex;flex-direction:column;gap:10px}
+.micro{
+  font-size:12px;
+  color: rgba(255,255,255,.78);
+  font-weight:600;
+}
+.micro--dark{color: rgba(12,38,53,.70)}
 
-    <!-- FLAVOR PROFILES -->
-    <section id="profiles" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Flavor Profiles</h2>
-          <p class="subhead">Simple lineup, clear choices.</p>
-        </div>
+.trust{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:12px;
+  margin-top:22px;
+}
+.trust__item{
+  background: rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.22);
+  border-radius:16px;
+  padding:12px 12px;
+}
+.trust__kicker{
+  color:#fff;
+  font-weight:900;
+  font-size:13px;
+  letter-spacing:.02em;
+}
+.trust__desc{
+  margin-top:4px;
+  color: rgba(255,255,255,.86);
+  font-weight:650;
+  font-size:12px;
+  line-height:1.35;
+}
 
-        <div class="table">
-          <div class="row row--head">
-            <div>Flavor</div>
-            <div>ABV</div>
-            <div>Notes</div>
-          </div>
+.hero__media .mediaCard{
+  background: rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.24);
+  border-radius:22px;
+  box-shadow: var(--shadow);
+  overflow:hidden;
+}
+.mediaCard__top{
+  padding:14px 16px;
+  background: rgba(255,255,255,.18);
+  border-bottom:1px solid rgba(255,255,255,.18);
+}
+.mediaCard__title{font-weight:900;color:#fff}
+.mediaCard__sub{font-weight:700;color: rgba(255,255,255,.86);font-size:13px;margin-top:2px}
+.mediaCard__imgWrap{padding:18px}
+.mediaCard__imgWrap img{
+  width:100%;
+  height:auto;
+  display:block;
+  border-radius:16px;
+  background: rgba(255,255,255,.20);
+  border:1px solid rgba(255,255,255,.18);
+}
 
-          <div class="row">
-            <div>Strawberry Banana Daiquiri</div>
-            <div>6%</div>
-            <div>Smooth fruit with a crisp citrus finish</div>
-          </div>
-          <div class="row">
-            <div>Passionfruit Mai Tai</div>
-            <div>8%</div>
-            <div>Bright tropical lift with rum warmth</div>
-          </div>
-          <div class="row">
-            <div>Hibiscus Mint Mojito</div>
-            <div>7%</div>
-            <div>Floral hibiscus balanced by fresh mint</div>
-          </div>
-          <div class="row">
-            <div>Mango Ginger Rum Punch</div>
-            <div>9%</div>
-            <div>Ripe mango with a clean ginger kick</div>
-          </div>
-        </div>
+.heroGlow{
+  position:absolute;inset:-40%;
+  background:
+    radial-gradient(800px 520px at 20% 25%, rgba(255,255,255,.45), rgba(255,255,255,0) 60%),
+    radial-gradient(720px 520px at 75% 45%, rgba(12,38,53,.22), rgba(12,38,53,0) 62%);
+  z-index:1;
+  pointer-events:none;
+}
 
-        <div class="callout">
-          <div class="callout__title">Made with real Jamaican rum</div>
-          <div class="callout__text">Low sugar • Natural flavors • Built for calm confidence</div>
-        </div>
-      </div>
-    </section>
+.heroWave{
+  position:absolute;left:-20%;right:-20%;bottom:-110px;height:240px;
+  background: rgba(255,255,255,.18);
+  filter: blur(0px);
+  border-radius: 999px;
+  transform: rotate(-6deg);
+  z-index:1;
+  pointer-events:none;
+}
 
-    <!-- WAITLIST -->
-    <section id="waitlist" class="section section--alt">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>Find an Escape Near You</h2>
-          <p class="subhead">Pre-launch mock: join for “availability updates.”</p>
-        </div>
+.cards{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:18px;
+}
+.card{
+  background: var(--card);
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:18px;
+  padding:18px 18px 16px;
+  box-shadow: 0 18px 44px rgba(0,0,0,.12);
+}
+.card__eyebrow{
+  font-weight:900;
+  font-size:12px;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  color: rgba(12,38,53,.70);
+}
+.card h3{margin:10px 0 8px;font-size:18px;color: rgba(12,38,53,.95)}
+.card p{margin:0;line-height:1.55;color: rgba(12,38,53,.82)}
 
-        <form class="form" onsubmit="return false;">
-          <div class="formRow">
-            <label>
-              <span>Email</span>
-              <input type="email" placeholder="you@example.com" required />
-            </label>
+.flavorGrid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap:14px;
+}
+.flavor{
+  background: var(--card2);
+  border:1px solid rgba(255,255,255,.55);
+  border-radius:18px;
+  padding:16px;
+  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+}
+.flavor__name{font-weight:900;color: rgba(12,38,53,.95)}
+.flavor__meta{margin-top:8px;color: rgba(12,38,53,.72);font-weight:750}
 
-            <label>
-              <span>ZIP Code</span>
-              <input type="text" placeholder="45212" />
-            </label>
-          </div>
+.table{
+  background: var(--card);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,.45);
+  overflow:hidden;
+  box-shadow: 0 18px 44px rgba(0,0,0,.12);
+}
+.row{
+  display:grid;
+  grid-template-columns: 1.3fr .25fr 1fr;
+  gap:14px;
+  padding:14px 16px;
+  border-top:1px solid var(--stroke);
+}
+.row--head{
+  border-top:none;
+  font-weight:950;
+  background: rgba(255,255,255,.55);
+}
 
-          <button class="btn" type="submit">Join the Waitlist</button>
-          <div class="micro micro--dark">Mock form (does not submit). This keeps the site stable.</div>
-        </form>
-      </div>
-    </section>
+.callout{
+  margin-top:18px;
+  background: rgba(12,38,53,.88);
+  color:#fff;
+  border-radius:18px;
+  padding:16px;
+  border:1px solid rgba(255,255,255,.12);
+  box-shadow: 0 18px 44px rgba(0,0,0,.12);
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+.callout__title{font-weight:950}
+.callout__text{font-weight:700;opacity:.9}
 
-    <!-- FAQ -->
-    <section id="faq" class="section">
-      <div class="wrap">
-        <div class="sectionHead">
-          <h2>FAQ</h2>
-          <p class="subhead">Quick answers for your presentation.</p>
-        </div>
+.form{
+  max-width:620px;
+  background: var(--card);
+  border-radius:18px;
+  padding:18px;
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow: 0 18px 44px rgba(0,0,0,.12);
+}
+.formRow{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap:12px;
+  margin-bottom:12px;
+}
+label span{
+  display:block;
+  font-weight:950;
+  color: rgba(12,38,53,.92);
+  font-size:12px;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+}
+input{
+  width:100%;
+  margin-top:8px;
+  padding:12px 12px;
+  border-radius:14px;
+  border:1px solid rgba(12,38,53,.18);
+  outline:none;
+  background: rgba(255,255,255,.90);
+}
+input:focus{border-color: rgba(12,38,53,.35)}
 
-        <div class="faq">
-          <details>
-            <summary>Is this a real product yet?</summary>
-            <p>This is a pre-launch concept and a mock website for class/project use.</p>
-          </details>
+.faq details{
+  background: var(--card);
+  border-radius:16px;
+  padding:14px 16px;
+  margin-bottom:12px;
+  border:1px solid rgba(255,255,255,.45);
+  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+}
+.faq summary{
+  cursor:pointer;
+  font-weight:950;
+  color: rgba(12,38,53,.92);
+}
+.faq p{margin:10px 0 0;color: rgba(12,38,53,.78);line-height:1.55}
 
-          <details>
-            <summary>What makes it “premium”?</summary>
-            <p>Real Jamaican rum, elevated flavor profiles, and a calm “escape” brand world—without loud tropical clichés.</p>
-          </details>
+.footer{
+  padding:28px 0;
+  background: rgba(12,38,53,.92);
+  color: rgba(255,255,255,.88);
+}
+.footer__inner{display:flex;justify-content:space-between;gap:14px;align-items:center}
+.footer__brand{font-weight:950;letter-spacing:.03em}
+.footer__meta{opacity:.8;font-size:13px}
+.footer__top{color:#fff;opacity:.9;text-decoration:none;font-weight:800}
+.footer__top:hover{opacity:1}
 
-          <details>
-            <summary>Where will it be sold?</summary>
-            <p>Planned rollout: select retailers + online. Replace this section later with a store locator.</p>
-          </details>
-
-          <details>
-            <summary>What are the ABVs?</summary>
-            <p>6%, 8%, 7%, and 9% across the four flavors.</p>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="wrap footer__inner">
-        <div>
-          <div class="footer__brand">Rios</div>
-          <div class="footer__meta">Mock site for class/project use • © 2026 Rios (concept)</div>
-        </div>
-        <a class="footer__top" href="#top">Back to top</a>
-      </div>
-    </footer>
-  </main>
-</body>
-</html>
+@media (max-width: 980px){
+  .nav{display:none}
+  .hero__grid{grid-template-columns:1fr}
+  .trust{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr}
+  .flavorGrid{grid-template-columns: 1fr 1fr}
+  .formRow{grid-template-columns:1fr}
+}
+@media (max-width: 560px){
+  .flavorGrid{grid-template-columns: 1fr}
+}
