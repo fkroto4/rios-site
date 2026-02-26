@@ -4,24 +4,25 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rios — Real Rum. Real Escape.</title>
-  <meta name="description" content="Rios: refreshing, premium rum cocktails made with real rum and natural ingredients." />
   <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
   <!-- HERO -->
-  <header class="hero" id="top" style="background-image:url('images/hero.jpg');">
+  <header class="hero" id="top">
     <div class="hero__overlay"></div>
 
     <div class="hero__content">
-      <div class="logo">Rios</div>
+      <img class="brandLogo" src="images/logo.png" alt="Rios logo" />
       <div class="tagline">Real Rum. Real Escape.</div>
 
-      <a class="btn btn--primary" href="#locator">Find an Escape Near You <span class="arrow">›</span></a>
+      <a class="cta" href="#locator">
+        Find an Escape Near You <span class="arrow">›</span>
+      </a>
     </div>
   </header>
 
-  <!-- MAIN -->
+  <!-- SAND PANEL -->
   <main class="panel">
     <section class="section">
       <h2 class="h2">Taste the Tropics</h2>
@@ -51,55 +52,51 @@
         </div>
       </div>
 
-      <!-- PRODUCT GRID -->
+      <!-- PRODUCTS -->
       <section class="grid" aria-label="Rios flavors">
-        <!-- Card 1 -->
         <article class="card">
           <div class="card__can">
-            <img class="canCrop canCrop--1" src="images/cans.png" alt="Strawberry Banana Daiquiri can" />
+            <img class="canImg" src="images/can1.png" alt="Strawberry Banana Daiquiri can" />
           </div>
           <h3 class="card__title">Strawberry Banana<br />Daiquiri</h3>
           <div class="card__meta">6% ALC/VOL • LOW SUGAR</div>
           <div class="card__bullet">• Real Rum. Deliciously Exotic.</div>
-          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
         </article>
 
-        <!-- Card 2 -->
         <article class="card">
           <div class="card__can">
-            <img class="canCrop canCrop--2" src="images/cans.png" alt="Passionfruit Mai Tai can" />
+            <img class="canImg" src="images/can2.png" alt="Passionfruit Mai Tai can" />
           </div>
           <h3 class="card__title">Passionfruit<br />Mai Tai</h3>
           <div class="card__meta">8% ALC/VOL • GLUTEN FREE</div>
           <div class="card__bullet">• Real Rum. Tropical Passion.</div>
-          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
         </article>
 
-        <!-- Card 3 -->
         <article class="card">
           <div class="card__can">
-            <img class="canCrop canCrop--3" src="images/cans.png" alt="Hibiscus Mint Mojito can" />
+            <img class="canImg" src="images/can3.png" alt="Hibiscus Mint Mojito can" />
           </div>
           <h3 class="card__title">Hibiscus<br />Mint Mojito</h3>
           <div class="card__meta">7% ALC/VOL • NATURAL FLAVORS</div>
           <div class="card__bullet">• Real Rum. Freshly Minted.</div>
-          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
         </article>
 
-        <!-- Card 4 -->
         <article class="card">
           <div class="card__can">
-            <img class="canCrop canCrop--4" src="images/cans.png" alt="Mango Ginger Rum Punch can" />
+            <img class="canImg" src="images/can4.png" alt="Mango Ginger Rum Punch can" />
           </div>
           <h3 class="card__title">Mango Ginger<br />Rum Punch</h3>
           <div class="card__meta">9% ALC/VOL • REAL RUM</div>
           <div class="card__bullet">• Real Rum. Bold and Spiced.</div>
-          <a class="btn btn--ghost" href="#locator">Find an Escape Near You</a>
+          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
         </article>
       </section>
     </section>
 
-    <!-- LOCATOR (mock, clickable, doesn't break) -->
+    <!-- LOCATOR (mock) -->
     <section class="locator" id="locator">
       <h2 class="h2 h2--dark">Find Your Rios</h2>
       <p class="sub sub--dark">Mock locator for your class site. Buttons scroll here.</p>
@@ -111,7 +108,7 @@
 
       <p class="fineprint">Mock only • No real store lookup • Built for presentation</p>
 
-      <a class="btn btn--primary" href="#top">Back to Top <span class="arrow">›</span></a>
+      <a class="cta cta--small" href="#top">Back to Top <span class="arrow">›</span></a>
     </section>
   </main>
 
