@@ -1,235 +1,468 @@
-/* =====================================================
-   RESET + FONT SMOOTHING
-===================================================== */
-
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
+:root{
+  --ink:#122029;
+  --muted:rgba(18,32,41,.78);
+  --card:rgba(248,241,227,.92);
+  --stroke:rgba(18,32,41,.14);
+  --shadow:0 20px 60px rgba(0,0,0,.14);
+  --deepA:#2d4856;
+  --deepB:#16262f;
 }
 
-html{scroll-behavior:smooth;}
-
+/* Reset */
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 body{
-font-family: Georgia, serif;
-color:#14222a;
+  margin:0;
+  color:var(--ink);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: geometricPrecision;
 
-/* ✅ REPEATING BEACH BACKGROUND */
-background:url("images/tile.png") top center repeat-y;
-background-size:100% auto;
-
--webkit-font-smoothing:antialiased;
--moz-osx-font-smoothing:grayscale;
-text-rendering:geometricPrecision;
+  /* Repeating tropical backdrop (after hero) */
+  background-image:url("images/tile.png");
+  background-repeat: repeat-y;
+  background-size: 100% auto;   /* full-width look like your screenshot */
+  background-position: top center;
 }
 
+/* ---------- Sticky Nav ---------- */
+.topbar{
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,.55);
+  border-bottom: 1px solid rgba(255,255,255,.55);
+}
+.topbar__inner{
+  max-width: 1180px;
+  margin:0 auto;
+  padding: 10px 16px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap: 14px;
+}
+.brand{ display:flex; align-items:center; text-decoration:none; }
+.brand__logo{
+  height: 26px;
+  width:auto;
+  opacity:.95;
+}
+.navlinks{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  flex-wrap:wrap;
+  justify-content:flex-end;
+}
+.navlinks a{
+  text-decoration:none;
+  color: rgba(18,32,41,.84);
+  font-weight: 800;
+  font-size: 12px;
+  letter-spacing: .06em;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.navlinks a:hover{ background: rgba(255,255,255,.70); }
+.navCta{
+  background: rgba(22,38,47,.92);
+  color: rgba(255,255,255,.92) !important;
+}
 
-/* =====================================================
-   HERO (does NOT repeat background here)
-===================================================== */
-
+/* ---------- Hero ---------- */
 .hero{
-position:relative;
-height:clamp(620px,90vh,1000px);
-display:flex;
-align-items:center;
-justify-content:center;
-text-align:center;
-overflow:hidden;
+  position:relative;
+  height: clamp(560px, 86vh, 980px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
 
-/* hero image stays full screen */
-background:url("images/hero.jpg") center/cover no-repeat;
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
-
-/* overlay for readability */
-.hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:
-linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.12)),
-radial-gradient(900px 520px at 50% 35%,rgba(255,255,255,.35),rgba(255,255,255,0));
+.hero__overlay{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.12)),
+    radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.33), rgba(255,255,255,0) 60%);
 }
-
 .hero__content{
-position:relative;
-z-index:2;
-color:white;
-padding:0 20px;
+  position:relative;
+  z-index:2;
+  padding: 0 18px;
 }
-
-/* BIGGER + smoother logo */
 .hero__logo{
-font-size:clamp(95px,11vw,160px);
-font-weight:900;
-letter-spacing:.02em;
-text-shadow:0 20px 70px rgba(0,0,0,.55);
+  width: min(560px, 86vw);
+  height:auto;
+  filter: drop-shadow(0 18px 46px rgba(0,0,0,.35));
 }
-
 .hero__tagline{
-margin-top:10px;
-font-size:clamp(24px,3vw,46px);
-font-weight:800;
-text-shadow:0 20px 60px rgba(0,0,0,.5);
+  margin-top: 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(26px, 3.4vw, 46px);
+  font-weight: 800;
+  color: rgba(255,255,255,.92);
+  text-shadow: 0 20px 70px rgba(0,0,0,.45);
+}
+.hero__actions{
+  margin-top: 22px;
+  display:flex;
+  gap: 12px;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.hero__fade{
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 110px;
+  background: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,.14));
+  pointer-events:none;
 }
 
-
-/* =====================================================
-   BUTTONS
-===================================================== */
-
-.btn{
-display:inline-block;
-padding:15px 28px;
-margin-top:22px;
-background:linear-gradient(#2d4856,#16262f);
-color:white;
-text-decoration:none;
-font-weight:900;
-border-radius:12px;
-box-shadow:0 14px 36px rgba(0,0,0,.25);
-transition:.18s;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-background:linear-gradient(#3a5c6e,#1a303a);
-}
-
-
-/* =====================================================
-   SECTION CARDS
-===================================================== */
-
+/* ---------- Layout ---------- */
 .wrap{
-max-width:1200px;
-margin:auto;
-padding:40px 18px 80px;
+  max-width: 1180px;
+  margin:0 auto;
+  padding: 26px 16px 70px;
 }
 
-.cardSection{margin:30px 0;}
-
+/* ---------- Card Sections ---------- */
+.cardSection{ margin: 22px 0; }
 .cardSection__inner{
-background:rgba(244,236,220,.92);
-border-radius:24px;
-padding:32px 24px;
-box-shadow:0 18px 50px rgba(0,0,0,.2);
-border:1px solid rgba(255,255,255,.7);
-text-align:center;
+  background: var(--card);
+  border: 1px solid rgba(255,255,255,.60);
+  border-radius: 26px;
+  box-shadow: var(--shadow);
+  padding: 28px 22px;
 }
 
+.sectionHead{ text-align:left; }
 .h2{
-font-size:clamp(32px,4vw,54px);
-font-weight:900;
-margin-bottom:10px;
+  margin: 0 0 10px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(30px, 4.1vw, 58px);
+  font-weight: 900;
+  letter-spacing: -.01em;
 }
-
 .lead{
-font-size:18px;
-margin-bottom:22px;
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--muted);
 }
 
+/* ---------- Feature pills ---------- */
+.featureRow{
+  margin: 14px 0 18px;
+  display:flex;
+  gap: 12px;
+  flex-wrap:wrap;
+}
+.featureItem{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(18,32,41,.10);
+  font-weight: 800;
+  color: rgba(18,32,41,.86);
+}
+.featureDot{
+  width: 28px;
+  height: 28px;
+  border-radius: 999px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: rgba(255,255,255,.85);
+  border: 1px solid rgba(18,32,41,.10);
+}
 
-/* =====================================================
-   FLAVOR GRID
-===================================================== */
+/* ---------- Buttons ---------- */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  text-decoration:none;
+  font-weight: 900;
+  letter-spacing: .06em;
+  border: 1px solid rgba(0,0,0,.16);
+  box-shadow: 0 16px 44px rgba(0,0,0,.12);
+}
+.btn--primary{
+  background: linear-gradient(180deg, var(--deepA), var(--deepB));
+  color: rgba(255,255,255,.94);
+  border-color: rgba(255,255,255,.10);
+}
+.btn--ghost{
+  background: rgba(22,38,47,.90);
+  color: rgba(255,255,255,.92);
+  border-color: rgba(255,255,255,.12);
+}
+.btn--mini{
+  margin-top: 12px;
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: rgba(22,38,47,.90);
+  color: rgba(255,255,255,.92);
+  border-color: rgba(255,255,255,.12);
+  box-shadow: 0 14px 34px rgba(0,0,0,.12);
+}
+.arrow{ font-size: 18px; line-height: 1; opacity:.95; }
 
+/* ---------- Flavor grid (FIXED: uses can1..can4) ---------- */
 .flavorGrid{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:22px;
-margin-top:20px;
+  display:grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 10px;
 }
-
 .flavorCard{
-background:white;
-padding:16px;
-border-radius:18px;
-box-shadow:0 12px 30px rgba(0,0,0,.15);
+  background: rgba(255,255,255,.72);
+  border: 1px solid rgba(18,32,41,.12);
+  border-radius: 22px;
+  padding: 14px;
+  box-shadow: 0 16px 44px rgba(0,0,0,.12);
 }
-
 .flavorCan{
-height:260px;
-overflow:hidden;
-display:flex;
-align-items:center;
-justify-content:center;
+  height: 270px;
+  border-radius: 16px;
+  overflow:hidden;
+  background: rgba(255,255,255,.55);
+  border: 1px solid rgba(18,32,41,.10);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
-
-/* prevent stretch */
-.flavorCan img{
-max-width:none;
-height:300px;
-width:220%;
-object-fit:cover;
+.canImg{
+  height: 96%;
+  width:auto;
+  object-fit: contain;
+  transform: translateY(4px);
 }
-
-.canCrop--1{object-position:6% 50%;}
-.canCrop--2{object-position:36% 50%;}
-.canCrop--3{object-position:66% 50%;}
-.canCrop--4{object-position:94% 50%;}
-
 .flavorName{
-font-size:20px;
-font-weight:900;
-margin-top:10px;
+  margin-top: 12px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 20px;
+  font-weight: 900;
+  color: rgba(18,32,41,.92);
+  line-height: 1.08;
 }
-
 .flavorMeta{
-font-size:12px;
-margin-top:6px;
-font-weight:700;
-letter-spacing:.05em;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: rgba(18,32,41,.70);
 }
 
+/* ---------- Split section ---------- */
+.split{
+  display:grid;
+  grid-template-columns: 1.2fr .8fr;
+  gap: 18px;
+  align-items: start;
+}
+.bullets{
+  margin: 10px 0 0;
+  padding-left: 18px;
+  color: rgba(18,32,41,.80);
+  font-weight: 700;
+}
+.bullets li{ margin: 8px 0; }
 
-/* =====================================================
-   FIND SECTION
-===================================================== */
+.sideCard{
+  background: rgba(22,38,47,.92);
+  color: rgba(255,255,255,.90);
+  border-radius: 18px;
+  padding: 18px;
+  box-shadow: 0 16px 44px rgba(0,0,0,.14);
+}
+.sideCard__kicker{
+  font-weight: 900;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity:.9;
+}
+.sideCard__title{
+  margin-top: 10px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 22px;
+}
+.sideCard__text{
+  margin-top: 10px;
+  font-weight: 700;
+  line-height: 1.5;
+  opacity:.95;
+}
 
+/* ---------- Stats + bars ---------- */
+.statGrid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-top: 14px;
+}
+.stat{
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(18,32,41,.12);
+  border-radius: 18px;
+  padding: 14px;
+}
+.stat__num{
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 34px;
+  font-weight: 900;
+}
+.stat__label{
+  margin-top: 6px;
+  font-weight: 700;
+  color: rgba(18,32,41,.78);
+  line-height: 1.35;
+}
+
+.miniBars{
+  margin-top: 14px;
+  display:grid;
+  gap: 12px;
+}
+.barRow{
+  display:grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 12px;
+  align-items:center;
+}
+.barLabel{
+  font-weight: 800;
+  color: rgba(18,32,41,.82);
+}
+.barTrack{
+  height: 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.60);
+  border: 1px solid rgba(18,32,41,.10);
+  overflow:hidden;
+}
+.barTrack span{
+  display:block;
+  height:100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(45,72,86,.95), rgba(22,38,47,.95));
+}
+
+/* ---------- Campaign cards ---------- */
+.cardGrid3{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 14px;
+}
+.miniCard{
+  background: rgba(255,255,255,.65);
+  border: 1px solid rgba(18,32,41,.12);
+  border-radius: 18px;
+  padding: 16px;
+  text-align:left;
+}
+.miniCard__title{
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(18,32,41,.74);
+}
+.miniCard__text{
+  margin-top: 10px;
+  font-weight: 700;
+  line-height: 1.45;
+  color: rgba(18,32,41,.86);
+}
+
+.centerCta{
+  margin-top: 14px;
+  display:flex;
+  justify-content:center;
+}
+
+/* ---------- Find ---------- */
+.findCard{ text-align:center; }
+.searchRow{
+  display:flex;
+  justify-content:center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
 .searchInput{
-padding:14px;
-border-radius:10px;
-border:1px solid #aaa;
-font-size:16px;
-width:260px;
-margin-right:10px;
+  width: min(520px, 92vw);
+  padding: 16px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(18,32,41,.18);
+  background: rgba(255,255,255,.82);
+  font-size: 16px;
+  font-weight: 700;
+  outline:none;
 }
-
 .searchBtn{
-padding:14px 20px;
-border:none;
-background:#16262f;
-color:white;
-border-radius:10px;
-font-weight:900;
+  padding: 16px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.14);
+  background: linear-gradient(180deg, var(--deepA), var(--deepB));
+  color: rgba(255,255,255,.94);
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  cursor:pointer;
+  box-shadow: 0 16px 44px rgba(0,0,0,.14);
+}
+.fineprint{
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing:.04em;
+  color: rgba(18,32,41,.62);
 }
 
-
-/* =====================================================
-   FOOTER
-===================================================== */
-
+/* ---------- Footer ---------- */
 .footer{
-text-align:center;
-padding:22px;
-background:#16262f;
-color:white;
-margin-top:40px;
+  margin-top: 22px;
+  padding: 18px 12px;
+  background: rgba(22,38,47,.88);
+  color: rgba(255,255,255,.82);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: .04em;
+  border-radius: 18px;
+  border: 1px solid rgba(255,255,255,.10);
+  text-align:center;
 }
 
-
-/* =====================================================
-   MOBILE FIXES
-===================================================== */
-
-@media(max-width:1000px){
-.flavorGrid{grid-template-columns:repeat(2,1fr);}
+/* ---------- Responsive ---------- */
+@media (max-width: 980px){
+  .split{ grid-template-columns: 1fr; }
+  .flavorGrid{ grid-template-columns: repeat(2, 1fr); }
+  .statGrid{ grid-template-columns: 1fr; }
+  .cardGrid3{ grid-template-columns: 1fr; }
+  .barRow{ grid-template-columns: 1fr; gap: 8px; }
 }
-
-@media(max-width:520px){
-.flavorGrid{grid-template-columns:1fr;}
-
-.hero__logo{font-size:70px;}
-.hero__tagline{font-size:22px;}
+@media (max-width: 560px){
+  .flavorGrid{ grid-template-columns: 1fr; }
+  .navlinks a{ padding: 7px 9px; }
 }
