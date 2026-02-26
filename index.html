@@ -1,57 +1,249 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
-<meta charset="utf-8">
-<title>Rios Rum Cocktails</title>
-<style>
-body{
-font-family:Arial;
-background:#70b4cb;
-color:white;
-text-align:center;
-margin:0;
-}
-header{padding:80px 20px;}
-section{
-background:white;
-color:black;
-margin:40px;
-padding:30px;
-border-radius:12px;
-}
-.btn{
-background:black;
-color:white;
-padding:12px 20px;
-text-decoration:none;
-display:inline-block;
-margin-top:20px;
-}
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rios — Real Jamaican Rum Cocktails</title>
+  <meta name="description" content="Rios: Real Jamaican rum cocktails built for vacation mode—any night of the week." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <header class="topbar">
+    <div class="wrap topbar__inner">
+      <a class="brand" href="#top" aria-label="Rios home">
+        <div class="brand__mark">Rios</div>
+      </a>
 
-<header>
-<h1>Escape to Rios Time</h1>
-<p>Real Jamaican rum cocktails for busy 25-35 year olds.</p>
-<a class="btn" href="#waitlist">Find an Escape Near You</a>
-</header>
+      <nav class="nav">
+        <a href="#why">Why Rum</a>
+        <a href="#selection">Selection</a>
+        <a href="#profiles">Profiles</a>
+        <a href="#faq">FAQ</a>
+      </nav>
 
-<section>
-<h2>The Selection</h2>
-<p>Strawberry Banana Daiquiri – 6%</p>
-<p>Passionfruit Mai Tai – 8%</p>
-<p>Hibiscus Mint Mojito – 7%</p>
-<p>Mango Ginger Rum Punch – 9%</p>
-</section>
+      <a class="btn btn--small" href="#waitlist">Find an Escape Near You</a>
+    </div>
+  </header>
 
-<section id="waitlist">
-<h2>Join the Waitlist</h2>
-<p>This is a mock form for your class project.</p>
-<input placeholder="Email"><br><br>
-<button>Submit</button>
-</section>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap hero__grid">
+        <div class="hero__copy">
+          <p class="pill">Real Jamaican Rum Cocktails</p>
+          <h1>Escape to Rios Time.</h1>
+          <p class="lede">
+            A premium rum escape for busy 25–35s who want vacation mode—without leaving home.
+          </p>
 
+          <div class="hero__cta">
+            <a class="btn" href="#waitlist">Find an Escape Near You</a>
+            <div class="micro">Pre-launch mock for class/project use. No real submissions.</div>
+          </div>
+
+          <div class="trust">
+            <div class="trust__item">
+              <div class="trust__kicker">Low Sugar</div>
+              <div class="trust__desc">Clean, modern drinkability</div>
+            </div>
+            <div class="trust__item">
+              <div class="trust__kicker">Natural Flavors</div>
+              <div class="trust__desc">Elevated, not neon</div>
+            </div>
+            <div class="trust__item">
+              <div class="trust__kicker">Real Rum</div>
+              <div class="trust__desc">Jamaican rum base</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__media" aria-label="Rios can lineup">
+          <div class="mediaCard">
+            <div class="mediaCard__top">
+              <div class="mediaCard__title">The Selection</div>
+              <div class="mediaCard__sub">4 flavors • 8-pack ready</div>
+            </div>
+            <div class="mediaCard__imgWrap">
+              <img src="images/cans.png" alt="Rios can lineup" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="heroGlow" aria-hidden="true"></div>
+      <div class="heroWave" aria-hidden="true"></div>
+    </section>
+
+    <!-- WHY RUM -->
+    <section id="why" class="section">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Why Rum?</h2>
+          <p class="subhead">Real origin. Real trend. Real escape.</p>
+        </div>
+
+        <div class="cards">
+          <article class="card">
+            <div class="card__eyebrow">The Origin</div>
+            <h3>Ocho Rios, Jamaica</h3>
+            <p>
+              Real Jamaican rum is the soul of our cocktail line—naturally tied to beach culture and effortless “vacation mode.”
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card__eyebrow">The Data</div>
+            <h3>50% Enthusiast Rating</h3>
+            <p>
+              Rum has the highest “enthusiast” interest among Gen Z, creating white space for a premium rum cocktail brand.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SELECTION -->
+    <section id="selection" class="section section--alt">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>The Selection</h2>
+          <p class="subhead">Four escapes. One clean lineup.</p>
+        </div>
+
+        <div class="flavorGrid">
+          <div class="flavor">
+            <div class="flavor__name">Strawberry Banana Daiquiri</div>
+            <div class="flavor__meta">6% ABV • Low Sugar</div>
+          </div>
+          <div class="flavor">
+            <div class="flavor__name">Passionfruit Mai Tai</div>
+            <div class="flavor__meta">8% ABV • Gluten Free</div>
+          </div>
+          <div class="flavor">
+            <div class="flavor__name">Hibiscus Mint Mojito</div>
+            <div class="flavor__meta">7% ABV • Natural Flavors</div>
+          </div>
+          <div class="flavor">
+            <div class="flavor__name">Mango Ginger Rum Punch</div>
+            <div class="flavor__meta">9% ABV • Real Rum</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLAVOR PROFILES -->
+    <section id="profiles" class="section">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Flavor Profiles</h2>
+          <p class="subhead">Simple lineup, clear choices.</p>
+        </div>
+
+        <div class="table">
+          <div class="row row--head">
+            <div>Flavor</div>
+            <div>ABV</div>
+            <div>Notes</div>
+          </div>
+
+          <div class="row">
+            <div>Strawberry Banana Daiquiri</div>
+            <div>6%</div>
+            <div>Smooth fruit with a crisp citrus finish</div>
+          </div>
+          <div class="row">
+            <div>Passionfruit Mai Tai</div>
+            <div>8%</div>
+            <div>Bright tropical lift with rum warmth</div>
+          </div>
+          <div class="row">
+            <div>Hibiscus Mint Mojito</div>
+            <div>7%</div>
+            <div>Floral hibiscus balanced by fresh mint</div>
+          </div>
+          <div class="row">
+            <div>Mango Ginger Rum Punch</div>
+            <div>9%</div>
+            <div>Ripe mango with a clean ginger kick</div>
+          </div>
+        </div>
+
+        <div class="callout">
+          <div class="callout__title">Made with real Jamaican rum</div>
+          <div class="callout__text">Low sugar • Natural flavors • Built for calm confidence</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST -->
+    <section id="waitlist" class="section section--alt">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>Find an Escape Near You</h2>
+          <p class="subhead">Pre-launch mock: join for “availability updates.”</p>
+        </div>
+
+        <form class="form" onsubmit="return false;">
+          <div class="formRow">
+            <label>
+              <span>Email</span>
+              <input type="email" placeholder="you@example.com" required />
+            </label>
+
+            <label>
+              <span>ZIP Code</span>
+              <input type="text" placeholder="45212" />
+            </label>
+          </div>
+
+          <button class="btn" type="submit">Join the Waitlist</button>
+          <div class="micro micro--dark">Mock form (does not submit). This keeps the site stable.</div>
+        </form>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="wrap">
+        <div class="sectionHead">
+          <h2>FAQ</h2>
+          <p class="subhead">Quick answers for your presentation.</p>
+        </div>
+
+        <div class="faq">
+          <details>
+            <summary>Is this a real product yet?</summary>
+            <p>This is a pre-launch concept and a mock website for class/project use.</p>
+          </details>
+
+          <details>
+            <summary>What makes it “premium”?</summary>
+            <p>Real Jamaican rum, elevated flavor profiles, and a calm “escape” brand world—without loud tropical clichés.</p>
+          </details>
+
+          <details>
+            <summary>Where will it be sold?</summary>
+            <p>Planned rollout: select retailers + online. Replace this section later with a store locator.</p>
+          </details>
+
+          <details>
+            <summary>What are the ABVs?</summary>
+            <p>6%, 8%, 7%, and 9% across the four flavors.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap footer__inner">
+        <div>
+          <div class="footer__brand">Rios</div>
+          <div class="footer__meta">Mock site for class/project use • © 2026 Rios (concept)</div>
+        </div>
+        <a class="footer__top" href="#top">Back to top</a>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>
