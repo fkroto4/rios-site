@@ -1,119 +1,78 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rios — Real Rum. Real Escape.</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rios Rum</title>
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <!-- HERO -->
-  <header class="hero" id="top">
-    <div class="hero__overlay"></div>
 
-    <div class="hero__content">
-      <img class="brandLogo" src="images/logo.png" alt="Rios logo" />
-      <div class="tagline">Real Rum. Real Escape.</div>
+<!-- HERO -->
+<section class="hero" style="background-image:url('images/hero.jpg')">
+<div class="overlay"></div>
 
-      <a class="cta" href="#locator">
-        Find an Escape Near You <span class="arrow">›</span>
-      </a>
-    </div>
-  </header>
+<div class="hero-content">
+<img src="images/logo.png" class="logo">
+<h2>Real Rum. Real Escape.</h2>
 
-  <!-- SAND PANEL -->
-  <main class="panel">
-    <section class="section">
-      <h2 class="h2">Taste the Tropics</h2>
-      <p class="sub">
-        Refreshing, premium rum cocktails made with<br />
-        real rum and natural ingredients.
-      </p>
+<a class="cta" href="#locator">
+Find an Escape Near You →
+</a>
+</div>
+</section>
 
-      <div class="features">
-        <div class="feature">
-          <div class="feature__icon">🪵</div>
-          <div class="feature__text">Crafted with Premium Rum</div>
-        </div>
 
-        <div class="divider" aria-hidden="true"></div>
+<!-- PRODUCTS -->
+<section class="products">
 
-        <div class="feature">
-          <div class="feature__icon">🌿</div>
-          <div class="feature__text">Natural Ingredients</div>
-        </div>
+<h1>Taste the Tropics</h1>
+<p class="sub">
+Refreshing, premium rum cocktails made with real rum and natural ingredients.
+</p>
 
-        <div class="divider" aria-hidden="true"></div>
+<div class="grid">
 
-        <div class="feature">
-          <div class="feature__icon">🍊</div>
-          <div class="feature__text">Ready to Enjoy</div>
-        </div>
-      </div>
+<div class="card">
+<img src="images/can1.png">
+<h3>Strawberry Banana Daiquiri</h3>
+<p>6% ALC/VOL • LOW SUGAR</p>
+</div>
 
-      <!-- PRODUCTS -->
-      <section class="grid" aria-label="Rios flavors">
-        <article class="card">
-          <div class="card__can">
-            <img class="canImg" src="images/can1.png" alt="Strawberry Banana Daiquiri can" />
-          </div>
-          <h3 class="card__title">Strawberry Banana<br />Daiquiri</h3>
-          <div class="card__meta">6% ALC/VOL • LOW SUGAR</div>
-          <div class="card__bullet">• Real Rum. Deliciously Exotic.</div>
-          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
-        </article>
+<div class="card">
+<img src="images/can2.png">
+<h3>Passionfruit Mai Tai</h3>
+<p>8% A​LC/VOL • GLUTEN FREE</p>
+</div>
 
-        <article class="card">
-          <div class="card__can">
-            <img class="canImg" src="images/can2.png" alt="Passionfruit Mai Tai can" />
-          </div>
-          <h3 class="card__title">Passionfruit<br />Mai Tai</h3>
-          <div class="card__meta">8% ALC/VOL • GLUTEN FREE</div>
-          <div class="card__bullet">• Real Rum. Tropical Passion.</div>
-          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
-        </article>
+<div class="card">
+<img src="images/can3.png">
+<h3>Hibiscus Mint Mojito</h3>
+<p>7% ALC/VOL • NATURAL FLAVORS</p>
+</div>
 
-        <article class="card">
-          <div class="card__can">
-            <img class="canImg" src="images/can3.png" alt="Hibiscus Mint Mojito can" />
-          </div>
-          <h3 class="card__title">Hibiscus<br />Mint Mojito</h3>
-          <div class="card__meta">7% ALC/VOL • NATURAL FLAVORS</div>
-          <div class="card__bullet">• Real Rum. Freshly Minted.</div>
-          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
-        </article>
+<div class="card">
+<img src="images/can4.png">
+<h3>Mango Ginger Rum Punch</h3>
+<p>9% ALC/VOL • REAL RUM</p>
+</div>
 
-        <article class="card">
-          <div class="card__can">
-            <img class="canImg" src="images/can4.png" alt="Mango Ginger Rum Punch can" />
-          </div>
-          <h3 class="card__title">Mango Ginger<br />Rum Punch</h3>
-          <div class="card__meta">9% ALC/VOL • REAL RUM</div>
-          <div class="card__bullet">• Real Rum. Bold and Spiced.</div>
-          <a class="miniBtn" href="#locator">Find an Escape Near You</a>
-        </article>
-      </section>
-    </section>
+</div>
+</section>
 
-    <!-- LOCATOR (mock) -->
-    <section class="locator" id="locator">
-      <h2 class="h2 h2--dark">Find Your Rios</h2>
-      <p class="sub sub--dark">Mock locator for your class site. Buttons scroll here.</p>
 
-      <div class="search">
-        <input type="text" placeholder="Enter your city or zip code" />
-        <button type="button">Search <span class="arrow">›</span></button>
-      </div>
+<!-- STORE LOCATOR -->
+<section id="locator" class="locator">
+<h1>Find Your Rios</h1>
+<input placeholder="Enter your city or zip code">
+<button>Search</button>
+</section>
 
-      <p class="fineprint">Mock only • No real store lookup • Built for presentation</p>
 
-      <a class="cta cta--small" href="#top">Back to Top <span class="arrow">›</span></a>
-    </section>
-  </main>
+<footer>
+Rios Rum • Mock Marketing Site
+</footer>
 
-  <footer class="footer">
-    Mock website for class/project use • © 2026 Rios (concept)
-  </footer>
 </body>
 </html>
