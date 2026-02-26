@@ -1,78 +1,301 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Rios Rum</title>
-<link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rios — Real Rum. Real Escape.</title>
+  <meta name="description" content="Rios: premium Jamaican rum cocktails made for vacation mode." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body>
+  <!-- STICKY NAV -->
+  <nav class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#top">RIOS</a>
 
-<!-- HERO -->
-<section class="hero" style="background-image:url('images/hero.jpg')">
-<div class="overlay"></div>
+      <div class="navlinks">
+        <a href="#positioning">Positioning</a>
+        <a href="#why">Why Rum</a>
+        <a href="#data">The Data</a>
+        <a href="#insight">Insight</a>
+        <a href="#flavors">Flavors</a>
+        <a href="#packaging">Packaging</a>
+        <a href="#campaign">Campaign</a>
+        <a class="navCta" href="#find">Find</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="hero-content">
-<img src="images/logo.png" class="logo">
-<h2>Real Rum. Real Escape.</h2>
+  <!-- HERO (initial screen) -->
+  <header class="hero" id="top" aria-label="Rios hero">
+    <div class="hero__overlay"></div>
 
-<a class="cta" href="#locator">
-Find an Escape Near You →
-</a>
-</div>
-</section>
+    <div class="hero__content">
+      <div class="hero__logo">Rios</div>
+      <div class="hero__tagline">Real Rum. Real Escape.</div>
 
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+        <a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
+      </div>
+    </div>
 
-<!-- PRODUCTS -->
-<section class="products">
+    <div class="hero__fade"></div>
+  </header>
 
-<h1>Taste the Tropics</h1>
-<p class="sub">
-Refreshing, premium rum cocktails made with real rum and natural ingredients.
-</p>
+  <!-- CONTENT (this is where repeating backdrop shows through) -->
+  <main class="wrap">
 
-<div class="grid">
+    <!-- POSITIONING -->
+    <section class="cardSection" id="positioning">
+      <div class="cardSection__inner">
+        <h2 class="h2">Brand Positioning</h2>
+        <p class="lead">
+          Rios is a premium, ready-to-drink rum cocktail that brings “vacation mode” to everyday life—real rum,
+          natural ingredients, and tropical flavor you can actually taste.
+        </p>
 
-<div class="card">
-<img src="images/can1.png">
-<h3>Strawberry Banana Daiquiri</h3>
-<p>6% ALC/VOL • LOW SUGAR</p>
-</div>
+        <div class="pillGrid">
+          <div class="pill">
+            <div class="pill__kicker">For</div>
+            <div class="pill__text">Gen Z (25–35) + young professionals</div>
+          </div>
+          <div class="pill">
+            <div class="pill__kicker">Is</div>
+            <div class="pill__text">A premium Jamaican rum cocktail in a can</div>
+          </div>
+          <div class="pill">
+            <div class="pill__kicker">That</div>
+            <div class="pill__text">Feels like an escape—anywhere, anytime</div>
+          </div>
+          <div class="pill">
+            <div class="pill__kicker">Because</div>
+            <div class="pill__text">Real rum + natural flavors deliver authentic vacation energy</div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div class="card">
-<img src="images/can2.png">
-<h3>Passionfruit Mai Tai</h3>
-<p>8% A​LC/VOL • GLUTEN FREE</p>
-</div>
+    <!-- WHY RUM -->
+    <section class="cardSection" id="why">
+      <div class="cardSection__inner split">
+        <div class="split__left">
+          <h2 class="h2">Why Rum?</h2>
+          <p class="lead">
+            Rum fits the beach lifestyle naturally—tropical, social, and built for “vacation mode.”
+            Rios leans into Ocho Rios, Jamaica as the brand’s origin story to keep the experience authentic,
+            not gimmicky.
+          </p>
 
-<div class="card">
-<img src="images/can3.png">
-<h3>Hibiscus Mint Mojito</h3>
-<p>7% ALC/VOL • NATURAL FLAVORS</p>
-</div>
+          <ul class="bullets">
+            <li>Real rum credibility (not a flavored malt shortcut)</li>
+            <li>Beach-first heritage that matches the brand world</li>
+            <li>Premium feel without loud neon tropical clichés</li>
+          </ul>
+        </div>
 
-<div class="card">
-<img src="images/can4.png">
-<h3>Mango Ginger Rum Punch</h3>
-<p>9% ALC/VOL • REAL RUM</p>
-</div>
+        <div class="split__right mediaCard">
+          <div class="mediaCard__title">Origin</div>
+          <div class="mediaCard__text">
+            Ocho Rios, Jamaica — the “escape” location that anchors the brand’s tone and visuals.
+          </div>
+        </div>
+      </div>
+    </section>
 
-</div>
-</section>
+    <!-- DATA (mini chart) -->
+    <section class="cardSection" id="data">
+      <div class="cardSection__inner">
+        <h2 class="h2">The Data</h2>
+        <p class="lead">
+          Interest is there. This is the right category moment to launch a premium rum RTD with a clean,
+          vacation-forward identity.
+        </p>
 
+        <div class="miniChart">
+          <div class="miniChart__row">
+            <div class="miniChart__label">Rum “enthusiasm” among Gen Z</div>
+            <div class="miniChart__bar">
+              <span style="width:72%"></span>
+            </div>
+            <div class="miniChart__val">High</div>
+          </div>
 
-<!-- STORE LOCATOR -->
-<section id="locator" class="locator">
-<h1>Find Your Rios</h1>
-<input placeholder="Enter your city or zip code">
-<button>Search</button>
-</section>
+          <div class="miniChart__row">
+            <div class="miniChart__label">Premium RTD growth momentum</div>
+            <div class="miniChart__bar">
+              <span style="width:64%"></span>
+            </div>
+            <div class="miniChart__val">Strong</div>
+          </div>
 
+          <div class="miniChart__row">
+            <div class="miniChart__label">Flavor variety drives trial</div>
+            <div class="miniChart__bar">
+              <span style="width:80%"></span>
+            </div>
+            <div class="miniChart__val">Very Strong</div>
+          </div>
+        </div>
 
-<footer>
-Rios Rum • Mock Marketing Site
-</footer>
+        <div class="note">
+          Small visual readout for a mock website (no external chart libraries).
+        </div>
+      </div>
+    </section>
 
+    <!-- CONSUMER INSIGHT -->
+    <section class="cardSection" id="insight">
+      <div class="cardSection__inner quoteCard">
+        <h2 class="h2">Key Consumer Insight</h2>
+        <p class="quote">
+          “I love being in vacation mode because being at the beach with friends is the best feeling.
+          But my 9–5 and nonstop life leave me very few chances to escape—so I’m stuck at home.”
+        </p>
+        <p class="lead">
+          Rios becomes the fast “mental getaway”: a premium drink that signals escape without requiring
+          a plane ticket.
+        </p>
+      </div>
+    </section>
+
+    <!-- FLAVORS -->
+    <section class="cardSection" id="flavors">
+      <div class="cardSection__inner">
+        <h2 class="h2">Taste the Tropics</h2>
+        <p class="lead">
+          Refreshing, premium rum cocktails made with real rum and natural ingredients.
+        </p>
+
+        <div class="featureRow">
+          <div class="featureItem">
+            <div class="featureIcon">🪵</div>
+            <div class="featureText">Crafted with Premium Rum</div>
+          </div>
+          <div class="featureItem">
+            <div class="featureIcon">🌿</div>
+            <div class="featureText">Natural Ingredients</div>
+          </div>
+          <div class="featureItem">
+            <div class="featureIcon">🍊</div>
+            <div class="featureText">Ready to Enjoy</div>
+          </div>
+        </div>
+
+        <div class="flavorGrid">
+          <article class="flavorCard">
+            <div class="flavorCan">
+              <img class="canCrop canCrop--1" src="images/cans.png" alt="Strawberry Banana Daiquiri can" />
+            </div>
+            <div class="flavorName">Strawberry Banana<br/>Daiquiri</div>
+            <div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
+            <a class="btn btn--ghost" href="#find">Find an Escape Near You</a>
+          </article>
+
+          <article class="flavorCard">
+            <div class="flavorCan">
+              <img class="canCrop canCrop--2" src="images/cans.png" alt="Passionfruit Mai Tai can" />
+            </div>
+            <div class="flavorName">Passionfruit<br/>Mai Tai</div>
+            <div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
+            <a class="btn btn--ghost" href="#find">Find an Escape Near You</a>
+          </article>
+
+          <article class="flavorCard">
+            <div class="flavorCan">
+              <img class="canCrop canCrop--3" src="images/cans.png" alt="Hibiscus Mint Mojito can" />
+            </div>
+            <div class="flavorName">Hibiscus<br/>Mint Mojito</div>
+            <div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
+            <a class="btn btn--ghost" href="#find">Find an Escape Near You</a>
+          </article>
+
+          <article class="flavorCard">
+            <div class="flavorCan">
+              <img class="canCrop canCrop--4" src="images/cans.png" alt="Mango Ginger Rum Punch can" />
+            </div>
+            <div class="flavorName">Mango Ginger<br/>Rum Punch</div>
+            <div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
+            <a class="btn btn--ghost" href="#find">Find an Escape Near You</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PACKAGING -->
+    <section class="cardSection" id="packaging">
+      <div class="cardSection__inner split">
+        <div class="split__left">
+          <h2 class="h2">Packaging Vision</h2>
+          <p class="lead">
+            Premium, beach-forward visuals that feel like a real destination—clean composition, rich textures,
+            and a brand watermark that’s subtle, not loud.
+          </p>
+
+          <ul class="bullets">
+            <li>Clean “vacation mode” aesthetic</li>
+            <li>Rich tropical color without neon</li>
+            <li>Easy flavor navigation at shelf</li>
+          </ul>
+        </div>
+
+        <div class="split__right mediaCard">
+          <div class="mediaCard__title">Design Note</div>
+          <div class="mediaCard__text">
+            The background repeats seamlessly behind the sections to keep a consistent beach-world as you scroll.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAMPAIGN -->
+    <section class="cardSection" id="campaign">
+      <div class="cardSection__inner">
+        <h2 class="h2">Launch Campaign</h2>
+        <p class="lead">
+          “Find an Escape Near You” — pre-launch energy built around discovery, trial, and mini-escapes.
+        </p>
+
+        <div class="cardGrid3">
+          <div class="miniCard">
+            <div class="miniCard__title">Escape Drops</div>
+            <div class="miniCard__text">Pop-up tastings + beach-themed placements in city hotspots.</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniCard__title">Social Discovery</div>
+            <div class="miniCard__text">Short-form “vacation mode” content + UGC flavor reactions.</div>
+          </div>
+          <div class="miniCard">
+            <div class="miniCard__title">Retail Tease</div>
+            <div class="miniCard__text">Shelf talkers + “Find Your Rios” locator-style CTA.</div>
+          </div>
+        </div>
+
+        <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+      </div>
+    </section>
+
+    <!-- FIND -->
+    <section class="cardSection" id="find">
+      <div class="cardSection__inner findCard">
+        <h2 class="h2">Find Your Rios</h2>
+        <p class="lead">Mock locator for presentation use (no real lookup).</p>
+
+        <div class="searchRow">
+          <input class="searchInput" type="text" placeholder="Enter your city or zip code" />
+          <button class="searchBtn" type="button">Search <span class="arrow">›</span></button>
+        </div>
+
+        <div class="fineprint">Mock only • No real store lookup • Built for class/presentation</div>
+
+        <a class="btn btn--ghost" href="#top">Back to Top <span class="arrow">›</span></a>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Mock website for class/project use • © 2026 Rios (concept)
+    </footer>
+  </main>
 </body>
 </html>
