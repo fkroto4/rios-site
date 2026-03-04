@@ -1,11 +1,18 @@
-/* styles.css (REPLACE YOUR ENTIRE FILE WITH THIS) */
 :root{
   --ink:#122029;
   --muted:rgba(18,32,41,.75);
-  --card:rgba(248,241,227,.92);
-  --shadow:0 24px 70px rgba(0,0,0,.14);
-  --deepA:#2d4856;
-  --deepB:#16262f;
+
+  /* You can fully control these in the editor (Theme tab) */
+  --btnA:#2d4856;
+  --btnB:#16262f;
+  --btnGhost:#1d2f39;
+  --btnMini:#1d2f39;
+  --navCta:#16262f;
+  --cardTint:#f8f1e3;
+
+  --card: rgba(248,241,227,.92);
+  --stroke: rgba(18,32,41,.14);
+  --shadow: 0 24px 70px rgba(0,0,0,.14);
 }
 
 *{ box-sizing:border-box; }
@@ -19,12 +26,12 @@ body{
   text-rendering: geometricPrecision;
 }
 
-/* Topbar */
+/* -------- Topbar -------- */
 .topbar{
   position:sticky;
   top:0;
   z-index:100;
-  background: rgba(255,255,255,.60);
+  background: rgba(255,255,255,.62);
   border-bottom: 1px solid rgba(255,255,255,.55);
   backdrop-filter: blur(10px);
 }
@@ -39,28 +46,23 @@ body{
 }
 .topbar__brand{ text-decoration:none; display:flex; align-items:center; }
 .topbar__logo{ height: 26px; width:auto; opacity:.95; }
-.topbar__nav{
-  display:flex;
-  gap: 8px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
+.topbar__nav{ display:flex; gap: 8px; flex-wrap:wrap; justify-content:flex-end; }
 .topbar__nav a{
   text-decoration:none;
   color: rgba(18,32,41,.84);
-  font-weight: 800;
+  font-weight: 900;
   font-size: 12px;
   letter-spacing: .08em;
   padding: 8px 10px;
   border-radius: 10px;
 }
-.topbar__nav a:hover{ background: rgba(255,255,255,.75); }
+.topbar__nav a:hover{ background: rgba(255,255,255,.78); }
 .navCta{
-  background: rgba(22,38,47,.92);
+  background: var(--navCta);
   color: rgba(255,255,255,.92) !important;
 }
 
-/* Hero */
+/* -------- HERO -------- */
 .hero{
   position:relative;
   height: clamp(560px, 86vh, 980px);
@@ -80,12 +82,12 @@ body{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.12)),
-    radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.28), rgba(255,255,255,0) 60%);
+    linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.10)),
+    radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.26), rgba(255,255,255,0) 60%);
 }
 .hero__content{ position:relative; z-index:2; padding: 0 18px; }
 .hero__logo{
-  width: min(520px, 86vw);
+  width: min(560px, 88vw);
   height:auto;
   filter: drop-shadow(0 18px 46px rgba(0,0,0,.35));
 }
@@ -105,7 +107,23 @@ body{
   flex-wrap:wrap;
 }
 
-/* Buttons */
+/* This is the key to the seamless transition */
+.hero__bridge{
+  position:absolute;
+  left:0; right:0;
+  bottom:-1px;
+  height: 140px;
+  z-index:3;
+  background:
+    linear-gradient(to bottom,
+      rgba(0,0,0,0) 0%,
+      rgba(0,0,0,.08) 28%,
+      rgba(248,241,227,.52) 55%,
+      rgba(248,241,227,1) 100%);
+  pointer-events:none;
+}
+
+/* -------- Buttons -------- */
 .btn{
   display:inline-flex;
   align-items:center;
@@ -121,14 +139,16 @@ body{
   user-select:none;
 }
 .btn--primary{
-  background: linear-gradient(180deg, var(--deepA), var(--deepB));
+  background: linear-gradient(180deg, var(--btnA), var(--btnB));
   color: rgba(255,255,255,.94);
   border-color: rgba(255,255,255,.10);
 }
 .btn--ghost{
-  background: rgba(22,38,47,.86);
+  background: rgba(0,0,0,.0);
+  border-color: rgba(255,255,255,.26);
   color: rgba(255,255,255,.92);
-  border-color: rgba(255,255,255,.12);
+  backdrop-filter: blur(8px);
+  background: rgba(29,47,57,.55);
 }
 .btn--mini{
   margin-top: 12px;
@@ -136,30 +156,42 @@ body{
   padding: 12px 14px;
   font-size: 12px;
   text-transform: uppercase;
-  background: rgba(22,38,47,.90);
+  background: var(--btnMini);
   color: rgba(255,255,255,.92);
   border-color: rgba(255,255,255,.12);
   box-shadow: 0 14px 34px rgba(0,0,0,.12);
 }
+.btn--block{ width: 100%; }
 .arrow{ font-size: 18px; line-height:1; opacity:.95; }
 
-/* Page */
+/* -------- Page background (TRUE seamless loop) -------- */
 .page{
-  background-image:url("images/tile.png");
-  background-repeat: repeat-y;
-  background-size: 100% auto;
-  background-position: top center;
-  padding: 26px 16px 120px;
+  /* The background tile repeats cleanly (no stretch). */
+  background-color: rgba(248,241,227,1);
+  background-image:
+    linear-gradient(to bottom,
+      rgba(248,241,227,1) 0px,
+      rgba(248,241,227,.85) 120px,
+      rgba(248,241,227,0) 320px),
+    url("images/tile.png");
+  background-repeat: no-repeat, repeat;
+  background-position: top center, top center;
+
+  /* IMPORTANT: do NOT use 100% auto; that causes “striping” and visible seams. */
+  background-size: 1200px auto, 1200px auto;
+
+  padding: 26px 16px 140px;
 }
 
-/* Sections / Cards */
+/* -------- Sections / Cards -------- */
 .section{
   max-width: 1200px;
   margin: 0 auto;
   padding: 22px 0;
 }
 .card{
-  background: var(--card);
+  background: color-mix(in srgb, var(--cardTint) 92%, rgba(255,255,255,1));
+  background: rgba(248,241,227,.92);
   border: 1px solid rgba(255,255,255,.60);
   border-radius: 26px;
   box-shadow: var(--shadow);
@@ -181,7 +213,7 @@ body{
   color: var(--muted);
 }
 
-/* Pills */
+/* -------- Pills -------- */
 .pillRow{
   display:flex;
   gap: 12px;
@@ -196,7 +228,7 @@ body{
   border-radius: 999px;
   background: rgba(255,255,255,.65);
   border: 1px solid rgba(18,32,41,.10);
-  font-weight: 800;
+  font-weight: 900;
   color: rgba(18,32,41,.86);
 }
 .dot{
@@ -210,7 +242,7 @@ body{
   border: 1px solid rgba(18,32,41,.10);
 }
 
-/* Flavor grid */
+/* -------- Flavor grid -------- */
 .grid{
   display:grid;
   grid-template-columns: repeat(4, 1fr);
@@ -255,7 +287,7 @@ body{
   color: rgba(18,32,41,.70);
 }
 
-/* Split section */
+/* -------- Split section -------- */
 .split{
   display:grid;
   grid-template-columns: 1.2fr .8fr;
@@ -266,7 +298,7 @@ body{
   margin: 10px 0 0;
   padding-left: 18px;
   color: rgba(18,32,41,.80);
-  font-weight: 700;
+  font-weight: 800;
 }
 .card li{ margin: 8px 0; }
 
@@ -292,12 +324,12 @@ body{
 }
 .text{
   margin-top: 10px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.5;
   opacity:.95;
 }
 
-/* Stats */
+/* -------- Stats -------- */
 .stats{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -317,12 +349,12 @@ body{
 }
 .label{
   margin-top: 6px;
-  font-weight: 700;
+  font-weight: 800;
   color: rgba(18,32,41,.78);
   line-height: 1.35;
 }
 
-/* Campaign cards */
+/* -------- Campaign cards -------- */
 .triples{
   display:grid;
   grid-template-columns: repeat(3, 1fr);
@@ -345,12 +377,193 @@ body{
 }
 .mini__text{
   margin-top: 10px;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.45;
   color: rgba(18,32,41,.86);
 }
 
-/* Find */
+/* -------- Rios Time -------- */
+.riosTime{ overflow:hidden; }
+.riosTime__grid{
+  display:grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 18px;
+  margin-top: 8px;
+}
+.hourglassWrap{
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(18,32,41,.12);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 16px 44px rgba(0,0,0,.10);
+}
+.hourglassTitle{
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-size: 12px;
+  color: rgba(18,32,41,.72);
+  margin-bottom: 10px;
+}
+.hourglass{
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+  display:block;
+  margin: 0 auto;
+}
+.progressText{ text-align:center; margin-top: 10px; }
+.progressBig{
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 40px;
+}
+.progressBig .muted{ font-size: 18px; color: rgba(18,32,41,.55); margin-left: 6px; }
+.progressLabel{ font-weight: 800; color: rgba(18,32,41,.70); margin-top: -4px; }
+
+.demoRow{
+  display:flex;
+  gap: 10px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-top: 12px;
+}
+.iconBtn{
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(18,32,41,.18);
+  background: linear-gradient(180deg, var(--btnA), var(--btnB));
+  color: rgba(255,255,255,.94);
+  font-weight: 900;
+  letter-spacing: .08em;
+  cursor:pointer;
+}
+.iconBtn--ghost{
+  background: rgba(255,255,255,.80);
+  color: rgba(18,32,41,.86);
+}
+
+.coupon{
+  margin-top: 14px;
+  border-radius: 16px;
+  border: 1px dashed rgba(18,32,41,.35);
+  padding: 14px;
+  background: rgba(248,241,227,.85);
+  text-align:center;
+}
+.coupon__title{
+  font-weight: 900;
+  font-size: 16px;
+}
+.coupon__text{
+  margin-top: 6px;
+  font-weight: 800;
+  color: rgba(18,32,41,.70);
+}
+.coupon__code{
+  margin-top: 10px;
+  font-weight: 900;
+  letter-spacing: .12em;
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.70);
+  border: 1px solid rgba(18,32,41,.18);
+  display:inline-block;
+}
+
+.riosTime__copy h3{
+  margin: 0 0 10px;
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 900;
+  font-size: 22px;
+}
+.riosTime__copy ol{
+  margin: 0;
+  padding-left: 18px;
+  font-weight: 800;
+  color: rgba(18,32,41,.86);
+}
+.riosTime__copy li{ margin: 10px 0; }
+
+.callout{
+  margin-top: 14px;
+  background: rgba(22,38,47,.92);
+  color: rgba(255,255,255,.92);
+  border-radius: 18px;
+  padding: 16px;
+  box-shadow: 0 16px 44px rgba(0,0,0,.14);
+}
+.callout__title{
+  font-weight: 900;
+  letter-spacing: .10em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+.callout__text{
+  margin-top: 10px;
+  font-weight: 800;
+  line-height: 1.45;
+  opacity:.95;
+}
+
+/* Custom blocks */
+.customBlocks{
+  margin-top: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(18,32,41,.12);
+  background: rgba(255,255,255,.68);
+  padding: 14px;
+}
+.customBlocks__title{ font-weight: 900; }
+.customBlocks__sub{
+  margin-top: 4px;
+  font-weight: 800;
+  color: rgba(18,32,41,.66);
+  font-size: 12px;
+}
+.customBlocks__list{ margin-top: 10px; display:grid; gap: 10px; }
+.customBlock{
+  border-radius: 16px;
+  border: 1px solid rgba(18,32,41,.12);
+  background: rgba(255,255,255,.72);
+  padding: 12px;
+}
+.customBlock__row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap: 10px;
+}
+.customBlock__label{
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: 11px;
+  color: rgba(18,32,41,.65);
+}
+.customBlock__del{
+  border: 1px solid rgba(18,32,41,.16);
+  background: rgba(255,255,255,.80);
+  border-radius: 10px;
+  padding: 6px 8px;
+  cursor:pointer;
+  font-weight: 900;
+}
+.customBlock__text{
+  margin-top: 10px;
+  min-height: 44px;
+  padding: 10px 10px;
+  border-radius: 12px;
+  border: 1px solid rgba(18,32,41,.12);
+  background: rgba(255,255,255,.85);
+  font-weight: 800;
+  color: rgba(18,32,41,.86);
+  line-height: 1.5;
+  outline:none;
+}
+
+/* -------- Find -------- */
 .center{ margin-top: 14px; display:flex; justify-content:center; }
 .centerCard{ text-align:center; }
 .search{
@@ -367,14 +580,14 @@ body{
   border: 1px solid rgba(18,32,41,.18);
   background: rgba(255,255,255,.82);
   font-size: 16px;
-  font-weight: 700;
+  font-weight: 800;
   outline:none;
 }
 .search button{
   padding: 16px 18px;
   border-radius: 14px;
   border: 1px solid rgba(255,255,255,.14);
-  background: linear-gradient(180deg, var(--deepA), var(--deepB));
+  background: linear-gradient(180deg, var(--btnA), var(--btnB));
   color: rgba(255,255,255,.94);
   font-weight: 900;
   letter-spacing: .08em;
@@ -385,12 +598,12 @@ body{
 .fine{
   margin-top: 10px;
   font-size: 12px;
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing:.04em;
   color: rgba(18,32,41,.62);
 }
 
-/* Footer */
+/* -------- Footer -------- */
 .footer{
   max-width: 1200px;
   margin: 0 auto;
@@ -398,14 +611,14 @@ body{
   background: rgba(22,38,47,.88);
   color: rgba(255,255,255,.82);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: .04em;
   border-radius: 18px;
   border: 1px solid rgba(255,255,255,.10);
   text-align:center;
 }
 
-/* Editor Dock */
+/* -------- Editor Dock -------- */
 .editorDock{
   position: fixed;
   left: 14px;
@@ -432,7 +645,7 @@ body{
 .editorDock__panel{
   pointer-events: auto;
   margin-top: 10px;
-  background: rgba(255,255,255,.92);
+  background: rgba(255,255,255,.94);
   border: 1px solid rgba(18,32,41,.14);
   border-radius: 18px;
   box-shadow: 0 24px 70px rgba(0,0,0,.18);
@@ -452,29 +665,51 @@ body{
 .editorDock__sub{
   margin-top: 4px;
   color: rgba(18,32,41,.70);
-  font-weight: 700;
+  font-weight: 800;
   font-size: 12px;
 }
-.editorDock code{
-  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+.editorTabs{
+  display:flex;
+  gap: 8px;
+  padding: 10px 14px 0;
+}
+.tabBtn{
+  border: 1px solid rgba(18,32,41,.14);
+  background: rgba(255,255,255,.80);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
   font-size: 11px;
+  cursor:pointer;
+}
+.tabBtn--active{
+  background: rgba(22,38,47,.92);
+  color: rgba(255,255,255,.92);
+  border-color: rgba(255,255,255,.14);
 }
 
+.editorBody{ padding: 10px 14px 14px; }
+.tabPanel{ display:none; }
+.tabPanel--show{ display:block; }
+
 .editorGrid{
-  padding: 12px 14px;
   display:grid;
   grid-template-columns: 1fr;
   gap: 10px;
-  max-height: 50vh;
+  max-height: 44vh;
   overflow:auto;
+  padding-right: 2px;
 }
 .editorField{
   display:flex;
   flex-direction:column;
   gap: 6px;
-  font-weight: 800;
+  font-weight: 900;
   font-size: 12px;
-  color: rgba(18,32,41,.78);
+  color: rgba(18,32,41,.72);
 }
 .editorField input,
 .editorField textarea{
@@ -484,13 +719,28 @@ body{
   background: rgba(255,255,255,.96);
   padding: 10px 10px;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 800;
   color: rgba(18,32,41,.92);
   outline:none;
 }
-.editorActions{
-  padding: 12px 14px 14px;
-  border-top: 1px solid rgba(18,32,41,.10);
+
+.themeGrid{
+  display:grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 10px;
+}
+.themeField{
+  display:flex;
+  flex-direction:column;
+  gap: 6px;
+  font-weight: 900;
+  font-size: 12px;
+  color: rgba(18,32,41,.70);
+}
+.themeField input{ height: 40px; border-radius: 12px; border: 1px solid rgba(18,32,41,.18); background: rgba(255,255,255,.96); }
+.themeNote{ margin-top: 10px; font-weight: 800; color: rgba(18,32,41,.62); font-size: 12px; }
+
+.toolsRow{
   display:flex;
   gap: 10px;
   flex-wrap:wrap;
@@ -506,6 +756,7 @@ body{
   letter-spacing: .08em;
   text-transform: uppercase;
   cursor:pointer;
+  font-size: 12px;
 }
 .eBtn--ghost{ background: rgba(255,255,255,.70); }
 .eBtn--dark{
@@ -520,15 +771,40 @@ body{
   opacity:0;
   cursor:pointer;
 }
+.eBtn--on{
+  outline: 2px solid rgba(45,180,203,.55);
+  outline-offset: 2px;
+}
+.toolsHint{
+  margin-top: 10px;
+  font-weight: 800;
+  font-size: 12px;
+  color: rgba(18,32,41,.65);
+}
 
-/* Responsive */
+/* Inline edit highlight */
+.inlineEditable{
+  transition: outline-color .15s ease;
+}
+.inlineEditable:focus{
+  outline: 2px solid rgba(45,180,203,.55);
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+/* -------- Responsive -------- */
+@media (max-width: 1040px){
+  .page{ background-size: 980px auto, 980px auto; }
+}
 @media (max-width: 980px){
   .grid{ grid-template-columns: repeat(2, 1fr); }
   .split{ grid-template-columns: 1fr; }
   .stats{ grid-template-columns: 1fr; }
   .triples{ grid-template-columns: 1fr; }
+  .riosTime__grid{ grid-template-columns: 1fr; }
 }
 @media (max-width: 560px){
   .grid{ grid-template-columns: 1fr; }
   .topbar__nav a{ padding: 7px 9px; }
+  .themeGrid{ grid-template-columns: 1fr; }
 }
