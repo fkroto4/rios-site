@@ -2,7 +2,7 @@
   --ink:#122029;
   --muted:rgba(18,32,41,.75);
 
-  /* You can fully control these in the editor (Theme tab) */
+  /* Theme (editable in editor) */
   --btnA:#2d4856;
   --btnB:#16262f;
   --btnGhost:#1d2f39;
@@ -10,9 +10,14 @@
   --navCta:#16262f;
   --cardTint:#f8f1e3;
 
+  /* Tile controls (IMPORTANT) */
+  /* If your tile shows seams, set these to the tile’s REAL pixel size. Example: 768px 768px */
+  --tileSize: 900px auto;
+
   --card: rgba(248,241,227,.92);
   --stroke: rgba(18,32,41,.14);
-  --shadow: 0 24px 70px rgba(0,0,0,.14);
+  --shadow: 0 26px 80px rgba(0,0,0,.16);
+  --shadowSoft: 0 18px 60px rgba(0,0,0,.12);
 }
 
 *{ box-sizing:border-box; }
@@ -24,6 +29,7 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: geometricPrecision;
+  background: #fff;
 }
 
 /* -------- Topbar -------- */
@@ -82,7 +88,7 @@ body{
   position:absolute;
   inset:0;
   background:
-    linear-gradient(rgba(0,0,0,.38), rgba(0,0,0,.10)),
+    linear-gradient(rgba(0,0,0,.40), rgba(0,0,0,.10)),
     radial-gradient(900px 520px at 50% 35%, rgba(255,255,255,.26), rgba(255,255,255,0) 60%);
 }
 .hero__content{ position:relative; z-index:2; padding: 0 18px; }
@@ -107,19 +113,23 @@ body{
   flex-wrap:wrap;
 }
 
-/* This is the key to the seamless transition */
+/* ✅ NEW: bridge uses same tile so the transition is actually seamless */
 .hero__bridge{
   position:absolute;
   left:0; right:0;
   bottom:-1px;
-  height: 140px;
+  height: 180px;
   z-index:3;
-  background:
+  background-image:
     linear-gradient(to bottom,
       rgba(0,0,0,0) 0%,
-      rgba(0,0,0,.08) 28%,
-      rgba(248,241,227,.52) 55%,
-      rgba(248,241,227,1) 100%);
+      rgba(0,0,0,.08) 24%,
+      rgba(248,241,227,.55) 52%,
+      rgba(248,241,227,1) 100%),
+    url("images/tile.png");
+  background-repeat: no-repeat, repeat;
+  background-position: top center, top center;
+  background-size: cover, var(--tileSize);
   pointer-events:none;
 }
 
@@ -137,14 +147,20 @@ body{
   border: 1px solid rgba(0,0,0,.16);
   box-shadow: 0 16px 44px rgba(0,0,0,.12);
   user-select:none;
+  transition: transform .12s ease, filter .12s ease, box-shadow .12s ease;
 }
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 20px 56px rgba(0,0,0,.16);
+}
+.btn:active{ transform: translateY(0px); }
+
 .btn--primary{
   background: linear-gradient(180deg, var(--btnA), var(--btnB));
   color: rgba(255,255,255,.94);
   border-color: rgba(255,255,255,.10);
 }
 .btn--ghost{
-  background: rgba(0,0,0,.0);
   border-color: rgba(255,255,255,.26);
   color: rgba(255,255,255,.92);
   backdrop-filter: blur(8px);
@@ -164,9 +180,8 @@ body{
 .btn--block{ width: 100%; }
 .arrow{ font-size: 18px; line-height:1; opacity:.95; }
 
-/* -------- Page background (TRUE seamless loop) -------- */
+/* -------- Page background (TRUE repeating tile) -------- */
 .page{
-  /* The background tile repeats cleanly (no stretch). */
   background-color: rgba(248,241,227,1);
   background-image:
     linear-gradient(to bottom,
@@ -176,10 +191,7 @@ body{
     url("images/tile.png");
   background-repeat: no-repeat, repeat;
   background-position: top center, top center;
-
-  /* IMPORTANT: do NOT use 100% auto; that causes “striping” and visible seams. */
-  background-size: 1200px auto, 1200px auto;
-
+  background-size: 1200px auto, var(--tileSize);
   padding: 26px 16px 140px;
 }
 
@@ -190,7 +202,6 @@ body{
   padding: 22px 0;
 }
 .card{
-  background: color-mix(in srgb, var(--cardTint) 92%, rgba(255,255,255,1));
   background: rgba(248,241,227,.92);
   border: 1px solid rgba(255,255,255,.60);
   border-radius: 26px;
@@ -253,7 +264,7 @@ body{
   border: 1px solid rgba(18,32,41,.12);
   border-radius: 22px;
   padding: 14px;
-  box-shadow: 0 16px 44px rgba(0,0,0,.10);
+  box-shadow: var(--shadowSoft);
 }
 .flavor__img{
   height: 280px;
@@ -265,11 +276,14 @@ body{
   align-items:center;
   justify-content:center;
 }
+/* ✅ more robust: never crop, never stretch */
 .flavor__img img{
-  height: 96%;
-  width:auto;
+  max-height: 96%;
+  max-width: 96%;
+  height: auto;
+  width: auto;
   object-fit: contain;
-  transform: translateY(4px);
+  image-rendering: auto;
 }
 .flavor h3{
   margin: 12px 0 0;
@@ -307,7 +321,7 @@ body{
   color: rgba(255,255,255,.90);
   border-radius: 18px;
   padding: 18px;
-  box-shadow: 0 16px 44px rgba(0,0,0,.14);
+  box-shadow: var(--shadowSoft);
 }
 .kicker{
   font-weight: 900;
@@ -395,7 +409,7 @@ body{
   border: 1px solid rgba(18,32,41,.12);
   border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 16px 44px rgba(0,0,0,.10);
+  box-shadow: var(--shadowSoft);
 }
 .hourglassTitle{
   font-weight: 900;
@@ -438,6 +452,7 @@ body{
   letter-spacing: .08em;
   cursor:pointer;
 }
+.iconBtn:hover{ filter: brightness(1.06); }
 .iconBtn--ghost{
   background: rgba(255,255,255,.80);
   color: rgba(18,32,41,.86);
@@ -451,15 +466,8 @@ body{
   background: rgba(248,241,227,.85);
   text-align:center;
 }
-.coupon__title{
-  font-weight: 900;
-  font-size: 16px;
-}
-.coupon__text{
-  margin-top: 6px;
-  font-weight: 800;
-  color: rgba(18,32,41,.70);
-}
+.coupon__title{ font-weight: 900; font-size: 16px; }
+.coupon__text{ margin-top: 6px; font-weight: 800; color: rgba(18,32,41,.70); }
 .coupon__code{
   margin-top: 10px;
   font-weight: 900;
@@ -492,7 +500,7 @@ body{
   color: rgba(255,255,255,.92);
   border-radius: 18px;
   padding: 16px;
-  box-shadow: 0 16px 44px rgba(0,0,0,.14);
+  box-shadow: var(--shadowSoft);
 }
 .callout__title{
   font-weight: 900;
@@ -516,12 +524,7 @@ body{
   padding: 14px;
 }
 .customBlocks__title{ font-weight: 900; }
-.customBlocks__sub{
-  margin-top: 4px;
-  font-weight: 800;
-  color: rgba(18,32,41,.66);
-  font-size: 12px;
-}
+.customBlocks__sub{ margin-top: 4px; font-weight: 800; color: rgba(18,32,41,.66); font-size: 12px; }
 .customBlocks__list{ margin-top: 10px; display:grid; gap: 10px; }
 .customBlock{
   border-radius: 16px;
@@ -529,12 +532,7 @@ body{
   background: rgba(255,255,255,.72);
   padding: 12px;
 }
-.customBlock__row{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap: 10px;
-}
+.customBlock__row{ display:flex; justify-content:space-between; align-items:center; gap: 10px; }
 .customBlock__label{
   font-weight: 900;
   letter-spacing: .08em;
@@ -593,7 +591,7 @@ body{
   letter-spacing: .08em;
   text-transform: uppercase;
   cursor:pointer;
-  box-shadow: 0 16px 44px rgba(0,0,0,.14);
+  box-shadow: var(--shadowSoft);
 }
 .fine{
   margin-top: 10px;
@@ -658,22 +656,10 @@ body{
   padding: 14px 14px 10px;
   border-bottom: 1px solid rgba(18,32,41,.10);
 }
-.editorDock__title{
-  font-weight: 900;
-  letter-spacing: .02em;
-}
-.editorDock__sub{
-  margin-top: 4px;
-  color: rgba(18,32,41,.70);
-  font-weight: 800;
-  font-size: 12px;
-}
+.editorDock__title{ font-weight: 900; letter-spacing: .02em; }
+.editorDock__sub{ margin-top: 4px; color: rgba(18,32,41,.70); font-weight: 800; font-size: 12px; }
 
-.editorTabs{
-  display:flex;
-  gap: 8px;
-  padding: 10px 14px 0;
-}
+.editorTabs{ display:flex; gap: 8px; padding: 10px 14px 0; }
 .tabBtn{
   border: 1px solid rgba(18,32,41,.14);
   background: rgba(255,255,255,.80);
@@ -703,14 +689,7 @@ body{
   overflow:auto;
   padding-right: 2px;
 }
-.editorField{
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
-  font-weight: 900;
-  font-size: 12px;
-  color: rgba(18,32,41,.72);
-}
+.editorField{ display:flex; flex-direction:column; gap: 6px; font-weight: 900; font-size: 12px; color: rgba(18,32,41,.72); }
 .editorField input,
 .editorField textarea{
   width:100%;
@@ -729,23 +708,11 @@ body{
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: 10px;
 }
-.themeField{
-  display:flex;
-  flex-direction:column;
-  gap: 6px;
-  font-weight: 900;
-  font-size: 12px;
-  color: rgba(18,32,41,.70);
-}
+.themeField{ display:flex; flex-direction:column; gap: 6px; font-weight: 900; font-size: 12px; color: rgba(18,32,41,.70); }
 .themeField input{ height: 40px; border-radius: 12px; border: 1px solid rgba(18,32,41,.18); background: rgba(255,255,255,.96); }
 .themeNote{ margin-top: 10px; font-weight: 800; color: rgba(18,32,41,.62); font-size: 12px; }
 
-.toolsRow{
-  display:flex;
-  gap: 10px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
+.toolsRow{ display:flex; gap: 10px; flex-wrap:wrap; justify-content:flex-end; }
 .eBtn{
   border: 1px solid rgba(18,32,41,.18);
   background: rgba(255,255,255,.92);
@@ -765,27 +732,11 @@ body{
   border-color: rgba(255,255,255,.14);
 }
 .eBtn--file{ position: relative; overflow:hidden; }
-.eBtn--file input{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  cursor:pointer;
-}
-.eBtn--on{
-  outline: 2px solid rgba(45,180,203,.55);
-  outline-offset: 2px;
-}
-.toolsHint{
-  margin-top: 10px;
-  font-weight: 800;
-  font-size: 12px;
-  color: rgba(18,32,41,.65);
-}
+.eBtn--file input{ position:absolute; inset:0; opacity:0; cursor:pointer; }
+.eBtn--on{ outline: 2px solid rgba(45,180,203,.55); outline-offset: 2px; }
+.toolsHint{ margin-top: 10px; font-weight: 800; font-size: 12px; color: rgba(18,32,41,.65); }
 
-/* Inline edit highlight */
-.inlineEditable{
-  transition: outline-color .15s ease;
-}
+.inlineEditable{ transition: outline-color .15s ease; }
 .inlineEditable:focus{
   outline: 2px solid rgba(45,180,203,.55);
   outline-offset: 4px;
@@ -793,9 +744,6 @@ body{
 }
 
 /* -------- Responsive -------- */
-@media (max-width: 1040px){
-  .page{ background-size: 980px auto, 980px auto; }
-}
 @media (max-width: 980px){
   .grid{ grid-template-columns: repeat(2, 1fr); }
   .split{ grid-template-columns: 1fr; }
