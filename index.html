@@ -1,4 +1,3 @@
-<!-- index.html (REPLACE YOUR ENTIRE FILE WITH THIS) -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -26,6 +25,7 @@
         <a href="#why" data-edit="nav.why">Why</a>
         <a href="#data" data-edit="nav.data">Data</a>
         <a href="#campaign" data-edit="nav.campaign">Campaign</a>
+        <a href="#rios-time" data-edit="nav.riosTime">Rios Time</a>
         <a class="navCta" href="#find" data-edit="nav.find">Find</a>
       </nav>
     </div>
@@ -45,10 +45,13 @@
         <a class="btn btn--ghost" href="#flavors" data-edit="hero.ctaSecondary">Explore Flavors <span class="arrow">›</span></a>
       </div>
     </div>
+
+    <!-- Seamless bridge into the repeating background -->
+    <div class="hero__bridge" aria-hidden="true"></div>
   </section>
 
-  <!-- MAIN (tile background starts here only) -->
-  <main class="page">
+  <!-- MAIN (tile background starts here only, and blends from hero) -->
+  <main class="page" id="page">
     <!-- Flavors -->
     <section class="section" id="flavors">
       <div class="card">
@@ -177,6 +180,115 @@
       </div>
     </section>
 
+    <!-- Rios Time (QR Destination / Loyalty Hourglass) -->
+    <section class="section" id="rios-time">
+      <div class="card riosTime">
+        <div class="riosTime__head">
+          <h2 data-edit="riosTime.title">Rios Time</h2>
+          <p data-edit="riosTime.sub">
+            Scan the QR inside the pack. Each case purchase moves you closer to a free 12-pack.
+          </p>
+        </div>
+
+        <div class="riosTime__grid">
+          <div class="hourglassWrap">
+            <div class="hourglassTitle" data-edit="riosTime.hTitle">Your Progress</div>
+
+            <!-- SVG hourglass (sand amount controlled by JS) -->
+            <svg class="hourglass" viewBox="0 0 220 320" role="img" aria-label="Hourglass progress">
+              <defs>
+                <clipPath id="sandTopClip">
+                  <rect id="sandTopRect" x="56" y="70" width="108" height="86" rx="18"></rect>
+                </clipPath>
+                <clipPath id="sandBottomClip">
+                  <rect id="sandBottomRect" x="56" y="178" width="108" height="86" rx="18"></rect>
+                </clipPath>
+                <linearGradient id="glassGrad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="rgba(255,255,255,.75)"/>
+                  <stop offset="1" stop-color="rgba(255,255,255,.25)"/>
+                </linearGradient>
+                <linearGradient id="sandGrad" x1="0" x2="0" y1="0" y2="1">
+                  <stop offset="0" stop-color="#f3d6a6"/>
+                  <stop offset="1" stop-color="#dcb47d"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Frame -->
+              <rect x="26" y="18" width="168" height="284" rx="28" fill="rgba(22,38,47,.15)" />
+              <rect x="36" y="28" width="148" height="264" rx="24" fill="url(#glassGrad)" stroke="rgba(22,38,47,.22)" />
+
+              <!-- Neck -->
+              <rect x="104" y="152" width="12" height="16" rx="6" fill="rgba(22,38,47,.18)"/>
+
+              <!-- Sand Top -->
+              <g clip-path="url(#sandTopClip)">
+                <rect x="56" y="70" width="108" height="86" fill="url(#sandGrad)"></rect>
+              </g>
+
+              <!-- Falling Stream -->
+              <rect id="sandStream" x="108" y="156" width="4" height="18" rx="2" fill="#e6c28c" opacity="0.85"/>
+
+              <!-- Sand Bottom -->
+              <g clip-path="url(#sandBottomClip)">
+                <rect x="56" y="178" width="108" height="86" fill="url(#sandGrad)"></rect>
+              </g>
+
+              <!-- Labels -->
+              <text x="110" y="312" text-anchor="middle" font-size="12" fill="rgba(18,32,41,.70)" font-family="Inter, system-ui">10 cases → free 12-pack</text>
+            </svg>
+
+            <div class="progressText">
+              <div class="progressBig"><span id="casesCount">0</span><span class="muted">/10</span></div>
+              <div class="progressLabel" data-edit="riosTime.progressLabel">Cases credited</div>
+            </div>
+
+            <div class="demoRow">
+              <button class="iconBtn" id="btnAddCase" type="button" title="Demo: add one case">+1</button>
+              <button class="iconBtn iconBtn--ghost" id="btnRemoveCase" type="button" title="Demo: remove one case">-1</button>
+              <button class="iconBtn iconBtn--ghost" id="btnResetCases" type="button" title="Reset progress">Reset</button>
+            </div>
+
+            <div class="coupon" id="couponBox" hidden>
+              <div class="coupon__title" data-edit="riosTime.couponTitle">You hit Rios Time 🎉</div>
+              <div class="coupon__text" data-edit="riosTime.couponText">Show this coupon for a free 12-pack (demo).</div>
+              <div class="coupon__code" id="couponCode">RIOS-TIME-12</div>
+            </div>
+          </div>
+
+          <div class="riosTime__copy">
+            <h3 data-edit="riosTime.rightTitle">How it works</h3>
+            <ol>
+              <li data-edit="riosTime.step1">Scan the QR inside the pack.</li>
+              <li data-edit="riosTime.step2">Each case purchase moves your hourglass.</li>
+              <li data-edit="riosTime.step3">At 10 cases, unlock a free 12-pack coupon.</li>
+            </ol>
+
+            <div class="callout">
+              <div class="callout__title" data-edit="riosTime.calloutTitle">Retail deliverable</div>
+              <div class="callout__text" data-edit="riosTime.calloutText">
+                QR code drives repeat purchases and makes the brand feel interactive in-store.
+              </div>
+            </div>
+
+            <!-- Blank blocks container -->
+            <div class="customBlocks">
+              <div class="customBlocks__head">
+                <div class="customBlocks__title" data-edit="custom.title">Your Custom Blocks</div>
+                <div class="customBlocks__sub" data-edit="custom.sub">Add any copy you want — it auto-expands.</div>
+              </div>
+
+              <div id="customBlocksList" class="customBlocks__list"></div>
+
+              <button class="btn btn--ghost btn--block" id="btnAddBlock" type="button">
+                + Add Blank Block <span class="arrow">›</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Find -->
     <section class="section" id="find">
       <div class="card centerCard">
@@ -207,31 +319,79 @@
 
     <div class="editorDock__panel" id="editorPanel">
       <div class="editorDock__head">
-        <div class="editorDock__title">Rios Editor (Everything w/ data-edit)</div>
+        <div class="editorDock__title">Rios Editor</div>
         <div class="editorDock__sub">
-          Edit any text tagged with <code>data-edit</code>. Saves locally. Export/Import JSON to move edits.
+          Two ways to edit: use this panel, or toggle Inline Edit and click text directly.
         </div>
       </div>
 
-      <div class="editorGrid" id="editorGrid"></div>
+      <div class="editorTabs">
+        <button class="tabBtn tabBtn--active" id="tabContent" type="button">Content</button>
+        <button class="tabBtn" id="tabTheme" type="button">Theme</button>
+        <button class="tabBtn" id="tabTools" type="button">Tools</button>
+      </div>
 
-      <div class="editorActions">
-        <button class="eBtn" id="btnApply" type="button">Apply</button>
-        <button class="eBtn eBtn--ghost" id="btnReset" type="button">Reset</button>
-        <button class="eBtn eBtn--dark" id="btnExport" type="button">Export JSON</button>
+      <div class="editorBody">
+        <div class="tabPanel tabPanel--show" id="panelContent">
+          <div class="editorGrid" id="editorGrid"></div>
+        </div>
 
-        <label class="eBtn eBtn--dark eBtn--file">
-          Import JSON
-          <input id="fileImport" type="file" accept="application/json" />
-        </label>
+        <div class="tabPanel" id="panelTheme">
+          <div class="themeGrid">
+            <label class="themeField">
+              <span>Primary button (top)</span>
+              <input type="color" data-theme="--btnA" />
+            </label>
+            <label class="themeField">
+              <span>Primary button (bottom)</span>
+              <input type="color" data-theme="--btnB" />
+            </label>
+            <label class="themeField">
+              <span>Ghost button</span>
+              <input type="color" data-theme="--btnGhost" />
+            </label>
+            <label class="themeField">
+              <span>Mini button</span>
+              <input type="color" data-theme="--btnMini" />
+            </label>
+            <label class="themeField">
+              <span>Nav CTA</span>
+              <input type="color" data-theme="--navCta" />
+            </label>
+            <label class="themeField">
+              <span>Card tint</span>
+              <input type="color" data-theme="--cardTint" />
+            </label>
+          </div>
+          <div class="themeNote">These save to your browser. Export JSON if you want to move settings to another device.</div>
+        </div>
+
+        <div class="tabPanel" id="panelTools">
+          <div class="toolsRow">
+            <button class="eBtn eBtn--dark" id="btnInlineEdit" type="button">Inline Edit: OFF</button>
+            <button class="eBtn" id="btnApply" type="button">Apply Panel Edits</button>
+            <button class="eBtn eBtn--ghost" id="btnReset" type="button">Reset All</button>
+            <button class="eBtn eBtn--dark" id="btnExport" type="button">Export JSON</button>
+
+            <label class="eBtn eBtn--dark eBtn--file">
+              Import JSON
+              <input id="fileImport" type="file" accept="application/json" />
+            </label>
+          </div>
+          <div class="toolsHint">
+            Inline Edit lets you click any editable text (anything with data-edit) and type directly.
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
   (function(){
-    const STORAGE_KEY = "rios_site_content_v2";
-    const editableNodes = Array.from(document.querySelectorAll("[data-edit]"));
+    const STORAGE_KEY = "rios_site_content_v3";
+    const THEME_KEY   = "rios_theme_v1";
+    const BLOCKS_KEY  = "rios_custom_blocks_v1";
+    const CASES_KEY   = "rios_cases_v1";
 
     const dock = document.getElementById("editorDock");
     const toggle = document.getElementById("editorToggle");
@@ -240,22 +400,29 @@
     const btnReset = document.getElementById("btnReset");
     const btnExport = document.getElementById("btnExport");
     const fileImport = document.getElementById("fileImport");
+    const btnInlineEdit = document.getElementById("btnInlineEdit");
 
+    const tabContent = document.getElementById("tabContent");
+    const tabTheme = document.getElementById("tabTheme");
+    const tabTools = document.getElementById("tabTools");
+    const panelContent = document.getElementById("panelContent");
+    const panelTheme = document.getElementById("panelTheme");
+    const panelTools = document.getElementById("panelTools");
+
+    const editableNodes = () => Array.from(document.querySelectorAll("[data-edit]"));
     const nodeByKey = (key) => document.querySelector(`[data-edit="${CSS.escape(key)}"]`);
 
-    function loadState(){
-      try{
-        const raw = localStorage.getItem(STORAGE_KEY);
-        return raw ? JSON.parse(raw) : null;
-      }catch(e){ return null; }
-    }
-    function saveState(state){
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    }
+    // --- Seamless background: nothing needed here besides CSS. ---
 
+    // ---------- Storage helpers ----------
+    function safeParse(raw){ try { return JSON.parse(raw); } catch { return null; } }
+    function loadJSON(key){ return safeParse(localStorage.getItem(key)); }
+    function saveJSON(key, val){ localStorage.setItem(key, JSON.stringify(val)); }
+
+    // ---------- Content state ----------
     function captureStateFromDOM(){
       const state = {};
-      editableNodes.forEach(n=>{
+      editableNodes().forEach(n=>{
         const key = n.getAttribute("data-edit");
         state[key] = n.innerHTML;
       });
@@ -263,12 +430,13 @@
     }
     function applyStateToDOM(state){
       if(!state) return;
-      editableNodes.forEach(n=>{
+      editableNodes().forEach(n=>{
         const key = n.getAttribute("data-edit");
         if(state[key] != null) n.innerHTML = state[key];
       });
     }
 
+    // Keep arrow span for buttons/links
     function stripArrow(html){
       return html.replace(/<span class="arrow">.*?<\/span>/g, "").trim();
     }
@@ -276,17 +444,18 @@
       return `${text} <span class="arrow">›</span>`;
     }
     function looksLikeButtonOrLink(el){
-      return el.tagName.toLowerCase() === "a" || el.tagName.toLowerCase() === "button";
+      const tag = el.tagName.toLowerCase();
+      return tag === "a" || tag === "button";
     }
 
+    // ---------- Editor UI (auto-build from ALL data-edit keys) ----------
     function buildEditorUI(){
       grid.innerHTML = "";
 
-      const keys = editableNodes
+      const keys = editableNodes()
         .map(n => n.getAttribute("data-edit"))
-        .filter(Boolean);
-
-      keys.sort((a,b)=>a.localeCompare(b));
+        .filter(Boolean)
+        .sort((a,b)=>a.localeCompare(b));
 
       keys.forEach(key=>{
         const el = nodeByKey(key);
@@ -298,10 +467,10 @@
         const label = document.createElement("span");
         label.textContent = key;
 
-        let input;
         const tag = el.tagName.toLowerCase();
-        const useTextarea = (tag === "p" || tag === "li" || tag === "div") && (el.textContent.length > 80);
+        const useTextarea = (tag === "p" || tag === "li" || tag === "div" || tag === "span") && (el.textContent.length > 60);
 
+        let input;
         if(useTextarea){
           input = document.createElement("textarea");
           input.rows = 3;
@@ -341,21 +510,29 @@
         }
       });
 
-      saveState(captureStateFromDOM());
+      saveJSON(STORAGE_KEY, captureStateFromDOM());
     }
 
     function resetAll(){
       localStorage.removeItem(STORAGE_KEY);
+      localStorage.removeItem(THEME_KEY);
+      localStorage.removeItem(BLOCKS_KEY);
+      localStorage.removeItem(CASES_KEY);
       location.reload();
     }
 
     function exportJSON(){
-      const state = captureStateFromDOM();
-      const blob = new Blob([JSON.stringify(state, null, 2)], {type:"application/json"});
+      const payload = {
+        content: captureStateFromDOM(),
+        theme: loadJSON(THEME_KEY) || {},
+        blocks: loadJSON(BLOCKS_KEY) || [],
+        cases: loadJSON(CASES_KEY) ?? 0
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], {type:"application/json"});
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "rios-edits.json";
+      a.download = "rios-site-export.json";
       document.body.appendChild(a);
       a.click();
       a.remove();
@@ -365,18 +542,212 @@
     function importJSON(file){
       const reader = new FileReader();
       reader.onload = () => {
-        try{
-          const parsed = JSON.parse(reader.result);
-          applyStateToDOM(parsed);
-          saveState(parsed);
-          buildEditorUI();
-        }catch(e){
-          alert("That file does not look like valid Rios JSON.");
+        const parsed = safeParse(reader.result);
+        if(!parsed){ alert("Invalid JSON."); return; }
+
+        if(parsed.content) applyStateToDOM(parsed.content);
+        if(parsed.content) saveJSON(STORAGE_KEY, parsed.content);
+
+        if(parsed.theme){ applyTheme(parsed.theme); saveJSON(THEME_KEY, parsed.theme); }
+
+        if(Array.isArray(parsed.blocks)){
+          saveJSON(BLOCKS_KEY, parsed.blocks);
+          renderBlocks();
         }
+
+        if(typeof parsed.cases === "number"){
+          saveJSON(CASES_KEY, parsed.cases);
+          setCases(parsed.cases);
+        }
+
+        buildEditorUI();
+        syncThemeInputs();
       };
       reader.readAsText(file);
     }
 
+    // ---------- Tabs ----------
+    function setTab(which){
+      [tabContent, tabTheme, tabTools].forEach(b=>b.classList.remove("tabBtn--active"));
+      [panelContent, panelTheme, panelTools].forEach(p=>p.classList.remove("tabPanel--show"));
+
+      if(which === "content"){ tabContent.classList.add("tabBtn--active"); panelContent.classList.add("tabPanel--show"); }
+      if(which === "theme"){ tabTheme.classList.add("tabBtn--active"); panelTheme.classList.add("tabPanel--show"); }
+      if(which === "tools"){ tabTools.classList.add("tabBtn--active"); panelTools.classList.add("tabPanel--show"); }
+    }
+
+    tabContent.addEventListener("click", ()=>setTab("content"));
+    tabTheme.addEventListener("click", ()=>setTab("theme"));
+    tabTools.addEventListener("click", ()=>setTab("tools"));
+
+    // ---------- Inline Edit Mode ----------
+    let inlineOn = false;
+    function setInline(v){
+      inlineOn = v;
+      btnInlineEdit.textContent = inlineOn ? "Inline Edit: ON" : "Inline Edit: OFF";
+      btnInlineEdit.classList.toggle("eBtn--on", inlineOn);
+
+      editableNodes().forEach(el=>{
+        el.contentEditable = inlineOn ? "true" : "false";
+        el.classList.toggle("inlineEditable", inlineOn);
+      });
+
+      if(!inlineOn){
+        // Save whatever was typed
+        saveJSON(STORAGE_KEY, captureStateFromDOM());
+        buildEditorUI();
+      }
+    }
+
+    btnInlineEdit.addEventListener("click", ()=> setInline(!inlineOn));
+
+    // Save on blur when inline editing
+    document.addEventListener("focusout", (e)=>{
+      if(!inlineOn) return;
+      const t = e.target;
+      if(t && t.matches && t.matches("[data-edit]")){
+        saveJSON(STORAGE_KEY, captureStateFromDOM());
+      }
+    });
+
+    // ---------- Theme controls ----------
+    const themeInputs = Array.from(document.querySelectorAll("[data-theme]"));
+    function applyTheme(theme){
+      const r = document.documentElement;
+      Object.entries(theme).forEach(([k,v])=>{
+        r.style.setProperty(k, v);
+      });
+    }
+    function getThemeFromDOM(){
+      const r = getComputedStyle(document.documentElement);
+      const keys = ["--btnA","--btnB","--btnGhost","--btnMini","--navCta","--cardTint"];
+      const out = {};
+      keys.forEach(k=> out[k] = r.getPropertyValue(k).trim());
+      return out;
+    }
+    function syncThemeInputs(){
+      const t = getThemeFromDOM();
+      themeInputs.forEach(inp=>{
+        const key = inp.getAttribute("data-theme");
+        if(t[key]) inp.value = normalizeColor(t[key]) || inp.value;
+      });
+    }
+    function normalizeColor(val){
+      // If it's already hex, use it. Otherwise return null (browser will keep default).
+      if(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i.test(val)) return val;
+      return null;
+    }
+
+    themeInputs.forEach(inp=>{
+      inp.addEventListener("input", ()=>{
+        const key = inp.getAttribute("data-theme");
+        const theme = loadJSON(THEME_KEY) || {};
+        theme[key] = inp.value;
+        applyTheme(theme);
+        saveJSON(THEME_KEY, theme);
+      });
+    });
+
+    // ---------- Custom blank blocks ----------
+    const blocksList = document.getElementById("customBlocksList");
+    const btnAddBlock = document.getElementById("btnAddBlock");
+
+    function renderBlocks(){
+      const blocks = loadJSON(BLOCKS_KEY) || [];
+      blocksList.innerHTML = "";
+
+      blocks.forEach((b, idx)=>{
+        const el = document.createElement("div");
+        el.className = "customBlock";
+        el.innerHTML = `
+          <div class="customBlock__row">
+            <div class="customBlock__label">Block ${idx+1}</div>
+            <button class="customBlock__del" type="button" title="Delete">✕</button>
+          </div>
+          <div class="customBlock__text" contenteditable="true"></div>
+        `;
+
+        const text = el.querySelector(".customBlock__text");
+        text.innerHTML = (b || "").replace(/\n/g, "<br>");
+
+        // Save on input
+        text.addEventListener("input", ()=>{
+          const updated = loadJSON(BLOCKS_KEY) || [];
+          updated[idx] = text.innerHTML;
+          saveJSON(BLOCKS_KEY, updated);
+        });
+
+        // Delete
+        el.querySelector(".customBlock__del").addEventListener("click", ()=>{
+          const updated = loadJSON(BLOCKS_KEY) || [];
+          updated.splice(idx, 1);
+          saveJSON(BLOCKS_KEY, updated);
+          renderBlocks();
+        });
+
+        blocksList.appendChild(el);
+      });
+    }
+
+    btnAddBlock.addEventListener("click", ()=>{
+      const blocks = loadJSON(BLOCKS_KEY) || [];
+      blocks.push("Click here and type your custom copy...");
+      saveJSON(BLOCKS_KEY, blocks);
+      renderBlocks();
+    });
+
+    // ---------- Rios Time (hourglass progress) ----------
+    const casesCount = document.getElementById("casesCount");
+    const couponBox = document.getElementById("couponBox");
+    const sandTopRect = document.getElementById("sandTopRect");
+    const sandBottomRect = document.getElementById("sandBottomRect");
+    const sandStream = document.getElementById("sandStream");
+
+    const btnAddCase = document.getElementById("btnAddCase");
+    const btnRemoveCase = document.getElementById("btnRemoveCase");
+    const btnResetCases = document.getElementById("btnResetCases");
+
+    function clamp(n,min,max){ return Math.max(min, Math.min(max, n)); }
+
+    function setCases(n){
+      const v = clamp(n, 0, 10);
+      casesCount.textContent = v.toString();
+      saveJSON(CASES_KEY, v);
+
+      // progress 0..1 (0=empty bottom, 1=full bottom)
+      const p = v / 10;
+
+      // Top sand should decrease as p increases.
+      // Top clip height range: 86 -> 0
+      const topH = 86 * (1 - p);
+      sandTopRect.setAttribute("height", topH.toFixed(2));
+
+      // Bottom sand should increase as p increases.
+      const bottomH = 86 * (p);
+      // Keep bottom fill anchored at bottom of its area (y=178..264)
+      const bottomY = 178 + (86 - bottomH);
+      sandBottomRect.setAttribute("y", bottomY.toFixed(2));
+      sandBottomRect.setAttribute("height", bottomH.toFixed(2));
+
+      // Stream visible only while not complete and not zero
+      const streamOn = (v > 0 && v < 10);
+      sandStream.style.opacity = streamOn ? "0.85" : "0";
+
+      // Coupon visible at 10
+      couponBox.hidden = v < 10;
+    }
+
+    btnAddCase.addEventListener("click", ()=>{
+      const cur = loadJSON(CASES_KEY) ?? 0;
+      setCases(cur + 1);
+    });
+    btnRemoveCase.addEventListener("click", ()=>{
+      const cur = loadJSON(CASES_KEY) ?? 0;
+      setCases(cur - 1);
+    });
+    btnResetCases.addEventListener("click", ()=> setCases(0));
+
+    // ---------- Dock open/close ----------
     let open = false;
     function setOpen(v){
       open = v;
@@ -396,10 +767,20 @@
       e.target.value = "";
     });
 
-    const state = loadState();
-    if(state) applyStateToDOM(state);
+    // ---------- Boot ----------
+    const saved = loadJSON(STORAGE_KEY);
+    if(saved) applyStateToDOM(saved);
 
+    const savedTheme = loadJSON(THEME_KEY);
+    if(savedTheme) applyTheme(savedTheme);
+
+    renderBlocks();
+    buildEditorUI();
+    syncThemeInputs();
+    setCases(loadJSON(CASES_KEY) ?? 0);
     setOpen(false);
+    setInline(false);
+    setTab("content");
   })();
   </script>
 </body>
