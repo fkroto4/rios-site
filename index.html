@@ -1,241 +1,288 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Rios — Real Rum. Real Escape.</title>
-<link rel="stylesheet" href="styles.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rios — Real Rum. Real Escape.</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 
 <body id="top">
+  <!-- Sticky Top Bar -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="brand" href="#top" aria-label="Rios Home">
+        <!-- LOGO (make sure this exists: /images/logo.png) -->
+        <img class="brand__logo" src="images/logo.png" alt="Rios logo" />
+      </a>
 
-<header class="topbar">
-<div class="topbar__inner">
-<a class="brand" href="#top" aria-label="Rios Home">
-<img class="brand__logo" src="images/logo.png" alt="Rios logo"/>
-</a>
+      <nav class="nav" aria-label="Primary">
+        <a class="nav__link" href="#why" data-edit="true">Why Rum</a>
+        <a class="nav__link" href="#data" data-edit="true">Data</a>
+        <a class="nav__link" href="#campaign" data-edit="true">Campaign</a>
+        <a class="nav__link" href="#find" data-edit="true">Find</a>
+      </nav>
+    </div>
+  </header>
 
-<nav class="nav">
-<a class="nav__link" href="#why">Why Rum</a>
-<a class="nav__link" href="#data">Data</a>
-<a class="nav__link" href="#campaign">Campaign</a>
-<a class="nav__link" href="#find">Find</a>
-</nav>
-</div>
-</header>
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__overlay"></div>
 
-<section class="hero">
-<div class="hero__bg"></div>
-<div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title" data-edit="true">Rios</h1>
+      <p class="hero__subtitle" data-edit="true">Real Rum. Real Escape.</p>
 
-<div class="hero__content">
-<h1 class="hero__title">Rios</h1>
-<p class="hero__subtitle">Real Rum. Real Escape.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#find" data-edit="true">Find an Escape Near You &nbsp;›</a>
+        <a class="btn btn--ghost" href="#flavors" data-edit="true">Explore Flavors &nbsp;›</a>
+      </div>
+    </div>
+  </section>
 
-<div class="hero__ctaRow">
-<a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
-<a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
-</div>
-</div>
+  <!-- Taste the Tropics -->
+  <section class="section" id="flavors">
+    <div class="section__inner card">
+      <h2 class="h2" data-edit="true">Taste the Tropics</h2>
+      <p class="sub" data-edit="true">
+        Refreshing, premium rum cocktails made with real rum and natural ingredients.
+      </p>
 
-<div class="hero__bottomFade"></div>
-</section>
+      <div class="pillRow">
+        <div class="pill" data-edit="true">🪵&nbsp; Crafted with Premium Rum</div>
+        <div class="pill" data-edit="true">🌿&nbsp; Natural Ingredients</div>
+        <div class="pill" data-edit="true">🍊&nbsp; Ready to Enjoy</div>
+      </div>
 
-<main class="page">
+      <div class="cards">
+        <article class="cardItem">
+          <img class="can" src="images/can1.png" alt="Rios Strawberry Banana Daiquiri can" />
+          <h3 class="flavorName" data-edit="true">Strawberry Banana<br/>Daiquiri</h3>
+          <div class="flavorMeta" data-edit="true">6% ALC/VOL · LOW SUGAR</div>
+          <a class="btn btn--small" href="#find" data-edit="true">Find an Escape Near You</a>
+        </article>
 
-<section class="section" id="flavors">
-<div class="card">
-<h2 class="h2">Taste the Tropics</h2>
-<p class="sub">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
+        <article class="cardItem">
+          <img class="can" src="images/can2.png" alt="Rios Passionfruit Mai Tai can" />
+          <h3 class="flavorName" data-edit="true">Passionfruit<br/>Mai Tai</h3>
+          <div class="flavorMeta" data-edit="true">8% ALC/VOL · GLUTEN FREE</div>
+          <a class="btn btn--small" href="#find" data-edit="true">Find an Escape Near You</a>
+        </article>
 
-<div class="trustRow">
-<div class="pill"><span class="dot">🥥</span> Crafted with Premium Rum</div>
-<div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
-<div class="pill"><span class="dot">🍍</span> Ready to Enjoy</div>
-</div>
+        <article class="cardItem">
+          <img class="can" src="images/can3.png" alt="Rios Hibiscus Mint Mojito can" />
+          <h3 class="flavorName" data-edit="true">Hibiscus<br/>Mint Mojito</h3>
+          <div class="flavorMeta" data-edit="true">7% ALC/VOL · NATURAL FLAVORS</div>
+          <a class="btn btn--small" href="#find" data-edit="true">Find an Escape Near You</a>
+        </article>
 
-<div class="grid">
+        <article class="cardItem">
+          <img class="can" src="images/can4.png" alt="Rios Mango Ginger Rum Punch can" />
+          <h3 class="flavorName" data-edit="true">Mango Ginger<br/>Rum Punch</h3>
+          <div class="flavorMeta" data-edit="true">9% ALC/VOL · REAL RUM</div>
+          <a class="btn btn--small" href="#find" data-edit="true">Find an Escape Near You</a>
+        </article>
+      </div>
+    </div>
+  </section>
 
-<article class="flavorCard">
-<div class="flavorImg">
-<img src="images/can1.png"/>
-</div>
-<h3 class="flavorName">Strawberry Banana<br/>Daiquiri</h3>
-<div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
-<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-</article>
+  <!-- Rios Time Rewards -->
+  <section class="section" id="rewards">
+    <div class="section__inner card">
+      <h2 class="h2" data-edit="true">Rios Time Rewards</h2>
+      <p class="sub" data-edit="true">
+        Every Rios you enjoy moves the hourglass forward. As the sand falls, you get closer to unlocking rewards and free Rios drinks. Keep the sand moving and your next Rios could be on us. Each sip gets you closer to Rios Time!
+      </p>
 
-<article class="flavorCard">
-<div class="flavorImg">
-<img src="images/can2.png"/>
-</div>
-<h3 class="flavorName">Passionfruit<br/>Mai Tai</h3>
-<div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
-<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-</article>
+      <div class="rewardsGrid">
+        <div class="hourglassWrap">
+          <img id="hgImg" class="hourglassImg" src="images/hourglass/state0.png" alt="Hourglass progress" />
+          <div class="progressRow">
+            <button id="hgNext" class="btn btn--small" type="button">Next</button>
+            <button id="hgReset" class="btn btn--small btn--ghost" type="button">Reset</button>
+          </div>
+          <div class="fine" id="hgLabel">Progress: 0 / 4</div>
+        </div>
 
-<article class="flavorCard">
-<div class="flavorImg">
-<img src="images/can3.png"/>
-</div>
-<h3 class="flavorName">Hibiscus<br/>Mint Mojito</h3>
-<div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
-<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-</article>
+        <div class="rewardsInfo" data-edit="true">
+          <h3 class="h3" data-edit="true">How it works</h3>
+          <p class="lead" data-edit="true">
+            For class/demo: each “Next” simulates another case purchase. At the final state, the hourglass stays empty until you reset.
+          </p>
+          <ul class="bullets">
+            <li data-edit="true">Target: 10 cases → free 12-pack coupon</li>
+            <li data-edit="true">This demo uses 5 visual states (0–4)</li>
+            <li data-edit="true">Swap copy anytime with the Edit button</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<article class="flavorCard">
-<div class="flavorImg">
-<img src="images/can4.png"/>
-</div>
-<h3 class="flavorName">Mango Ginger<br/>Rum Punch</h3>
-<div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
-<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-</article>
+  <!-- Why Rum -->
+  <section class="section" id="why">
+    <div class="section__inner card">
+      <h2 class="h2" data-edit="true">Why Rum</h2>
+      <p class="sub" data-edit="true">
+        Rum is underrepresented in RTDs versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.
+      </p>
+    </div>
+  </section>
 
-</div>
-</div>
-</section>
+  <!-- Data -->
+  <section class="section" id="data">
+    <div class="section__inner card">
+      <h2 class="h2" data-edit="true">Data</h2>
+      <p class="sub" data-edit="true">
+        Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios matches this demand with an elevated profile.
+      </p>
+    </div>
+  </section>
 
-<section class="section" id="rewards">
-<div class="card centerCard">
+  <!-- Campaign -->
+  <section class="section" id="campaign">
+    <div class="section__inner card">
+      <h2 class="h2" data-edit="true">Campaign</h2>
+      <p class="sub" data-edit="true">
+        Find an Escape Near You — a weekend-escapist message for 25–35 year olds who want vacation energy without leaving town.
+      </p>
+      <a class="btn btn--primary" href="#find" data-edit="true">Find an Escape Near You</a>
+    </div>
+  </section>
 
-<h2 class="h2">Rios Time Rewards</h2>
+  <!-- Find -->
+  <section class="section" id="find">
+    <div class="section__inner card">
+      <h2 class="h2" data-edit="true">Find Your Rios</h2>
+      <p class="sub" data-edit="true">Mock locator for class/presentation use (no real lookup).</p>
 
-<p class="sub">
-Every Rios you enjoy moves the hourglass forward. As the sand falls, you get closer to unlocking rewards and free Rios drinks. Keep the sand moving and your next Rios could be on us. Each sip gets you closer to Rios Time!
-</p>
+      <form class="formRow" onsubmit="return false;">
+        <label class="srOnly" for="q" data-edit="true">Enter your city or zip code</label>
+        <input id="q" type="text" placeholder="Enter your city or zip code" />
+        <button class="btn btn--primary" type="button" data-edit="true">Search &nbsp;›</button>
+      </form>
 
-<div class="hourglassWrap">
-<img id="hourglassImg" class="hourglassImg" src="images/hourglass/state0.png"/>
-</div>
+      <p class="fine" data-edit="true">Mock only · No real store lookup · Built for presentation</p>
 
-<div class="hourglassControls">
+      <a class="btn btn--ghost btn--small" href="#top" data-edit="true">Back to Top &nbsp;↑</a>
+    </div>
+  </section>
 
-<button class="btn btn--primary" id="hgNext">
-Next <span class="arrow">›</span>
-</button>
+  <footer class="footer">
+    <div class="footer__inner" data-edit="true">
+      © Rios · Demo site for class presentation
+    </div>
+  </footer>
 
-<button class="btn btn--ghost" id="hgReset">
-Reset
-</button>
+  <script>
+    // --- Hourglass states (0..4) ---
+    (function () {
+      const states = [
+        "images/hourglass/state0.png",
+        "images/hourglass/state1.png",
+        "images/hourglass/state2.png",
+        "images/hourglass/state3.png",
+        "images/hourglass/state4.png",
+      ];
 
-<button class="btn btn--ghost" id="hgEdit">
-Edit
-</button>
+      const img = document.getElementById("hgImg");
+      const nextBtn = document.getElementById("hgNext");
+      const resetBtn = document.getElementById("hgReset");
+      const label = document.getElementById("hgLabel");
 
-</div>
+      let i = 0;
 
-<div class="fine" id="hgLabel">Progress: 0 / 4</div>
+      function setState(n) {
+        i = Math.max(0, Math.min(states.length - 1, n));
+        img.classList.add("fadeOut");
+        window.setTimeout(() => {
+          img.src = states[i];
+          label.textContent = `Progress: ${i} / 4`;
+          img.classList.remove("fadeOut");
+        }, 180);
+      }
 
-</div>
-</section>
+      nextBtn.addEventListener("click", () => {
+        if (i >= states.length - 1) return; // stay empty at the end
+        setState(i + 1);
+      });
 
-<section class="section" id="why">
-<div class="card">
-<h2 class="h2">Why Rum</h2>
-<p class="sub">
-Rum is underrepresented in RTDs versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.
-</p>
-</div>
-</section>
+      resetBtn.addEventListener("click", () => setState(0));
 
-<section class="section" id="data">
-<div class="card">
-<h2 class="h2">Data</h2>
-<p class="sub">
-Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios matches this demand with an elevated profile.
-</p>
-</div>
-</section>
+      // init
+      setState(0);
+    })();
+  </script>
 
-<section class="section" id="campaign">
-<div class="card">
-<h2 class="h2">Campaign</h2>
-<p class="sub">
-Find an Escape Near You — a weekend-escapist message for 25–35 year olds who want vacation energy without leaving town.
-</p>
+  <!-- Edit Mode Toggle (saves text edits in your browser) -->
+  <button id="editToggle" class="editToggle" type="button" aria-pressed="false">Edit</button>
+  <button id="editResetText" class="editResetText" type="button" hidden>Reset text</button>
 
-<div class="center">
-<a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
-</div>
+  <script>
+    // --- Simple in-browser editor (text only) ---
+    (function () {
+      const KEY_PREFIX = "rios_edit__";
+      const editBtn = document.getElementById("editToggle");
+      const resetBtn = document.getElementById("editResetText");
+      const editableEls = () => Array.from(document.querySelectorAll('[data-edit="true"]'));
 
-</div>
-</section>
+      function loadEdits() {
+        editableEls().forEach((el) => {
+          const key = el.getAttribute("data-edit-key") || el.id || el.className || null;
+          if (!key) return;
+          const saved = localStorage.getItem(KEY_PREFIX + key);
+          if (saved != null) el.innerHTML = saved;
+        });
+      }
 
-<section class="section" id="find">
-<div class="card centerCard">
+      function saveEdits() {
+        editableEls().forEach((el) => {
+          const key = el.getAttribute("data-edit-key") || el.id || el.className || null;
+          if (!key) return;
+          localStorage.setItem(KEY_PREFIX + key, el.innerHTML);
+        });
+      }
 
-<h2 class="h2">Find Your Rios</h2>
+      function clearEdits() {
+        Object.keys(localStorage)
+          .filter((k) => k.startsWith(KEY_PREFIX))
+          .forEach((k) => localStorage.removeItem(k));
+        location.reload();
+      }
 
-<p class="sub">Mock locator for class/presentation use (no real lookup).</p>
+      function setEditMode(on) {
+        editableEls().forEach((el) => {
+          el.setAttribute("contenteditable", on ? "true" : "false");
+          el.classList.toggle("isEditing", on);
+        });
 
-<div class="search">
-<input placeholder="Enter your city or zip code"/>
-<button class="btn btn--primary">Search <span class="arrow">›</span></button>
-</div>
+        editBtn.setAttribute("aria-pressed", on ? "true" : "false");
+        editBtn.textContent = on ? "Save" : "Edit";
+        resetBtn.hidden = !on;
+      }
 
-<div class="fine">Mock only • No real store lookup • Built for presentation</div>
+      // Prevent Enter from "clicking" links/buttons while editing
+      editableEls().forEach((el) => {
+        el.addEventListener("keydown", (e) => {
+          if ((el.tagName === "A" || el.tagName === "BUTTON") && e.key === "Enter") {
+            e.preventDefault();
+          }
+        });
+      });
 
-<div class="center">
-<a class="btn btn--ghost" href="#top">Back to Top</a>
-</div>
+      loadEdits();
 
-</div>
-</section>
+      let editing = false;
+      editBtn.addEventListener("click", () => {
+        editing = !editing;
+        if (!editing) saveEdits();
+        setEditMode(editing);
+      });
 
-<footer class="footer">
-Mock website for class/project use • © 2026 Rios (concept)
-</footer>
+      resetBtn.addEventListener("click", clearEdits);
 
-</main>
-
-<script>
-
-(function(){
-
-const img=document.getElementById("hourglassImg")
-const next=document.getElementById("hgNext")
-const reset=document.getElementById("hgReset")
-const edit=document.getElementById("hgEdit")
-const label=document.getElementById("hgLabel")
-
-const states=[
-"images/hourglass/state0.png",
-"images/hourglass/state1.png",
-"images/hourglass/state2.png",
-"images/hourglass/state3.png",
-"images/hourglass/state4.png"
-]
-
-let i=0
-
-function update(){
-label.textContent="Progress: "+i+" / 4"
-}
-
-next.onclick=function(){
-if(i<4){
-i++
-img.src=states[i]
-update()
-}
-}
-
-reset.onclick=function(){
-i=0
-img.src=states[i]
-update()
-}
-
-edit.onclick=function(){
-alert("Edit mode placeholder for demo")
-}
-
-update()
-
-})()
-
-</script>
-
+      setEditMode(false);
+    })();
+  </script>
 </body>
 </html>
