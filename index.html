@@ -1,293 +1,222 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rios — Find Your Escape</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rios — Real Rum. Real Escape.</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body>
-  <!-- Sticky Top Nav -->
+<body id="top">
+  <!-- Sticky Top Bar -->
   <header class="topbar">
     <div class="topbar__inner">
-      <a class="brand" href="#top">
-        <img class="brand__logo" src="images/logo.png" alt="Rios" />
+      <a class="brand" href="#top" aria-label="Rios Home">
+        <!-- LOGO (make sure this exists: /images/logo.png) -->
+        <img class="brand__logo" src="images/logo.png" alt="Rios logo" />
       </a>
 
-      <nav class="nav">
+      <nav class="nav" aria-label="Primary">
         <a class="nav__link" href="#why">Why Rum</a>
-        <a class="nav__link" href="#flavors">Flavors</a>
+        <a class="nav__link" href="#data">Data</a>
+        <a class="nav__link" href="#campaign">Campaign</a>
         <a class="nav__link" href="#find">Find</a>
-        <a class="nav__link" href="#rios-time">Rios Time</a>
       </nav>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main id="top">
-    <section class="hero">
-      <div class="hero__bg" aria-hidden="true"></div>
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__bg" role="img" aria-label="Ocean background"></div>
+    <div class="hero__overlay"></div>
 
-      <div class="hero__content container">
-        <!-- Big logo wordmark feel -->
-        <h1 class="hero__title editable" contenteditable="true" data-key="hero_title">Rios</h1>
-        <p class="hero__subtitle editable" contenteditable="true" data-key="hero_subtitle">Real Rum. Real Escape.</p>
+    <div class="hero__content">
+      <h1 class="hero__title">Rios</h1>
+      <p class="hero__subtitle">Real Rum. Real Escape.</p>
 
-        <div class="hero__cta">
-          <a class="btn btn--primary editable" contenteditable="true" data-key="hero_cta1" href="#find">Find an Escape Near You ›</a>
-          <a class="btn btn--ghost editable" contenteditable="true" data-key="hero_cta2" href="#flavors">Explore Flavors ›</a>
+      <div class="hero__ctaRow">
+        <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+        <a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
+      </div>
+    </div>
+
+    <!-- This fades the hero into the repeating tile area -->
+    <div class="hero__bottomFade" aria-hidden="true"></div>
+  </section>
+
+  <!-- Main (Repeating Background starts here) -->
+  <main class="page" aria-label="Main content">
+
+    <!-- Flavors -->
+    <section class="section" id="flavors">
+      <div class="card">
+        <h2 class="h2">Taste the Tropics</h2>
+        <p class="sub">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
+
+        <div class="trustRow">
+          <div class="pill"><span class="dot">🥥</span> Crafted with Premium Rum</div>
+          <div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
+          <div class="pill"><span class="dot">🍍</span> Ready to Enjoy</div>
+        </div>
+
+        <div class="grid">
+          <!-- NOTE: these image files MUST exist in /images/ -->
+          <article class="flavorCard">
+            <div class="flavorImg">
+              <img src="images/can1.png" alt="Strawberry Banana Daiquiri can" />
+            </div>
+            <h3 class="flavorName">Strawberry Banana<br/>Daiquiri</h3>
+            <div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
+            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          </article>
+
+          <article class="flavorCard">
+            <div class="flavorImg">
+              <img src="images/can2.png" alt="Passionfruit Mai Tai can" />
+            </div>
+            <h3 class="flavorName">Passionfruit<br/>Mai Tai</h3>
+            <div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
+            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          </article>
+
+          <article class="flavorCard">
+            <div class="flavorImg">
+              <img src="images/can3.png" alt="Hibiscus Mint Mojito can" />
+            </div>
+            <h3 class="flavorName">Hibiscus<br/>Mint Mojito</h3>
+            <div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
+            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          </article>
+
+          <article class="flavorCard">
+            <div class="flavorImg">
+              <img src="images/can4.png" alt="Mango Ginger Rum Punch can" />
+            </div>
+            <h3 class="flavorName">Mango Ginger<br/>Rum Punch</h3>
+            <div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
+            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          </article>
         </div>
       </div>
-
-      <!-- This gradient makes the hero -> tile background transition smooth -->
-      <div class="hero__fade" aria-hidden="true"></div>
     </section>
 
-    <!-- PAGE (repeating background starts here) -->
-    <div class="page">
-      <!-- WHY RUM -->
-      <section id="why" class="section container glass">
-        <div class="section__head">
-          <h2 class="h2 editable" contenteditable="true" data-key="why_title">Why Rum?</h2>
-          <p class="sub editable" contenteditable="true" data-key="why_sub">
-            Rum is underrepresented in RTDs. Rios brings real Jamaican rum and weekend-escape energy—without the sugar-bomb vibe.
-          </p>
-        </div>
-
-        <div class="grid2">
-          <div class="card">
-            <h3 class="h3 editable" contenteditable="true" data-key="origin_title">The Origin</h3>
-            <p class="p editable" contenteditable="true" data-key="origin_body">
-              Real Jamaican rum is the soul of our cocktails. It’s the only spirit with an effortless tie to beach culture and “vacation mode.”
-            </p>
-          </div>
-
-          <div class="card">
-            <h3 class="h3 editable" contenteditable="true" data-key="data_title">The Data</h3>
-            <p class="p editable" contenteditable="true" data-key="data_body">
-              Gen Z shows strong interest in exploring rum—creating a premium opening for a rum-forward brand that teaches the category.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- FLAVORS -->
-      <section id="flavors" class="section container glass">
-        <div class="section__head">
-          <h2 class="h2 editable" contenteditable="true" data-key="flavors_title">Taste the Tropics</h2>
-          <p class="sub editable" contenteditable="true" data-key="flavors_sub">
-            Refreshing, premium rum cocktails made with real rum and natural ingredients.
-          </p>
-        </div>
-
-        <div class="pillRow">
-          <div class="pill editable" contenteditable="true" data-key="pill_1">Crafted with Premium Rum</div>
-          <div class="pill editable" contenteditable="true" data-key="pill_2">Natural Ingredients</div>
-          <div class="pill editable" contenteditable="true" data-key="pill_3">Ready to Enjoy</div>
-        </div>
-
-        <div class="flavorGrid">
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can1.png" alt="Strawberry Banana Daiquiri" />
-            </div>
-            <h3 class="flavorName editable" contenteditable="true" data-key="f1_name">Strawberry Banana Daiquiri</h3>
-            <p class="flavorMeta editable" contenteditable="true" data-key="f1_meta">6% ALC/VOL · LOW SUGAR</p>
-            <a class="btn btn--small btn--primary editable" contenteditable="true" data-key="f_btn" href="#find">Find an Escape Near You</a>
-          </article>
-
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can2.png" alt="Passionfruit Mai Tai" />
-            </div>
-            <h3 class="flavorName editable" contenteditable="true" data-key="f2_name">Passionfruit Mai Tai</h3>
-            <p class="flavorMeta editable" contenteditable="true" data-key="f2_meta">8% ALC/VOL · GLUTEN FREE</p>
-            <a class="btn btn--small btn--primary editable" contenteditable="true" data-key="f_btn2" href="#find">Find an Escape Near You</a>
-          </article>
-
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can3.png" alt="Hibiscus Mint Mojito" />
-            </div>
-            <h3 class="flavorName editable" contenteditable="true" data-key="f3_name">Hibiscus Mint Mojito</h3>
-            <p class="flavorMeta editable" contenteditable="true" data-key="f3_meta">7% ALC/VOL · NATURAL FLAVORS</p>
-            <a class="btn btn--small btn--primary editable" contenteditable="true" data-key="f_btn3" href="#find">Find an Escape Near You</a>
-          </article>
-
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can4.png" alt="Mango Ginger Rum Punch" />
-            </div>
-            <h3 class="flavorName editable" contenteditable="true" data-key="f4_name">Mango Ginger Rum Punch</h3>
-            <p class="flavorMeta editable" contenteditable="true" data-key="f4_meta">9% ALC/VOL · REAL RUM</p>
-            <a class="btn btn--small btn--primary editable" contenteditable="true" data-key="f_btn4" href="#find">Find an Escape Near You</a>
-          </article>
-        </div>
-      </section>
-
-      <!-- FIND -->
-      <section id="find" class="section container glass">
-        <div class="section__head center">
-          <h2 class="h2 editable" contenteditable="true" data-key="find_title">Find Your Rios</h2>
-          <p class="sub editable" contenteditable="true" data-key="find_sub">Mock locator for class site. Buttons scroll here.</p>
-        </div>
-
-        <div class="findBox">
-          <label class="label editable" contenteditable="true" data-key="find_label">Enter your city or zip code</label>
-          <div class="findRow">
-            <input class="input" placeholder="e.g., 45212" />
-            <button class="btn btn--primary editable" contenteditable="true" data-key="find_btn" type="button">Search ›</button>
-          </div>
-          <p class="fine editable" contenteditable="true" data-key="find_note">Mock only — no real store lookup in this demo.</p>
-        </div>
-      </section>
-
-      <!-- RIOS TIME (Hourglass) -->
-      <section id="rios-time" class="section container glass">
-        <div class="section__head center">
-          <h2 class="h2 editable" contenteditable="true" data-key="rt_title">Rios Time</h2>
-          <p class="sub editable" contenteditable="true" data-key="rt_sub">
-            Scan inside packaging. Each purchase moves you closer to a free 12-pack coupon (10 cases in the real concept).
-          </p>
-        </div>
+    <!-- Rewards / Hourglass -->
+    <section class="section" id="rewards">
+      <div class="card centerCard">
+        <h2 class="h2">Rios Time Rewards</h2>
+        <p class="sub">Demo: each purchase moves the hourglass closer to “Rios Time.” Hit Next to progress. Reset to start over.</p>
 
         <div class="hourglassWrap">
-          <div class="hourglassFrame">
-            <img id="hourglassImg" class="hourglassImg" src="images/hourglass/state0.png" alt="Rios Time hourglass" />
-          </div>
-
-          <div class="hourglassControls">
-            <div class="progressText editable" contenteditable="true" data-key="rt_progress_label">
-              Demo Progress (click Next): <span id="progressNum">0</span>/4
-            </div>
-
-            <div class="btnRow">
-              <button id="nextStageBtn" class="btn btn--primary" type="button">Next</button>
-              <button id="resetStageBtn" class="btn btn--ghost" type="button">Reset</button>
-            </div>
-
-            <div id="unlocked" class="unlocked" hidden>
-              <div class="unlocked__title editable" contenteditable="true" data-key="rt_unlocked_title">You reached Rios Time ✅</div>
-              <div class="unlocked__body editable" contenteditable="true" data-key="rt_unlocked_body">
-                In the real launch, this would reveal a coupon unlock screen.
-              </div>
-              <button class="btn btn--primary editable" contenteditable="true" data-key="rt_coupon_btn" type="button">
-                Reveal Coupon (demo)
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Blank expandable blocks -->
-      <section class="section container glass">
-        <div class="section__head">
-          <h2 class="h2 editable" contenteditable="true" data-key="blank_title">Add Sections</h2>
-          <p class="sub editable" contenteditable="true" data-key="blank_sub">Paste any text here—blocks grow automatically.</p>
+          <!-- Make sure these exist: /images/hourglass/state0.png ... state4.png -->
+          <img id="hourglassImg" class="hourglassImg" src="images/hourglass/state0.png" alt="Hourglass progress" />
         </div>
 
-        <div class="blankGrid">
-          <div class="blankBlock editable" contenteditable="true" data-key="blank_1">Click and type…</div>
-          <div class="blankBlock editable" contenteditable="true" data-key="blank_2">Click and type…</div>
-          <div class="blankBlock editable" contenteditable="true" data-key="blank_3">Click and type…</div>
+        <div class="hourglassControls">
+          <button class="btn btn--primary" id="hgNext" type="button">Next <span class="arrow">›</span></button>
+          <button class="btn btn--ghost" id="hgReset" type="button">Reset</button>
         </div>
-      </section>
 
-      <footer class="footer">
-        <div class="container footer__inner">
-          <div class="editable" contenteditable="true" data-key="footer_left">Rios (Class Mock Site)</div>
-          <div class="editable" contenteditable="true" data-key="footer_right">Built for presentation · GitHub Pages</div>
+        <div class="fine" id="hgLabel">Progress: 0 / 4</div>
+      </div>
+    </section>
+
+    <!-- Why Rum -->
+    <section class="section" id="why">
+      <div class="card">
+        <h2 class="h2">Why Rum</h2>
+        <p class="sub">Rum is underrepresented in RTDs versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.</p>
+      </div>
+    </section>
+
+    <!-- Data -->
+    <section class="section" id="data">
+      <div class="card">
+        <h2 class="h2">Data</h2>
+        <p class="sub">Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios matches this demand with an elevated profile.</p>
+      </div>
+    </section>
+
+    <!-- Campaign -->
+    <section class="section" id="campaign">
+      <div class="card">
+        <h2 class="h2">Campaign</h2>
+        <p class="sub">Find an Escape Near You — a weekend-escapist message for 25–35 year olds who want vacation energy without leaving town.</p>
+        <div class="center">
+          <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
         </div>
-      </footer>
-    </div>
+      </div>
+    </section>
+
+    <!-- Find -->
+    <section class="section" id="find">
+      <div class="card centerCard">
+        <h2 class="h2">Find Your Rios</h2>
+        <p class="sub">Mock locator for class/presentation use (no real lookup).</p>
+
+        <div class="search">
+          <input type="text" placeholder="Enter your city or zip code" aria-label="City or zip code" />
+          <button type="button" class="btn btn--primary">Search <span class="arrow">›</span></button>
+        </div>
+
+        <div class="fine">Mock only • No real store lookup • Built for presentation</div>
+
+        <div class="center">
+          <a class="btn btn--ghost" href="#top">Back to Top <span class="arrow">›</span></a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      Mock website for class/project use • © 2026 Rios (concept)
+    </footer>
   </main>
 
   <script>
-    // =========================
-    // 1) Hourglass (5 image states + fade)
-    // =========================
+    // Hourglass state switcher (fade + stay empty + reset)
     (function () {
+      const img = document.getElementById("hourglassImg");
+      const nextBtn = document.getElementById("hgNext");
+      const resetBtn = document.getElementById("hgReset");
+      const label = document.getElementById("hgLabel");
+
       const states = [
         "images/hourglass/state0.png",
         "images/hourglass/state1.png",
         "images/hourglass/state2.png",
         "images/hourglass/state3.png",
-        "images/hourglass/state4.png",
+        "images/hourglass/state4.png"
       ];
 
-      const img = document.getElementById("hourglassImg");
-      const progressNum = document.getElementById("progressNum");
-      const nextBtn = document.getElementById("nextStageBtn");
-      const resetBtn = document.getElementById("resetStageBtn");
-      const unlocked = document.getElementById("unlocked");
+      let i = 0;
 
-      let idx = 0;
+      function setLabel() {
+        label.textContent = `Progress: ${i} / 4`;
+      }
 
-      function setState(newIdx) {
-        idx = Math.max(0, Math.min(states.length - 1, newIdx));
-        progressNum.textContent = String(idx);
-
-        // Unlock when empty (state4)
-        unlocked.hidden = idx !== 4;
-
-        // Fade swap
+      function swap(toIndex) {
+        // fade out
         img.classList.add("isFading");
         window.setTimeout(() => {
-          img.src = states[idx];
-        }, 140);
-
-        window.setTimeout(() => {
+          img.src = states[toIndex];
+          // fade in
           img.classList.remove("isFading");
-        }, 260);
-
-        // Disable Next when fully empty
-        nextBtn.disabled = idx >= 4;
+          setLabel();
+        }, 180);
       }
 
       nextBtn.addEventListener("click", () => {
-        if (idx < 4) setState(idx + 1);
+        if (i < states.length - 1) {
+          i += 1;
+          swap(i);
+        }
       });
 
       resetBtn.addEventListener("click", () => {
-        setState(0);
+        i = 0;
+        swap(i);
       });
 
-      // Init
-      setState(0);
-    })();
-
-    // =========================
-    // 2) Editable text (all contenteditable elements)
-    //    Auto-saves to localStorage so you can edit without coming back here
-    // =========================
-    (function () {
-      const KEY = "rios_editables_v1";
-      const nodes = Array.from(document.querySelectorAll("[contenteditable='true'][data-key]"));
-
-      // Load saved
-      try {
-        const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
-        nodes.forEach(n => {
-          const k = n.getAttribute("data-key");
-          if (saved[k]) n.innerHTML = saved[k];
-        });
-      } catch {}
-
-      // Save on input (debounced)
-      let t = null;
-      function saveNow() {
-        const out = {};
-        nodes.forEach(n => out[n.getAttribute("data-key")] = n.innerHTML);
-        try { localStorage.setItem(KEY, JSON.stringify(out)); } catch {}
-      }
-
-      nodes.forEach(n => {
-        n.addEventListener("input", () => {
-          if (t) clearTimeout(t);
-          t = setTimeout(saveNow, 250);
-        });
-      });
+      setLabel();
     })();
   </script>
 </body>
