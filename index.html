@@ -2,147 +2,209 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rios — Real Rum. Real Escape.</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rios — Find an Escape Near You</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@500;700;800;900&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="styles.css" />
 </head>
 
-<body id="top">
-  <!-- Sticky Top Bar -->
-  <header class="topbar">
-    <div class="topbar__inner">
-      <a class="brand" href="#top" aria-label="Rios Home">
-        <!-- LOGO (make sure this exists: /images/logo.png) -->
-        <img class="brand__logo" src="images/logo.png" alt="Rios logo" />
-      </a>
+<body>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="#why">Why Rum</a>
-        <a class="nav__link" href="#data">Data</a>
-        <a class="nav__link" href="#campaign">Campaign</a>
-        <a class="nav__link" href="#find">Find</a>
+  <!-- Sticky nav -->
+  <div class="topbar">
+    <div class="topbar__inner">
+      <a class="topbar__brand" href="#top" aria-label="Rios Home">
+        <img class="topbar__logo" src="images/logo.png" alt="Rios" />
+      </a>
+      <nav class="topbar__nav" aria-label="Site">
+        <a href="#why" data-edit="navWhy">Why Rum</a>
+        <a href="#data" data-edit="navData">Data</a>
+        <a href="#campaign" data-edit="navCampaign">Campaign</a>
+        <a href="#find" class="navCta" data-edit="navFind">Find</a>
       </nav>
     </div>
-  </header>
+  </div>
 
   <!-- Hero -->
-  <section class="hero" aria-label="Hero">
-    <div class="hero__bg" role="img" aria-label="Ocean background"></div>
-    <div class="hero__overlay"></div>
+  <header class="hero" id="top" aria-label="Hero">
+    <div class="hero__bg" role="img" aria-label="Beach background"></div>
+    <div class="hero__overlay" aria-hidden="true"></div>
 
     <div class="hero__content">
-      <h1 class="hero__title">Rios</h1>
-      <p class="hero__subtitle">Real Rum. Real Escape.</p>
+      <img class="hero__logo" src="images/logo.png" alt="Rios logo" />
+      <div class="hero__headline" data-edit="heroHeadline">Real Rum. Real Escape.</div>
 
-      <div class="hero__ctaRow">
-        <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
-        <a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
+      <div class="hero__actions">
+        <a class="btn btn--primary" href="#find" data-edit="heroBtnA">
+          Find an Escape Near You <span class="arrow">›</span>
+        </a>
+        <a class="btn btn--ghost" href="#flavors" data-edit="heroBtnB">
+          Explore Flavors <span class="arrow">›</span>
+        </a>
       </div>
     </div>
 
-    <!-- This fades the hero into the repeating tile area -->
-    <div class="hero__bottomFade" aria-hidden="true"></div>
-  </section>
+    <!-- Seamless fade into tile background -->
+    <div class="hero__bridge" aria-hidden="true"></div>
+  </header>
 
-  <!-- Main (Repeating Background starts here) -->
-  <main class="page" aria-label="Main content">
+  <!-- Page -->
+  <main class="page">
 
-    <!-- Flavors -->
+    <!-- Taste -->
     <section class="section" id="flavors">
       <div class="card">
-        <h2 class="h2">Taste the Tropics</h2>
-        <p class="sub">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
+        <div class="sectionHead">
+          <h2 data-edit="tasteTitle">Taste the Tropics</h2>
+          <p data-edit="tasteSub">
+            Refreshing, premium rum cocktails made with real rum and natural ingredients.
+          </p>
+        </div>
 
-        <div class="trustRow">
-          <div class="pill"><span class="dot">🥥</span> Crafted with Premium Rum</div>
-          <div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
-          <div class="pill"><span class="dot">🍍</span> Ready to Enjoy</div>
+        <div class="pillRow">
+          <div class="pill"><span class="dot">🪵</span><span data-edit="pill1">Crafted with Premium Rum</span></div>
+          <div class="pill"><span class="dot">🌿</span><span data-edit="pill2">Natural Ingredients</span></div>
+          <div class="pill"><span class="dot">🍊</span><span data-edit="pill3">Ready to Enjoy</span></div>
         </div>
 
         <div class="grid">
-          <!-- NOTE: these image files MUST exist in /images/ -->
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can1.png" alt="Strawberry Banana Daiquiri can" />
-            </div>
-            <h3 class="flavorName">Strawberry Banana<br/>Daiquiri</h3>
-            <div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          <article class="flavor">
+            <div class="flavor__img"><img src="images/can1.png" alt="Strawberry Banana Daiquiri"></div>
+            <h3 data-edit="f1Name">Strawberry Banana<br/>Daiquiri</h3>
+            <div class="meta" data-edit="f1Meta">6% ALC/VOL • LOW SUGAR</div>
+            <a class="btn btn--mini" href="#find" data-edit="f1Btn">Find an Escape Near You</a>
           </article>
 
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can2.png" alt="Passionfruit Mai Tai can" />
-            </div>
-            <h3 class="flavorName">Passionfruit<br/>Mai Tai</h3>
-            <div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          <article class="flavor">
+            <div class="flavor__img"><img src="images/can2.png" alt="Passionfruit Mai Tai"></div>
+            <h3 data-edit="f2Name">Passionfruit<br/>Mai Tai</h3>
+            <div class="meta" data-edit="f2Meta">8% ALC/VOL • GLUTEN FREE</div>
+            <a class="btn btn--mini" href="#find" data-edit="f2Btn">Find an Escape Near You</a>
           </article>
 
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can3.png" alt="Hibiscus Mint Mojito can" />
-            </div>
-            <h3 class="flavorName">Hibiscus<br/>Mint Mojito</h3>
-            <div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          <article class="flavor">
+            <div class="flavor__img"><img src="images/can3.png" alt="Hibiscus Mint Mojito"></div>
+            <h3 data-edit="f3Name">Hibiscus<br/>Mint Mojito</h3>
+            <div class="meta" data-edit="f3Meta">7% ALC/VOL • NATURAL FLAVORS</div>
+            <a class="btn btn--mini" href="#find" data-edit="f3Btn">Find an Escape Near You</a>
           </article>
 
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can4.png" alt="Mango Ginger Rum Punch can" />
-            </div>
-            <h3 class="flavorName">Mango Ginger<br/>Rum Punch</h3>
-            <div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+          <article class="flavor">
+            <div class="flavor__img"><img src="images/can4.png" alt="Mango Ginger Rum Punch"></div>
+            <h3 data-edit="f4Name">Mango Ginger<br/>Rum Punch</h3>
+            <div class="meta" data-edit="f4Meta">9% ALC/VOL • REAL RUM</div>
+            <a class="btn btn--mini" href="#find" data-edit="f4Btn">Find an Escape Near You</a>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- Rewards / Hourglass -->
-    <section class="section" id="rewards">
-      <div class="card centerCard">
-        <h2 class="h2">Rios Time Rewards</h2>
-        <p class="sub">Demo: each purchase moves the hourglass closer to “Rios Time.” Hit Next to progress. Reset to start over.</p>
-
-        <div class="hourglassWrap">
-          <!-- Make sure these exist: /images/hourglass/state0.png ... state4.png -->
-          <img id="hourglassImg" class="hourglassImg" src="images/hourglass/state0.png" alt="Hourglass progress" />
-        </div>
-
-        <div class="hourglassControls">
-          <button class="btn btn--primary" id="hgNext" type="button">Next <span class="arrow">›</span></button>
-          <button class="btn btn--ghost" id="hgReset" type="button">Reset</button>
-        </div>
-
-        <div class="fine" id="hgLabel">Progress: 0 / 4</div>
-      </div>
-    </section>
-
-    <!-- Why Rum -->
+    <!-- Why / Data / Campaign -->
     <section class="section" id="why">
       <div class="card">
-        <h2 class="h2">Why Rum</h2>
-        <p class="sub">Rum is underrepresented in RTDs versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.</p>
+        <div class="sectionHead">
+          <h2 data-edit="whyTitle">Why Rum?</h2>
+          <p data-edit="whySub">Rum naturally matches beach culture and “weekend escape” energy.</p>
+        </div>
+        <ul>
+          <li data-edit="why1">Rum brings a real sense of vacation—no need to fake the vibe.</li>
+          <li data-edit="why2">Jamaican rum has personality and depth (not “neutral spirit” bland).</li>
+          <li data-edit="why3">A clear category gap: rum is underrepresented in RTDs.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Data -->
     <section class="section" id="data">
       <div class="card">
-        <h2 class="h2">Data</h2>
-        <p class="sub">Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios matches this demand with an elevated profile.</p>
+        <div class="sectionHead">
+          <h2 data-edit="dataTitle">The Data</h2>
+          <p data-edit="dataSub">Gen Z shows strong curiosity around rum—creating space for a premium leader.</p>
+        </div>
+        <ul>
+          <li data-edit="data1"><strong>50% Enthusiast Rating:</strong> Rum has the highest “enthusiast” interest among Gen Z.</li>
+          <li data-edit="data2"><strong>Premium opening:</strong> Consumers want to learn more about rum vs other spirits.</li>
+        </ul>
       </div>
     </section>
 
-    <!-- Campaign -->
     <section class="section" id="campaign">
       <div class="card">
-        <h2 class="h2">Campaign</h2>
-        <p class="sub">Find an Escape Near You — a weekend-escapist message for 25–35 year olds who want vacation energy without leaving town.</p>
-        <div class="center">
-          <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+        <div class="sectionHead">
+          <h2 data-edit="campTitle">Launch Campaign Ideas</h2>
+          <p data-edit="campSub">Pre-launch theme: Find an Escape Near You.</p>
+        </div>
+        <ul>
+          <li data-edit="camp1">Escape to Rios Time</li>
+          <li data-edit="camp2">Get away from work, find your escape</li>
+          <li data-edit="camp3">Weekend “vacation mode” without leaving town</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- Rios Time (Hourglass Loyalty) -->
+    <section class="section" id="riostime">
+      <div class="card riosTime">
+        <div class="sectionHead">
+          <h2 data-edit="rtTitle">Rios Time</h2>
+          <p data-edit="rtSub">Scan the QR code inside the pack. Every case moves you closer to a free 12-pack.</p>
+        </div>
+
+        <div class="riosTime__grid">
+          <div class="hourglassWrap">
+            <div class="hourglassTitle" data-edit="rtLeftTitle">Progress to Your Free 12-Pack</div>
+
+            <!-- REAL hourglass -->
+            <div class="hg" aria-label="Hourglass progress">
+              <div class="hg__frame">
+                <div class="hg__capTop"></div>
+                <div class="hg__capBottom"></div>
+
+                <div class="hg__top">
+                  <div class="hg__sandTop" id="sandTop"></div>
+                </div>
+
+                <div class="hg__neck"></div>
+                <div class="hg__pin"></div>
+                <div class="hg__stream" id="sandStream"></div>
+
+                <div class="hg__bottom">
+                  <div class="hg__sandBottom" id="sandBottom"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="progressText">
+              <div class="progressBig"><span id="casesCount">0</span><span class="muted">/ 10</span></div>
+              <div class="progressLabel" data-edit="rtProgressLabel">Cases toward your reward</div>
+            </div>
+
+            <div class="demoRow" aria-label="Demo controls">
+              <button class="iconBtn" id="addCaseBtn" type="button" data-edit="rtBtnAdd">+1 Case</button>
+              <button class="iconBtn iconBtn--ghost" id="resetCaseBtn" type="button" data-edit="rtBtnReset">Reset</button>
+              <button class="iconBtn iconBtn--ghost" id="fillCaseBtn" type="button" data-edit="rtBtnFill">Jump to 10</button>
+            </div>
+
+            <div class="coupon" id="couponBox" style="display:none;">
+              <div class="coupon__title" data-edit="rtCouponTitle">You unlocked Rios Time.</div>
+              <div class="coupon__text" data-edit="rtCouponText">Show this coupon for a free 12-pack.</div>
+              <div class="coupon__code" id="couponCode">RIOS-TIME-12</div>
+            </div>
+          </div>
+
+          <div class="riosTime__copy">
+            <h3 data-edit="rtHowTitle">How it works</h3>
+            <ol>
+              <li data-edit="rtHow1">Buy a case of Rios.</li>
+              <li data-edit="rtHow2">Scan the inside-pack QR and enter your code.</li>
+              <li data-edit="rtHow3">Repeat until you reach 10 cases.</li>
+              <li data-edit="rtHow4">Unlock a free 12-pack coupon.</li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
@@ -150,74 +212,307 @@
     <!-- Find -->
     <section class="section" id="find">
       <div class="card centerCard">
-        <h2 class="h2">Find Your Rios</h2>
-        <p class="sub">Mock locator for class/presentation use (no real lookup).</p>
-
+        <div class="sectionHead">
+          <h2 data-edit="findTitle">Find Your Rios</h2>
+          <p data-edit="findSub">Mock locator for class. Buttons scroll here.</p>
+        </div>
         <div class="search">
-          <input type="text" placeholder="Enter your city or zip code" aria-label="City or zip code" />
-          <button type="button" class="btn btn--primary">Search <span class="arrow">›</span></button>
+          <input type="text" placeholder="Enter your city or zip code" data-edit-placeholder="findPlaceholder" />
+          <button type="button" data-edit="findBtn">Search ›</button>
         </div>
-
-        <div class="fine">Mock only • No real store lookup • Built for presentation</div>
-
-        <div class="center">
-          <a class="btn btn--ghost" href="#top">Back to Top <span class="arrow">›</span></a>
-        </div>
+        <div class="fine" data-edit="findFine">Tip: on mobile, hard refresh if images don’t update.</div>
       </div>
     </section>
 
-    <footer class="footer">
-      Mock website for class/project use • © 2026 Rios (concept)
-    </footer>
+    <div class="footer" data-edit="footerText">
+      Mock site for class — Rios (demo). Not a real locator.
+    </div>
   </main>
 
+  <!-- Editor Dock -->
+  <div class="editorDock" id="editorDock">
+    <button class="editorDock__toggle" id="editorToggle" type="button">Editor</button>
+
+    <div class="editorDock__panel" role="dialog" aria-label="Editor Panel">
+      <div class="editorDock__head">
+        <div class="editorDock__title">Edit without coming back here</div>
+        <div class="editorDock__sub">Turn on “Edit Text on Page”, click text, type, then Export to save.</div>
+      </div>
+
+      <div class="editorTabs">
+        <button class="tabBtn tabBtn--active" data-tab="text" type="button">Text</button>
+        <button class="tabBtn" data-tab="theme" type="button">Theme</button>
+        <button class="tabBtn" data-tab="tools" type="button">Save</button>
+      </div>
+
+      <div class="editorBody">
+        <div class="tabPanel tabPanel--show" data-panel="text">
+          <div class="toolsRow" style="justify-content:flex-start;margin-bottom:10px;">
+            <button class="eBtn eBtn--dark" id="toggleInline" type="button">Edit Text on Page</button>
+          </div>
+          <div class="editorGrid" id="textEditor"></div>
+        </div>
+
+        <div class="tabPanel" data-panel="theme">
+          <div class="themeGrid">
+            <label class="themeField">Primary Button A <input type="color" id="cBtnA"></label>
+            <label class="themeField">Primary Button B <input type="color" id="cBtnB"></label>
+            <label class="themeField">Card Button Color <input type="color" id="cBtnMini"></label>
+            <label class="themeField">Nav CTA <input type="color" id="cNav"></label>
+          </div>
+          <div class="themeNote">These update instantly. Export to save.</div>
+        </div>
+
+        <div class="tabPanel" data-panel="tools">
+          <div class="toolsRow">
+            <button class="eBtn eBtn--dark" id="exportBtn" type="button">Export Edits</button>
+            <label class="eBtn eBtn--file">Import Edits<input type="file" id="importFile" accept="application/json"></label>
+            <button class="eBtn" id="resetEdits" type="button">Reset Saved</button>
+          </div>
+          <div class="toolsHint">
+            Export downloads a JSON. Keep it. Later, Import it to restore all text + colors.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
-    // Hourglass state switcher (fade + stay empty + reset)
-    (function () {
-      const img = document.getElementById("hourglassImg");
-      const nextBtn = document.getElementById("hgNext");
-      const resetBtn = document.getElementById("hgReset");
-      const label = document.getElementById("hgLabel");
+    // ------- Storage -------
+    const KEY = "rios_site_edits_v3";
+    const getSaved = () => {
+      try { return JSON.parse(localStorage.getItem(KEY) || "{}"); }
+      catch { return {}; }
+    };
+    const setSaved = (obj) => localStorage.setItem(KEY, JSON.stringify(obj));
 
-      const states = [
-        "images/hourglass/state0.png",
-        "images/hourglass/state1.png",
-        "images/hourglass/state2.png",
-        "images/hourglass/state3.png",
-        "images/hourglass/state4.png"
-      ];
+    // ------- Tabs / Dock -------
+    const dock = document.getElementById("editorDock");
+    const toggle = document.getElementById("editorToggle");
+    toggle.addEventListener("click", () => dock.classList.toggle("editorDock--open"));
 
-      let i = 0;
+    document.querySelectorAll(".tabBtn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        document.querySelectorAll(".tabBtn").forEach(b=>b.classList.remove("tabBtn--active"));
+        btn.classList.add("tabBtn--active");
+        const tab = btn.dataset.tab;
+        document.querySelectorAll(".tabPanel").forEach(p=>p.classList.remove("tabPanel--show"));
+        document.querySelector(`.tabPanel[data-panel="${tab}"]`).classList.add("tabPanel--show");
+      });
+    });
 
-      function setLabel() {
-        label.textContent = `Progress: ${i} / 4`;
+    // ------- Inline editing -------
+    let inlineOn = false;
+    const inlineBtn = document.getElementById("toggleInline");
+
+    function setInlineMode(on){
+      inlineOn = on;
+      inlineBtn.classList.toggle("eBtn--on", on);
+      inlineBtn.textContent = on ? "Editing: ON" : "Edit Text on Page";
+      document.querySelectorAll("[data-edit]").forEach(el=>{
+        el.contentEditable = on ? "true" : "false";
+        el.spellcheck = false;
+        el.classList.toggle("inlineEditable", on);
+      });
+    }
+    inlineBtn.addEventListener("click", ()=> setInlineMode(!inlineOn));
+
+    // Save text edits when you type (only when inline on)
+    document.addEventListener("input", (e)=>{
+      if(!inlineOn) return;
+      const t = e.target;
+      if(t && t.matches("[data-edit]")){
+        const id = t.getAttribute("data-edit");
+        const saved = getSaved();
+        saved.text = saved.text || {};
+        saved.text[id] = t.innerText;
+        setSaved(saved);
+        rebuildTextEditor();
+      }
+    });
+
+    // ------- Theme editing -------
+    const root = document.documentElement;
+    const cBtnA = document.getElementById("cBtnA");
+    const cBtnB = document.getElementById("cBtnB");
+    const cBtnMini = document.getElementById("cBtnMini");
+    const cNav = document.getElementById("cNav");
+
+    function setVar(name, value){
+      root.style.setProperty(name, value);
+      const saved = getSaved();
+      saved.theme = saved.theme || {};
+      saved.theme[name] = value;
+      setSaved(saved);
+    }
+
+    [cBtnA,cBtnB,cBtnMini,cNav].forEach(inp=>{
+      inp.addEventListener("input", ()=>{
+        if(inp === cBtnA) setVar("--btnA", inp.value);
+        if(inp === cBtnB) setVar("--btnB", inp.value);
+        if(inp === cBtnMini) setVar("--btnMini", inp.value);
+        if(inp === cNav) setVar("--navCta", inp.value);
+      });
+    });
+
+    // ------- Apply saved state -------
+    function applySaved(){
+      const saved = getSaved();
+
+      // theme
+      if(saved.theme){
+        Object.entries(saved.theme).forEach(([k,v])=> root.style.setProperty(k,v));
+      }
+      // sync pickers
+      const getComputed = (v)=> getComputedStyle(root).getPropertyValue(v).trim();
+      cBtnA.value = saved.theme?.["--btnA"] || getComputed("--btnA") || "#2d4856";
+      cBtnB.value = saved.theme?.["--btnB"] || getComputed("--btnB") || "#16262f";
+      cBtnMini.value = saved.theme?.["--btnMini"] || getComputed("--btnMini") || "#1d2f39";
+      cNav.value = saved.theme?.["--navCta"] || getComputed("--navCta") || "#16262f";
+
+      // text
+      if(saved.text){
+        Object.entries(saved.text).forEach(([id,val])=>{
+          const el = document.querySelector(`[data-edit="${id}"]`);
+          if(el) el.innerText = val;
+        });
+      }
+      // hourglass progress
+      if(typeof saved.cases === "number") setCases(saved.cases, false);
+    }
+
+    // ------- Text editor list (panel) -------
+    const textEditor = document.getElementById("textEditor");
+
+    function rebuildTextEditor(){
+      const saved = getSaved();
+      const items = Array.from(document.querySelectorAll("[data-edit]"))
+        .map(el=>({ id: el.getAttribute("data-edit"), label: el.innerText.trim().slice(0,38) || el.getAttribute("data-edit") }))
+        .filter(x => x.id && x.id !== ""); // safety
+
+      // remove duplicates by id
+      const byId = new Map();
+      items.forEach(i=>{ if(!byId.has(i.id)) byId.set(i.id, i); });
+
+      textEditor.innerHTML = "";
+      Array.from(byId.values()).forEach(item=>{
+        const wrap = document.createElement("label");
+        wrap.className = "editorField";
+        wrap.innerText = item.id;
+
+        const input = document.createElement("textarea");
+        input.rows = 2;
+        input.value = (saved.text && saved.text[item.id]) || (document.querySelector(`[data-edit="${item.id}"]`)?.innerText || "");
+        input.addEventListener("input", ()=>{
+          const el = document.querySelector(`[data-edit="${item.id}"]`);
+          if(el) el.innerText = input.value;
+          const s = getSaved();
+          s.text = s.text || {};
+          s.text[item.id] = input.value;
+          setSaved(s);
+        });
+
+        wrap.appendChild(input);
+        textEditor.appendChild(wrap);
+      });
+    }
+
+    // ------- Export / Import -------
+    const exportBtn = document.getElementById("exportBtn");
+    const importFile = document.getElementById("importFile");
+    const resetEdits = document.getElementById("resetEdits");
+
+    exportBtn.addEventListener("click", ()=>{
+      const data = getSaved();
+      const blob = new Blob([JSON.stringify(data, null, 2)], {type:"application/json"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "rios-site-edits.json";
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      URL.revokeObjectURL(url);
+    });
+
+    importFile.addEventListener("change", async (e)=>{
+      const f = e.target.files?.[0];
+      if(!f) return;
+      const txt = await f.text();
+      try{
+        const obj = JSON.parse(txt);
+        setSaved(obj);
+        applySaved();
+        rebuildTextEditor();
+      }catch{
+        alert("That file isn't valid JSON.");
+      }
+      importFile.value = "";
+    });
+
+    resetEdits.addEventListener("click", ()=>{
+      localStorage.removeItem(KEY);
+      location.reload();
+    });
+
+    // ------- Hourglass logic (10 cases) -------
+    const casesCount = document.getElementById("casesCount");
+    const couponBox = document.getElementById("couponBox");
+    const couponCode = document.getElementById("couponCode");
+    const sandTop = document.getElementById("sandTop");
+    const sandBottom = document.getElementById("sandBottom");
+    const sandStream = document.getElementById("sandStream");
+
+    function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
+
+    function setCases(n, persist=true){
+      const v = clamp(n, 0, 10);
+      casesCount.textContent = v;
+
+      // percent filled in bottom = v/10
+      const p = v / 10;
+
+      // Top sand: starts full -> empties
+      // Bottom sand: starts empty -> fills
+      // We do this by scaling heights
+      const topH = (1 - p) * 70;      // % of container height
+      const bottomH = (p) * 70;
+
+      sandTop.style.height = `${topH}%`;
+      sandBottom.style.height = `${bottomH}%`;
+
+      // Stream only visible while in-between
+      sandStream.style.display = (v > 0 && v < 10) ? "block" : "none";
+
+      // Coupon at 10
+      if(v >= 10){
+        couponBox.style.display = "block";
+        couponCode.textContent = "RIOS-TIME-12";
+      }else{
+        couponBox.style.display = "none";
       }
 
-      function swap(toIndex) {
-        // fade out
-        img.classList.add("isFading");
-        window.setTimeout(() => {
-          img.src = states[toIndex];
-          // fade in
-          img.classList.remove("isFading");
-          setLabel();
-        }, 180);
+      if(persist){
+        const saved = getSaved();
+        saved.cases = v;
+        setSaved(saved);
       }
+    }
 
-      nextBtn.addEventListener("click", () => {
-        if (i < states.length - 1) {
-          i += 1;
-          swap(i);
-        }
-      });
+    document.getElementById("addCaseBtn").addEventListener("click", ()=>{
+      setCases(parseInt(casesCount.textContent,10) + 1);
+    });
+    document.getElementById("resetCaseBtn").addEventListener("click", ()=>{
+      setCases(0);
+    });
+    document.getElementById("fillCaseBtn").addEventListener("click", ()=>{
+      setCases(10);
+    });
 
-      resetBtn.addEventListener("click", () => {
-        i = 0;
-        swap(i);
-      });
-
-      setLabel();
-    })();
+    // ------- Init -------
+    applySaved();
+    rebuildTextEditor();
   </script>
+
 </body>
 </html>
