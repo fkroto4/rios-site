@@ -329,15 +329,12 @@ body.editing [data-edit="true"]{
   outline-offset:6px;
   border-radius:12px;
 }
-/* HERO LOGO (big center brand mark) */
 
 .heroLogo{
-  width:520px;
-  max-width:85vw;
-  height:auto;
+width:520px;
+max-width:80vw;
+margin:0 auto 20px auto;
+display:block;
 
-  display:block;
-  margin:0 auto 18px auto;
-
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,.35));
+filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));
 }
