@@ -1,478 +1,349 @@
-/* =========================
-   Theme / Variables
-========================= */
 :root{
-  --sky: #70b4cb;
-  --ink: #0c2030;
-  --muted: rgba(12,32,48,.72);
+  --ink:#0c2235;
+  --muted:#516372;
 
-  --btn: #143546;
-  --btn2: #1a4156;
+  --card:rgba(255,255,255,.86);
+  --stroke:rgba(12,34,53,.14);
 
-  --glass: rgba(255,255,255,.78);
-  --stroke: rgba(12,32,48,.14);
+  --btn:#0c2235;
+  --btn2:#123a5c;
+  --btnText:#ffffff;
 
-  /* This should visually match the TOP of your tile.png for a seamless fade */
-  --tileBase: #efe5cf;
+  /* IMPORTANT: fixed tile size prevents seam lines from scaling */
+  --tile-w:1024px;
+  --tile-h:1536px;
 
-  --shadow: 0 18px 48px rgba(0,0,0,.14);
-  --radius: 18px;
+  --radius:18px;
+  --shadow:0 18px 46px rgba(0,0,0,.12);
 }
 
 *{ box-sizing:border-box; }
-html,body{ height:100%; }
+html,body{ margin:0; padding:0; }
 body{
-  margin:0;
-  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  color: var(--ink);
-  background: var(--tileBase);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  color:var(--ink);
+  background:#efe7d6;
 }
 
-/* =========================
-   Topbar
-========================= */
+/* Top bar */
 .topbar{
-  position: sticky;
-  top: 0;
-  z-index: 50;
-  background: rgba(255,255,255,.55);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,255,255,.55);
+  position:sticky;
+  top:0;
+  z-index:50;
+  backdrop-filter: blur(12px);
+  background: rgba(255,255,255,.62);
+  border-bottom: 1px solid rgba(255,255,255,.7);
 }
 .topbar__inner{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 12px 20px;
+  max-width:1120px;
+  margin:0 auto;
+  padding:10px 16px;
   display:flex;
   align-items:center;
   justify-content:space-between;
-  gap: 14px;
+  gap:16px;
 }
 .brand{ display:flex; align-items:center; text-decoration:none; }
 .brand__logo{
-  height: 42px;
-  width: auto;
+  height:38px;
+  width:auto;
   display:block;
 }
 
-.nav{ display:flex; gap: 14px; flex-wrap:wrap; }
-.nav__link{
-  text-decoration:none;
-  color: rgba(12,32,48,.85);
-  font-weight: 700;
-  font-size: 13px;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  padding: 10px 10px;
-  border-radius: 999px;
+/* Nav */
+.nav{
+  display:flex;
+  gap:14px;
+  flex-wrap:wrap;
 }
-.nav__link:hover{ background: rgba(255,255,255,.55); }
+.nav__link{
+  color:rgba(12,34,53,.86);
+  text-decoration:none;
+  font-weight:800;
+  font-size:13px;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+}
+.nav__link:hover{ opacity:.75; }
 
-/* =========================
-   Hero (with smooth transition to tile background)
-========================= */
+/* Hero */
 .hero{
-  position: relative;
-  min-height: 62vh;
+  position:relative;
+  min-height:420px;
   display:flex;
   align-items:center;
   justify-content:center;
+  padding:78px 16px 64px;
   overflow:hidden;
 }
 .hero__bg{
   position:absolute; inset:0;
-  background-image: url("images/hero.jpg");
-  background-size: cover;
-  background-position: center;
-  transform: scale(1.03);
-  filter: saturate(1.02);
+  background-image:url("images/hero.jpg");
+  background-size:cover;
+  background-position:center;
+  transform: scale(1.02);
 }
-.hero__bg::after{
-  content:"";
+.hero__overlay{
   position:absolute; inset:0;
-  background: linear-gradient(to bottom, rgba(0,0,0,.10), rgba(0,0,0,.18));
+  background: linear-gradient(to bottom, rgba(0,0,0,.32), rgba(0,0,0,.10), rgba(0,0,0,.10));
 }
 .hero__content{
-  position: relative;
-  z-index: 2;
+  position:relative;
   text-align:center;
-  padding: 72px 0 96px;
+  max-width: 920px;
+  z-index:2;
 }
 .hero__title{
-  margin: 0;
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-size: clamp(64px, 7.2vw, 116px);
-  font-weight: 900;
-  letter-spacing: .01em;
-  color: rgba(255,255,255,.96);
-  text-shadow: 0 14px 38px rgba(0,0,0,.28);
+  margin:0 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight:900;
+  font-size: clamp(54px, 6.4vw, 92px);
+  letter-spacing:.01em;
+  color:#fff;
+  text-shadow: 0 14px 36px rgba(0,0,0,.28);
 }
 .hero__subtitle{
-  margin: 10px 0 0;
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-size: clamp(22px, 2.6vw, 38px);
-  font-weight: 800;
-  color: rgba(255,255,255,.92);
-  text-shadow: 0 10px 24px rgba(0,0,0,.25);
+  margin:0 0 18px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight:800;
+  font-size: clamp(20px, 2.2vw, 34px);
+  color:rgba(255,255,255,.92);
+  text-shadow: 0 10px 26px rgba(0,0,0,.22);
 }
-.hero__cta{
-  margin-top: 20px;
+.hero__ctaRow{
   display:flex;
-  gap: 12px;
+  gap:12px;
   justify-content:center;
   flex-wrap:wrap;
 }
-
-/* The key fade: blends hero into repeating tile background */
-.hero__fade{
+.hero__bottomFade{
   position:absolute;
-  left:0; right:0; bottom:0;
-  height: 160px;
-  z-index: 3;
-  background: linear-gradient(to bottom,
-    rgba(239,229,207,0) 0%,
-    rgba(239,229,207,.78) 55%,
-    rgba(239,229,207,1) 100%
-  );
+  left:0; right:0; bottom:-1px;
+  height:120px;
+  /* fades hero into the repeating tile section */
+  background: linear-gradient(to bottom, rgba(239,231,214,0), rgba(239,231,214,1));
+  z-index:1;
 }
 
-/* =========================
-   Repeating background page area
-========================= */
+/* Repeating tile background */
 .page{
-  /* tile.png must be a seamless tile */
+  position:relative;
+  padding: 18px 16px 64px;
+
   background-image: url("images/tile.png");
   background-repeat: repeat;
-  background-size: 720px auto; /* tweak if your tile is small/large */
-  background-position: top center;
+  background-position: 0 0;
 
-  padding-bottom: 48px;
+  /* KEY FIX: do not stretch to 100% */
+  background-size: var(--tile-w) var(--tile-h);
 }
 
-/* =========================
-   Layout helpers
-========================= */
-.container{
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 20px;
+/* Sections */
+.section{ padding: 28px 0; }
+.card{
+  max-width:1120px;
+  margin:0 auto;
+  background:var(--card);
+  border:1px solid var(--stroke);
+  border-radius: var(--radius);
+  padding:22px;
+  box-shadow: var(--shadow);
 }
-.section{ padding: 44px 0; }
-.section__head{ margin-bottom: 18px; }
-.section__head.center{ text-align:center; }
-
-.glass{
-  border-radius: 24px;
-  background: rgba(255,255,255,.72);
-  border: 1px solid rgba(255,255,255,.52);
-  box-shadow: 0 16px 44px rgba(0,0,0,.10);
-  padding: 28px;
-}
+.centerCard{ text-align:center; }
+.center{ display:flex; justify-content:center; }
 
 .h2{
-  margin: 0;
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-size: 46px;
-  font-weight: 900;
-  letter-spacing: .01em;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(28px, 3.4vw, 44px);
+  margin:0 0 10px;
+  letter-spacing:.01em;
 }
 .sub{
-  margin: 10px 0 0;
+  margin: 0 auto 18px;
+  max-width: 820px;
+  color: rgba(12,34,53,.76);
   font-size: 16px;
-  line-height: 1.5;
-  color: var(--muted);
+  line-height: 1.45;
 }
 
-.grid2{
-  display:grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
+.trustRow{
+  display:flex;
+  gap:12px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin: 10px 0 18px;
 }
-.card{
-  background: rgba(255,255,255,.64);
-  border: 1px solid var(--stroke);
-  border-radius: var(--radius);
-  padding: 18px;
+.pill{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 14px;
+  border-radius:999px;
+  background: rgba(255,255,255,.72);
+  border:1px solid rgba(12,34,53,.10);
+  font-weight:900;
+  color: rgba(12,34,53,.84);
 }
-.h3{
-  margin:0;
-  font-size: 18px;
-  font-weight: 900;
-}
-.p{
-  margin: 10px 0 0;
-  color: var(--muted);
-  line-height: 1.55;
+.dot{
+  width:28px; height:28px;
+  display:grid; place-items:center;
+  border-radius:999px;
+  background: rgba(12,34,53,.06);
 }
 
-/* =========================
-   Buttons (full color control via vars)
-========================= */
+/* Buttons */
 .btn{
   display:inline-flex;
   align-items:center;
   justify-content:center;
-  gap: 8px;
+  gap:10px;
+  padding:12px 18px;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,.28);
   text-decoration:none;
-  border: 1px solid rgba(255,255,255,.22);
-  border-radius: 999px;
-  padding: 14px 18px;
-  font-weight: 900;
-  letter-spacing: .04em;
-  text-transform: uppercase;
-  font-size: 12px;
-  cursor: pointer;
+  font-weight:900;
+  letter-spacing:.02em;
+  cursor:pointer;
   user-select:none;
-  box-shadow: 0 10px 26px rgba(0,0,0,.14);
-  transition: transform .12s ease, opacity .12s ease;
+  transition: transform .12s ease, opacity .12s ease, box-shadow .12s ease;
 }
 .btn:hover{ transform: translateY(-1px); }
-.btn:disabled{
-  opacity: .45;
-  cursor: not-allowed;
-  transform: none;
-}
+.btn:active{ transform: translateY(0px); opacity:.92; }
 
 .btn--primary{
-  background: linear-gradient(180deg, var(--btn2), var(--btn));
-  color: rgba(255,255,255,.95);
+  background: linear-gradient(180deg, rgba(18,58,92,1), rgba(12,34,53,1));
+  color: var(--btnText);
+  box-shadow: 0 10px 28px rgba(0,0,0,.18);
 }
 .btn--ghost{
-  background: rgba(255,255,255,.22);
-  color: rgba(255,255,255,.95);
-  border-color: rgba(255,255,255,.26);
+  background: rgba(255,255,255,.24);
+  color: rgba(255,255,255,.92);
+  border: 1px solid rgba(255,255,255,.34);
 }
-.btn--small{
-  padding: 12px 14px;
-  font-size: 11px;
-  width: fit-content;
+.page .btn--ghost{
+  background: rgba(12,34,53,.06);
+  color: rgba(12,34,53,.90);
+  border: 1px solid rgba(12,34,53,.12);
 }
-
-/* =========================
-   Pills
-========================= */
-.pillRow{
-  display:flex;
-  justify-content:center;
-  gap: 12px;
-  flex-wrap:wrap;
-  margin: 18px 0 22px;
-}
-.pill{
-  background: rgba(255,255,255,.74);
-  border: 1px solid var(--stroke);
-  border-radius: 999px;
-  padding: 12px 16px;
-  font-weight: 900;
-  color: rgba(12,32,48,.85);
+.btn--mini{
+  width:100%;
+  margin-top:10px;
+  padding:11px 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(18,58,92,1), rgba(12,34,53,1));
+  color: #fff;
 }
 
-/* =========================
-   Flavors Grid
-========================= */
-.flavorGrid{
+.arrow{ font-weight:900; }
+
+/* Flavor grid */
+.grid{
   display:grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 16px;
+  grid-template-columns: repeat(4, 1fr);
+  gap:16px;
 }
 .flavorCard{
-  background: rgba(255,255,255,.78);
-  border: 1px solid rgba(12,32,48,.12);
-  border-radius: 22px;
+  background: rgba(255,255,255,.74);
+  border: 1px solid rgba(12,34,53,.12);
+  border-radius: 18px;
   padding: 14px;
-  box-shadow: 0 14px 34px rgba(0,0,0,.10);
+  box-shadow: 0 10px 26px rgba(0,0,0,.10);
 }
 .flavorImg{
-  border-radius: 18px;
-  border: 1px solid rgba(12,32,48,.10);
-  background: rgba(255,255,255,.65);
-  height: 260px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  background: rgba(255,255,255,.82);
+  border: 1px solid rgba(12,34,53,.10);
+  border-radius: 14px;
+  padding: 10px;
+  display:grid;
+  place-items:center;
+  height: 240px;
   overflow:hidden;
 }
 .flavorImg img{
-  height: 95%;
-  width: auto;
-  max-width: 92%;
-  object-fit: contain; /* IMPORTANT: prevents weird cropping */
-  display:block;
-}
-.flavorName{
-  margin: 12px 0 0;
-  font-family: ui-serif, Georgia, "Times New Roman", serif;
-  font-weight: 900;
-  font-size: 22px;
-  line-height: 1.1;
-}
-.flavorMeta{
-  margin: 8px 0 12px;
-  font-weight: 800;
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  color: rgba(12,32,48,.70);
-}
-
-/* =========================
-   Find box
-========================= */
-.findBox{
-  max-width: 720px;
-  margin: 0 auto;
-  background: rgba(255,255,255,.72);
-  border: 1px solid var(--stroke);
-  border-radius: 22px;
-  padding: 18px;
-}
-.label{
-  display:block;
-  font-weight: 900;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: rgba(12,32,48,.70);
-}
-.findRow{
-  display:grid;
-  grid-template-columns: 1fr auto;
-  gap: 12px;
-  margin-top: 10px;
-}
-.input{
-  height: 46px;
-  border-radius: 14px;
-  border: 1px solid rgba(12,32,48,.18);
-  padding: 0 14px;
-  font-size: 14px;
-  outline: none;
-  background: rgba(255,255,255,.92);
-}
-.fine{
-  margin: 10px 0 0;
-  font-size: 12px;
-  color: rgba(12,32,48,.55);
-}
-
-/* =========================
-   Hourglass Section
-========================= */
-.hourglassWrap{
-  display:grid;
-  grid-template-columns: 520px 1fr;
-  gap: 18px;
-  align-items:center;
-}
-.hourglassFrame{
-  background: rgba(255,255,255,.70);
-  border: 1px solid rgba(12,32,48,.14);
-  border-radius: 24px;
-  padding: 18px;
-  box-shadow: 0 18px 44px rgba(0,0,0,.10);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  min-height: 520px;
-}
-.hourglassImg{
-  height: 500px;   /* user requested 450–500 */
+  max-height: 220px;
   width: auto;
   max-width: 100%;
   object-fit: contain;
   display:block;
-  transition: opacity .22s ease;
 }
-.hourglassImg.isFading{
-  opacity: 0;
+.flavorName{
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 900;
+  font-size: 22px;
+  margin: 10px 0 6px;
+  line-height: 1.05;
 }
+.flavorMeta{
+  font-size: 12px;
+  letter-spacing:.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: rgba(12,34,53,.76);
+}
+
+/* Find form */
+.search{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  gap:10px;
+  max-width:720px;
+  margin: 12px auto 8px;
+}
+.search input{
+  border-radius: 14px;
+  border: 1px solid rgba(12,34,53,.18);
+  padding: 12px 14px;
+  font-weight: 800;
+  outline: none;
+  background: rgba(255,255,255,.82);
+}
+
+/* Hourglass */
+.hourglassWrap{
+  display:flex;
+  justify-content:center;
+  margin: 14px 0 10px;
+}
+.hourglassImg{
+  width: 480px;
+  max-width: 92vw;
+  height: auto;
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(0,0,0,.14);
+  border: 1px solid rgba(12,34,53,.12);
+  transition: opacity .18s ease;
+}
+.hourglassImg.isFading{ opacity: .22; }
 
 .hourglassControls{
-  background: rgba(255,255,255,.72);
-  border: 1px solid rgba(12,32,48,.14);
-  border-radius: 24px;
-  padding: 18px;
-}
-.progressText{
-  font-weight: 900;
-  font-size: 14px;
-  color: rgba(12,32,48,.75);
-  margin-bottom: 12px;
-}
-.btnRow{ display:flex; gap: 12px; flex-wrap:wrap; }
-
-.unlocked{
-  margin-top: 14px;
-  border-radius: 18px;
-  padding: 14px;
-  border: 1px solid rgba(14,80,60,.18);
-  background: rgba(220,255,240,.55);
-}
-.unlocked__title{ font-weight: 1000; }
-.unlocked__body{ margin-top: 6px; color: rgba(12,32,48,.70); line-height: 1.45; }
-
-/* =========================
-   Blank blocks (auto-grow)
-========================= */
-.blankGrid{
-  display:grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 12px;
-}
-.blankBlock{
-  min-height: 120px;
-  padding: 14px;
-  border-radius: 18px;
-  border: 1px dashed rgba(12,32,48,.18);
-  background: rgba(255,255,255,.70);
-  line-height: 1.5;
-  color: rgba(12,32,48,.78);
-  outline: none;
-}
-
-/* =========================
-   Footer
-========================= */
-.footer{
-  padding: 26px 0;
-  color: rgba(255,255,255,.92);
-}
-.footer__inner{
   display:flex;
-  justify-content:space-between;
-  gap: 12px;
+  gap:10px;
+  justify-content:center;
   flex-wrap:wrap;
-  background: rgba(12,32,48,.55);
-  border: 1px solid rgba(255,255,255,.15);
-  border-radius: 18px;
+  margin-top: 8px;
+}
+
+.fine{
+  font-size: 12px;
+  color: rgba(12,34,53,.60);
+  margin-top: 10px;
+}
+
+/* Footer */
+.footer{
+  max-width:1120px;
+  margin: 18px auto 0;
   padding: 14px 16px;
-  backdrop-filter: blur(10px);
+  text-align:center;
+  color: rgba(12,34,53,.60);
+  font-size: 12px;
 }
 
-/* =========================
-   Editable styling (subtle, not ugly)
-========================= */
-[contenteditable="true"]{
-  outline: none;
-}
-[contenteditable="true"]:focus{
-  box-shadow: 0 0 0 3px rgba(112,180,203,.30);
-  border-radius: 10px;
-}
-
-/* =========================
-   Responsive
-========================= */
+/* Responsive */
 @media (max-width: 980px){
-  .grid2{ grid-template-columns: 1fr; }
-  .flavorGrid{ grid-template-columns: repeat(2, minmax(0,1fr)); }
-  .hourglassWrap{ grid-template-columns: 1fr; }
-  .hourglassFrame{ min-height: 520px; }
+  .grid{ grid-template-columns: 1fr 1fr; }
 }
 @media (max-width: 560px){
-  .brand__logo{ height: 36px; }
-  .h2{ font-size: 38px; }
-  .flavorGrid{ grid-template-columns: 1fr; }
-  .findRow{ grid-template-columns: 1fr; }
-  .hourglassImg{ height: 460px; }
+  .grid{ grid-template-columns: 1fr; }
+  .search{ grid-template-columns: 1fr; }
 }
