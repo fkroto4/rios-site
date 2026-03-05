@@ -12,8 +12,8 @@
   <header class="topbar">
     <div class="topbar__inner">
       <a class="brand" href="#top" aria-label="Rios Home">
-        <!-- LOGO (make sure this exists: /images/logo.png) -->
-        <img class="brand__logo" src="images/logo.png" alt="Rios logo" />
+        <!-- FIX #2: LOGO NAME CHANGED TO logo2.png -->
+        <img class="brand__logo" src="images/logo2.png" alt="Rios logo" />
       </a>
 
       <nav class="nav" aria-label="Primary">
@@ -104,7 +104,7 @@
           <div class="fine" id="hgLabel">Progress: 0 / 4</div>
         </div>
 
-        <div class="rewardsInfo" data-edit="true">
+        <div class="rewardsInfo">
           <h3 class="h3" data-edit="true">How it works</h3>
           <p class="lead" data-edit="true">
             For class/demo: each “Next” simulates another case purchase. At the final state, the hourglass stays empty until you reset.
@@ -209,79 +209,78 @@
 
       resetBtn.addEventListener("click", () => setState(0));
 
-      // init
       setState(0);
     })();
   </script>
 
-  <!-- Edit Mode Toggle (saves text edits in your browser) -->
+  <!-- FIX #1: EDIT BUTTONS ARE BACK -->
   <button id="editToggle" class="editToggle" type="button" aria-pressed="false">Edit</button>
   <button id="editResetText" class="editResetText" type="button" hidden>Reset text</button>
 
   <script>
     // --- Simple in-browser editor (text only) ---
+    // Works on anything with data-edit="true"
+    // Saves to localStorage so edits persist on refresh (on the same device/browser).
     (function () {
-      const KEY_PREFIX = "rios_edit__";
+      const KEY = "rios_edit_v2";
       const editBtn = document.getElementById("editToggle");
       const resetBtn = document.getElementById("editResetText");
-      const editableEls = () => Array.from(document.querySelectorAll('[data-edit="true"]'));
+      const nodes = Array.from(document.querySelectorAll('[data-edit="true"]'));
 
-      function loadEdits() {
-        editableEls().forEach((el) => {
-          const key = el.getAttribute("data-edit-key") || el.id || el.className || null;
-          if (!key) return;
-          const saved = localStorage.getItem(KEY_PREFIX + key);
-          if (saved != null) el.innerHTML = saved;
-        });
+      // Assign stable keys by DOM order (prevents collisions)
+      nodes.forEach((n, idx) => {
+        n.dataset.editKey = n.dataset.editKey || String(idx);
+      });
+
+      function load() {
+        try {
+          const saved = JSON.parse(localStorage.getItem(KEY) || "{}");
+          nodes.forEach(n => {
+            const k = n.dataset.editKey;
+            if (saved[k] != null) n.innerHTML = saved[k];
+          });
+        } catch {}
       }
 
-      function saveEdits() {
-        editableEls().forEach((el) => {
-          const key = el.getAttribute("data-edit-key") || el.id || el.className || null;
-          if (!key) return;
-          localStorage.setItem(KEY_PREFIX + key, el.innerHTML);
-        });
+      function save() {
+        const out = {};
+        nodes.forEach(n => out[n.dataset.editKey] = n.innerHTML);
+        try { localStorage.setItem(KEY, JSON.stringify(out)); } catch {}
       }
 
-      function clearEdits() {
-        Object.keys(localStorage)
-          .filter((k) => k.startsWith(KEY_PREFIX))
-          .forEach((k) => localStorage.removeItem(k));
-        location.reload();
-      }
-
-      function setEditMode(on) {
-        editableEls().forEach((el) => {
-          el.setAttribute("contenteditable", on ? "true" : "false");
-          el.classList.toggle("isEditing", on);
-        });
-
+      function setEditing(on) {
+        document.body.classList.toggle("editing", on);
         editBtn.setAttribute("aria-pressed", on ? "true" : "false");
         editBtn.textContent = on ? "Save" : "Edit";
         resetBtn.hidden = !on;
+
+        nodes.forEach(n => {
+          n.setAttribute("contenteditable", on ? "true" : "false");
+        });
       }
 
-      // Prevent Enter from "clicking" links/buttons while editing
-      editableEls().forEach((el) => {
-        el.addEventListener("keydown", (e) => {
-          if ((el.tagName === "A" || el.tagName === "BUTTON") && e.key === "Enter") {
-            e.preventDefault();
-          }
-        });
+      // Prevent link clicks while editing (so you can edit button text safely)
+      document.addEventListener("click", (e) => {
+        if (!document.body.classList.contains("editing")) return;
+        const a = e.target.closest("a");
+        if (a && a.matches('[data-edit="true"]')) e.preventDefault();
       });
 
-      loadEdits();
+      // Init
+      load();
+      setEditing(false);
 
       let editing = false;
       editBtn.addEventListener("click", () => {
         editing = !editing;
-        if (!editing) saveEdits();
-        setEditMode(editing);
+        if (!editing) save();
+        setEditing(editing);
       });
 
-      resetBtn.addEventListener("click", clearEdits);
-
-      setEditMode(false);
+      resetBtn.addEventListener("click", () => {
+        localStorage.removeItem(KEY);
+        location.reload();
+      });
     })();
   </script>
 </body>
