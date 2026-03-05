@@ -1,223 +1,241 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rios — Real Rum. Real Escape.</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Rios — Real Rum. Real Escape.</title>
+<link rel="stylesheet" href="styles.css" />
 </head>
 
 <body id="top">
-  <!-- Sticky Top Bar -->
-  <header class="topbar">
-    <div class="topbar__inner">
-      <a class="brand" href="#top" aria-label="Rios Home">
-        <!-- LOGO (make sure this exists: /images/logo.png) -->
-        <img class="brand__logo" src="images/logo.png" alt="Rios logo" />
-      </a>
 
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__link" href="#why">Why Rum</a>
-        <a class="nav__link" href="#data">Data</a>
-        <a class="nav__link" href="#campaign">Campaign</a>
-        <a class="nav__link" href="#find">Find</a>
-      </nav>
-    </div>
-  </header>
+<header class="topbar">
+<div class="topbar__inner">
+<a class="brand" href="#top" aria-label="Rios Home">
+<img class="brand__logo" src="images/logo.png" alt="Rios logo"/>
+</a>
 
-  <!-- Hero -->
-  <section class="hero" aria-label="Hero">
-    <div class="hero__bg" role="img" aria-label="Ocean background"></div>
-    <div class="hero__overlay"></div>
+<nav class="nav">
+<a class="nav__link" href="#why">Why Rum</a>
+<a class="nav__link" href="#data">Data</a>
+<a class="nav__link" href="#campaign">Campaign</a>
+<a class="nav__link" href="#find">Find</a>
+</nav>
+</div>
+</header>
 
-    <div class="hero__content">
-      <h1 class="hero__title">Rios</h1>
-      <p class="hero__subtitle">Real Rum. Real Escape.</p>
+<section class="hero">
+<div class="hero__bg"></div>
+<div class="hero__overlay"></div>
 
-      <div class="hero__ctaRow">
-        <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
-        <a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
-      </div>
-    </div>
+<div class="hero__content">
+<h1 class="hero__title">Rios</h1>
+<p class="hero__subtitle">Real Rum. Real Escape.</p>
 
-    <!-- This fades the hero into the repeating tile area -->
-    <div class="hero__bottomFade" aria-hidden="true"></div>
-  </section>
+<div class="hero__ctaRow">
+<a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+<a class="btn btn--ghost" href="#flavors">Explore Flavors <span class="arrow">›</span></a>
+</div>
+</div>
 
-  <!-- Main (Repeating Background starts here) -->
-  <main class="page" aria-label="Main content">
+<div class="hero__bottomFade"></div>
+</section>
 
-    <!-- Flavors -->
-    <section class="section" id="flavors">
-      <div class="card">
-        <h2 class="h2">Taste the Tropics</h2>
-        <p class="sub">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
+<main class="page">
 
-        <div class="trustRow">
-          <div class="pill"><span class="dot">🥥</span> Crafted with Premium Rum</div>
-          <div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
-          <div class="pill"><span class="dot">🍍</span> Ready to Enjoy</div>
-        </div>
+<section class="section" id="flavors">
+<div class="card">
+<h2 class="h2">Taste the Tropics</h2>
+<p class="sub">Refreshing, premium rum cocktails made with real rum and natural ingredients.</p>
 
-        <div class="grid">
-          <!-- NOTE: these image files MUST exist in /images/ -->
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can1.png" alt="Strawberry Banana Daiquiri can" />
-            </div>
-            <h3 class="flavorName">Strawberry Banana<br/>Daiquiri</h3>
-            <div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-          </article>
+<div class="trustRow">
+<div class="pill"><span class="dot">🥥</span> Crafted with Premium Rum</div>
+<div class="pill"><span class="dot">🌿</span> Natural Ingredients</div>
+<div class="pill"><span class="dot">🍍</span> Ready to Enjoy</div>
+</div>
 
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can2.png" alt="Passionfruit Mai Tai can" />
-            </div>
-            <h3 class="flavorName">Passionfruit<br/>Mai Tai</h3>
-            <div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-          </article>
+<div class="grid">
 
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can3.png" alt="Hibiscus Mint Mojito can" />
-            </div>
-            <h3 class="flavorName">Hibiscus<br/>Mint Mojito</h3>
-            <div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-          </article>
+<article class="flavorCard">
+<div class="flavorImg">
+<img src="images/can1.png"/>
+</div>
+<h3 class="flavorName">Strawberry Banana<br/>Daiquiri</h3>
+<div class="flavorMeta">6% ALC/VOL • LOW SUGAR</div>
+<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+</article>
 
-          <article class="flavorCard">
-            <div class="flavorImg">
-              <img src="images/can4.png" alt="Mango Ginger Rum Punch can" />
-            </div>
-            <h3 class="flavorName">Mango Ginger<br/>Rum Punch</h3>
-            <div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
-            <a class="btn btn--mini" href="#find">Find an Escape Near You</a>
-          </article>
-        </div>
-      </div>
-    </section>
+<article class="flavorCard">
+<div class="flavorImg">
+<img src="images/can2.png"/>
+</div>
+<h3 class="flavorName">Passionfruit<br/>Mai Tai</h3>
+<div class="flavorMeta">8% ALC/VOL • GLUTEN FREE</div>
+<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+</article>
 
-    <!-- Rewards / Hourglass -->
-    <section class="section" id="rewards">
-      <div class="card centerCard">
-        <h2 class="h2">Rios Time Rewards</h2>
-        <p class="sub">Demo: each purchase moves the hourglass closer to “Rios Time.” Hit Next to progress. Reset to start over.</p>
+<article class="flavorCard">
+<div class="flavorImg">
+<img src="images/can3.png"/>
+</div>
+<h3 class="flavorName">Hibiscus<br/>Mint Mojito</h3>
+<div class="flavorMeta">7% ALC/VOL • NATURAL FLAVORS</div>
+<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+</article>
 
-        <div class="hourglassWrap">
-          <!-- Make sure these exist: /images/hourglass/state0.png ... state4.png -->
-          <img id="hourglassImg" class="hourglassImg" src="images/hourglass/state0.png" alt="Hourglass progress" />
-        </div>
+<article class="flavorCard">
+<div class="flavorImg">
+<img src="images/can4.png"/>
+</div>
+<h3 class="flavorName">Mango Ginger<br/>Rum Punch</h3>
+<div class="flavorMeta">9% ALC/VOL • REAL RUM</div>
+<a class="btn btn--mini" href="#find">Find an Escape Near You</a>
+</article>
 
-        <div class="hourglassControls">
-          <button class="btn btn--primary" id="hgNext" type="button">Next <span class="arrow">›</span></button>
-          <button class="btn btn--ghost" id="hgReset" type="button">Reset</button>
-        </div>
+</div>
+</div>
+</section>
 
-        <div class="fine" id="hgLabel">Progress: 0 / 4</div>
-      </div>
-    </section>
+<section class="section" id="rewards">
+<div class="card centerCard">
 
-    <!-- Why Rum -->
-    <section class="section" id="why">
-      <div class="card">
-        <h2 class="h2">Why Rum</h2>
-        <p class="sub">Rum is underrepresented in RTDs versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.</p>
-      </div>
-    </section>
+<h2 class="h2">Rios Time Rewards</h2>
 
-    <!-- Data -->
-    <section class="section" id="data">
-      <div class="card">
-        <h2 class="h2">Data</h2>
-        <p class="sub">Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios matches this demand with an elevated profile.</p>
-      </div>
-    </section>
+<p class="sub">
+Every Rios you enjoy moves the hourglass forward. As the sand falls, you get closer to unlocking rewards and free Rios drinks. Keep the sand moving and your next Rios could be on us. Each sip gets you closer to Rios Time!
+</p>
 
-    <!-- Campaign -->
-    <section class="section" id="campaign">
-      <div class="card">
-        <h2 class="h2">Campaign</h2>
-        <p class="sub">Find an Escape Near You — a weekend-escapist message for 25–35 year olds who want vacation energy without leaving town.</p>
-        <div class="center">
-          <a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
-        </div>
-      </div>
-    </section>
+<div class="hourglassWrap">
+<img id="hourglassImg" class="hourglassImg" src="images/hourglass/state0.png"/>
+</div>
 
-    <!-- Find -->
-    <section class="section" id="find">
-      <div class="card centerCard">
-        <h2 class="h2">Find Your Rios</h2>
-        <p class="sub">Mock locator for class/presentation use (no real lookup).</p>
+<div class="hourglassControls">
 
-        <div class="search">
-          <input type="text" placeholder="Enter your city or zip code" aria-label="City or zip code" />
-          <button type="button" class="btn btn--primary">Search <span class="arrow">›</span></button>
-        </div>
+<button class="btn btn--primary" id="hgNext">
+Next <span class="arrow">›</span>
+</button>
 
-        <div class="fine">Mock only • No real store lookup • Built for presentation</div>
+<button class="btn btn--ghost" id="hgReset">
+Reset
+</button>
 
-        <div class="center">
-          <a class="btn btn--ghost" href="#top">Back to Top <span class="arrow">›</span></a>
-        </div>
-      </div>
-    </section>
+<button class="btn btn--ghost" id="hgEdit">
+Edit
+</button>
 
-    <footer class="footer">
-      Mock website for class/project use • © 2026 Rios (concept)
-    </footer>
-  </main>
+</div>
 
-  <script>
-    // Hourglass state switcher (fade + stay empty + reset)
-    (function () {
-      const img = document.getElementById("hourglassImg");
-      const nextBtn = document.getElementById("hgNext");
-      const resetBtn = document.getElementById("hgReset");
-      const label = document.getElementById("hgLabel");
+<div class="fine" id="hgLabel">Progress: 0 / 4</div>
 
-      const states = [
-        "images/hourglass/state0.png",
-        "images/hourglass/state1.png",
-        "images/hourglass/state2.png",
-        "images/hourglass/state3.png",
-        "images/hourglass/state4.png"
-      ];
+</div>
+</section>
 
-      let i = 0;
+<section class="section" id="why">
+<div class="card">
+<h2 class="h2">Why Rum</h2>
+<p class="sub">
+Rum is underrepresented in RTDs versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.
+</p>
+</div>
+</section>
 
-      function setLabel() {
-        label.textContent = `Progress: ${i} / 4`;
-      }
+<section class="section" id="data">
+<div class="card">
+<h2 class="h2">Data</h2>
+<p class="sub">
+Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios matches this demand with an elevated profile.
+</p>
+</div>
+</section>
 
-      function swap(toIndex) {
-        // fade out
-        img.classList.add("isFading");
-        window.setTimeout(() => {
-          img.src = states[toIndex];
-          // fade in
-          img.classList.remove("isFading");
-          setLabel();
-        }, 180);
-      }
+<section class="section" id="campaign">
+<div class="card">
+<h2 class="h2">Campaign</h2>
+<p class="sub">
+Find an Escape Near You — a weekend-escapist message for 25–35 year olds who want vacation energy without leaving town.
+</p>
 
-      nextBtn.addEventListener("click", () => {
-        if (i < states.length - 1) {
-          i += 1;
-          swap(i);
-        }
-      });
+<div class="center">
+<a class="btn btn--primary" href="#find">Find an Escape Near You <span class="arrow">›</span></a>
+</div>
 
-      resetBtn.addEventListener("click", () => {
-        i = 0;
-        swap(i);
-      });
+</div>
+</section>
 
-      setLabel();
-    })();
-  </script>
+<section class="section" id="find">
+<div class="card centerCard">
+
+<h2 class="h2">Find Your Rios</h2>
+
+<p class="sub">Mock locator for class/presentation use (no real lookup).</p>
+
+<div class="search">
+<input placeholder="Enter your city or zip code"/>
+<button class="btn btn--primary">Search <span class="arrow">›</span></button>
+</div>
+
+<div class="fine">Mock only • No real store lookup • Built for presentation</div>
+
+<div class="center">
+<a class="btn btn--ghost" href="#top">Back to Top</a>
+</div>
+
+</div>
+</section>
+
+<footer class="footer">
+Mock website for class/project use • © 2026 Rios (concept)
+</footer>
+
+</main>
+
+<script>
+
+(function(){
+
+const img=document.getElementById("hourglassImg")
+const next=document.getElementById("hgNext")
+const reset=document.getElementById("hgReset")
+const edit=document.getElementById("hgEdit")
+const label=document.getElementById("hgLabel")
+
+const states=[
+"images/hourglass/state0.png",
+"images/hourglass/state1.png",
+"images/hourglass/state2.png",
+"images/hourglass/state3.png",
+"images/hourglass/state4.png"
+]
+
+let i=0
+
+function update(){
+label.textContent="Progress: "+i+" / 4"
+}
+
+next.onclick=function(){
+if(i<4){
+i++
+img.src=states[i]
+update()
+}
+}
+
+reset.onclick=function(){
+i=0
+img.src=states[i]
+update()
+}
+
+edit.onclick=function(){
+alert("Edit mode placeholder for demo")
+}
+
+update()
+
+})()
+
+</script>
+
 </body>
 </html>
