@@ -8,7 +8,6 @@
 </head>
 
 <body id="top" class="mode-desktop">
-  <!-- Sticky Top Bar -->
   <header class="topbar">
     <div class="topbar__inner">
       <a class="brand" href="#top" aria-label="Rios Home">
@@ -19,20 +18,17 @@
         <a class="nav__link" href="#flavors">Flavors</a>
         <a class="nav__link" href="#rewards">Rewards</a>
         <a class="nav__link" href="#why">Why Rum</a>
+        <a class="nav__link" href="#campaign">Campaign</a>
         <a class="nav__link" href="#find">Find</a>
       </nav>
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="hero" aria-label="Hero">
     <div class="hero__overlay"></div>
 
     <div class="hero__content container">
-      <!-- BIG HERO LOGO (your real logo) -->
       <img class="hero__logo" src="images/logo2.png" alt="Rios" />
-
-      <!-- ONLY THIS TEXT UNDER LOGO (no more “Rios” twice) -->
       <h1 class="hero__tagline" data-edit="hero_tagline">Real Rum. Real Escape.</h1>
 
       <div class="hero__cta">
@@ -42,7 +38,6 @@
     </div>
   </section>
 
-  <!-- Taste the Tropics -->
   <section id="flavors" class="section section--panel">
     <div class="container">
       <h2 class="h2" data-edit="taste_title">Taste the Tropics</h2>
@@ -90,14 +85,14 @@
     </div>
   </section>
 
-  <!-- Rewards / Hourglass -->
   <section id="rewards" class="section section--panel">
     <div class="container">
       <h2 class="h2" data-edit="rewards_title">Rios Time Rewards</h2>
 
-      <!-- YOUR NEW DESCRIPTION -->
-      <p class="lead" data-edit="rewards_desc">Every Rios you enjoy moves the hourglass forward. As the sand falls, you get closer to unlocking rewards and free Rios drinks.
-        Keep the sand moving and your next Rios could be on us. Each sip gets you closer to Rios Time!</p>
+      <p class="lead" data-edit="rewards_desc">
+        Every Rios you enjoy moves the hourglass forward. As the sand falls, you get closer to unlocking rewards and free Rios drinks.
+        Keep the sand moving and your next Rios could be on us. Each sip gets you closer to Rios Time!
+      </p>
 
       <div class="rewards">
         <div class="rewards__glass">
@@ -110,35 +105,43 @@
         <div class="rewards__controls">
           <button id="nextBtn" class="btn btn--primary" type="button">Next</button>
           <button id="resetBtn" class="btn btn--ghost" type="button">Reset</button>
-          <div class="note small" data-edit="rewards_note">
-            TextHAHJSAKHDJHSADJHSD</p>
-          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Why Rum -->
   <section id="why" class="section section--panel">
     <div class="container">
       <h2 class="h2" data-edit="why_title">Why Rum</h2>
-      <p class="lead" data-edit="why_text">
-        Rum is underrepresented in the RTD space versus vodka and tequila — leaving whitespace for a rum-forward leader with a true beach identity.
+
+      <h3 class="h3" data-edit="why_natural_title">Natural Connection</h3>
+      <p class="lead" data-edit="why_natural_text">
+        Rum is strongly linked to beaches, travel, and relaxation.
+      </p>
+
+      <h3 class="h3" data-edit="why_market_title">Market Opportunity</h3>
+      <p class="lead" data-edit="why_market_text">
+        Only 19% see themselves as rum experts, leaving great room to educate and lead consumers to the spirit.
+      </p>
+
+      <h3 class="h3" data-edit="why_profile_title">Sophisticated Profile</h3>
+      <p class="lead" data-edit="why_profile_text">
+        Real Jamaican rum has bold character and depth, not a cheap or overly sweet taste. With the lack of education, it can be an intimidating spirit to explore.
+      </p>
+
+      <h3 class="h3" data-edit="why_data_title">The Data</h3>
+      <p class="lead" data-edit="why_data_text">
+        50% Enthusiast Rating. Rum has the highest “Enthusiast” interest among Gen Z. Consumers are eager to learn about and explore this spirit more than any other category, creating a massive opening for a premium rum brand.
+      </p>
+
+      <h3 class="h3" data-edit="why_origin_title">The Origin</h3>
+      <p class="lead" data-edit="why_origin_heading">Ocho Rios Jamaica</p>
+      <p class="lead" data-edit="why_origin_text">
+        Real Jamaican rum is the soul of our cocktail. It is the only spirit with a natural, inherent connection to the beach culture and effortless “vacation mode” we deliver.
       </p>
     </div>
   </section>
 
-  <!-- Data -->
-  <section id="data" class="section section--panel">
-    <div class="container">
-      <h2 class="h2" data-edit="data_title">Data</h2>
-      <p class="lead" data-edit="data_text">
-        Consumers are shifting toward higher-proof RTDs (7%+ ABV). Rios meets this demand with a balanced, elevated profile.
-      </p>
-    </div>
-  </section>
-
-  <!-- Campaign -->
   <section id="campaign" class="section section--panel">
     <div class="container">
       <h2 class="h2" data-edit="campaign_title">Campaign</h2>
@@ -149,7 +152,6 @@
     </div>
   </section>
 
-  <!-- Find -->
   <section id="find" class="section section--panel">
     <div class="container">
       <h2 class="h2" data-edit="find_title">Find Your Rios</h2>
@@ -168,7 +170,6 @@
     </div>
   </section>
 
-  <!-- Floating Controls (Edit + Mode) -->
   <div class="dock" aria-label="Site controls">
     <button id="editToggle" class="dock__btn" type="button" aria-pressed="false">Edit</button>
     <button id="modeToggle" class="dock__btn" type="button" aria-pressed="false">iPhone Preview</button>
@@ -180,9 +181,6 @@
   </div>
 
   <script>
-    // ----------------------------
-    // Hourglass (5 image states) — fade between frames
-    // ----------------------------
     const hourglassStates = [
       "images/hourglass/state0.png",
       "images/hourglass/state1.png",
@@ -196,7 +194,7 @@
     const resetBtn = document.getElementById("resetBtn");
     const progressLabel = document.getElementById("progressLabel");
 
-    let step = 0; // 0..4 (4 = empty)
+    let step = 0;
     const lastStep = hourglassStates.length - 1;
 
     function setHourglass(newStep, animate = true) {
@@ -217,7 +215,6 @@
         progressLabel.textContent = `Progress: ${Math.min(step, lastStep)} / ${lastStep}`;
       }
 
-      // Disable Next at end (stay empty)
       if (nextBtn) nextBtn.disabled = step >= lastStep;
     }
 
@@ -225,9 +222,6 @@
     resetBtn?.addEventListener("click", () => setHourglass(0, true));
     setHourglass(0, false);
 
-    // ----------------------------
-    // Editable content (toggle + persist)
-    // ----------------------------
     const STORAGE_KEY = "rios_site_content_v1";
     const editToggle = document.getElementById("editToggle");
 
@@ -276,7 +270,6 @@
       setEditMode(!isOn);
     });
 
-    // Export / Import edits
     const exportBtn = document.getElementById("exportBtn");
     const importFile = document.getElementById("importFile");
 
@@ -298,7 +291,7 @@
       if (!file) return;
       try {
         const text = await file.text();
-        JSON.parse(text); // validate JSON
+        JSON.parse(text);
         localStorage.setItem(STORAGE_KEY, text);
         loadEdits();
       } catch (err) {
@@ -308,9 +301,6 @@
       }
     });
 
-    // ----------------------------
-    // iPhone preview toggle (mobile layout)
-    // ----------------------------
     const modeToggle = document.getElementById("modeToggle");
     modeToggle?.addEventListener("click", () => {
       const isMobile = document.body.classList.toggle("mode-mobile");
@@ -319,7 +309,6 @@
       modeToggle.textContent = isMobile ? "PC Preview" : "iPhone Preview";
     });
 
-    // Boot
     loadEdits();
     setEditMode(false);
   </script>
